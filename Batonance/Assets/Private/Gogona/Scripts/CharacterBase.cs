@@ -9,9 +9,6 @@ public class CharacterBase : MonoBehaviour
     private int charId;
     private CharacterDataBase.CharacterData data;
 
-    // 最大HP
-    private float maxHP;
-
     // 各クラスの取得
     private HPController hPCntl;
 
@@ -22,13 +19,13 @@ public class CharacterBase : MonoBehaviour
     {
         // データベースからキャラデータを取得
         data = DataBaseManager.instance.GetCharData(charId);
-        maxHP = data.hP;
+        GetClassData();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GetClassData();
+        hPCntl.GetCharHP(data.hP);
     }
 
     // Update is called once per frame

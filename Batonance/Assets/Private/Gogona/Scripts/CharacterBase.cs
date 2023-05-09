@@ -19,12 +19,12 @@ public class CharacterBase : MonoBehaviour
     {
         // データベースからキャラデータを取得
         data = DataBaseManager.instance.GetCharData(charId);
+        GetClassData();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GetClassData();
         hPCntl.GetCharHP(data.hP);
     }
 

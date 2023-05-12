@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/CharacterDataBase")]
-public class CharacterDataBase : ScriptableObject
+[CreateAssetMenu(menuName = "ScriptableObject/EnemyDataBase")]
+public class EnemyDataBase : ScriptableObject
 {
-    public List<CharacterData> charDatas = new List<CharacterData>();
+    public List<EnemyData> enemyDatas = new List<EnemyData>();
 
     [System.Serializable]
-    public class CharacterData
+    public class EnemyData
     {
         [Tooltip("キャラクターのID")]
         public int id;
@@ -17,10 +17,10 @@ public class CharacterDataBase : ScriptableObject
         [Tooltip("HP")]
         public int hP;
         [Tooltip("基礎攻撃力")]
-        public int baseATK;
+        public int baseAtk;
         [Tooltip("基礎防御力")]
-        public int baseDEF;
+        public int baseDef;
         [Tooltip("移動速度")]
-        public float speed;
+        public float baseSpd;
     }
 }

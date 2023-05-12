@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DataBaseManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("CharacterDataBaseの参照")]
-    private CharacterDataBase charDB;
+    [SerializeField, Tooltip("EnemyDataBaseの参照")]
+    private EnemyDataBase enemyDB;
     // DataManagerのインスタンス
     public static DataBaseManager instance;
 
@@ -28,14 +28,14 @@ public class DataBaseManager : MonoBehaviour
     /// <summary>
     /// データの取得
     /// </summary>
-    /// <param name="charId"></param>
+    /// <param name="enemyId"></param>
     /// <returns></returns>
-    public CharacterDataBase.CharacterData GetCharData(int charId)
+    public EnemyDataBase.EnemyData GetEnemyData(int enemyId)
     {
         // データベース内からそのキャラのIDを探す
-        foreach (CharacterDataBase.CharacterData data in charDB.charDatas)
+        foreach (EnemyDataBase.EnemyData data in enemyDB.enemyDatas)
         {
-            if (data.id == charId) {
+            if (data.id == enemyId) {
                 return data;
             }
         }

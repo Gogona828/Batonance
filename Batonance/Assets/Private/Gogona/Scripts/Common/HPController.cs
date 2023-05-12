@@ -38,7 +38,7 @@ public class HPController : MonoBehaviour, IDamagable
     }
 
     /// <summary>
-    /// キャラクタのHPの取得
+    /// HPの取得
     /// </summary>
     /// <param name="hP"></param>
     public void GetCharHP(float hP)

@@ -10,12 +10,12 @@ public class EnemyDataBase : ScriptableObject
     [System.Serializable]
     public class EnemyData
     {
-        [Tooltip("キャラクターのID")]
+        [Tooltip("EnemyのID")]
         public int id;
-        [Tooltip("キャラクターの名前")]
+        [Tooltip("Enemyの名前")]
         public string name;
         [Tooltip("HP")]
-        public int hP;
+        public int baseHP;
         [Tooltip("基礎攻撃力")]
         public int baseAtk;
         [Tooltip("基礎防御力")]

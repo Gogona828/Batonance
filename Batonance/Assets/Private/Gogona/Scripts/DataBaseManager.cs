@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DataBaseManager : MonoBehaviour
 {
+    [SerializeField, Tooltip("PlayerDataBaseの参照")]
+    private PlayerDataBase playerDB;
     [SerializeField, Tooltip("EnemyDataBaseの参照")]
     private EnemyDataBase enemyDB;
     // DataManagerのインスタンス
@@ -23,6 +25,11 @@ public class DataBaseManager : MonoBehaviour
         else {
             Destroy(gameObject);
         }
+    }
+
+    public PlayerDataBase GetPlayerData()
+    {
+        return playerDB;
     }
 
     /// <summary>

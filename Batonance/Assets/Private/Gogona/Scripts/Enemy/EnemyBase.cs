@@ -25,7 +25,7 @@ public class EnemyBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hPCntl.GetCharHP(data.hP);
+        hPCntl.GetCharHP(data.baseHP);
     }
 
     // Update is called once per frame

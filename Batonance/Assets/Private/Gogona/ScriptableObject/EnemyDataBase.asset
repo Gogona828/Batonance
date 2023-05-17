@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bb8970ef63c43e6ad3646dfbdfb661, type: 3}
   m_Name: EnemyDataBase
   m_EditorClassIdentifier: 
-  enemyDatas: []
+  enemyDatas:
+  - id: 0
+    name: Narasu
+    baseHP: 100
+    baseAtk: 20
+    baseDef: 0
+    baseSpd: 10

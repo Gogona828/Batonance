@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(HPController))]
-public class CharacterBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
     [SerializeField, Tooltip("キャラクタのID")]
     private int charId;
-    private CharacterDataBase.CharacterData data;
+    private EnemyDataBase.EnemyData data;
 
     // 各クラスの取得
-    private HPController hPCntl;
+    private HPController hPCtrl;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -18,14 +18,14 @@ public class CharacterBase : MonoBehaviour
     private void Awake()
     {
         // データベースからキャラデータを取得
-        data = DataBaseManager.instance.GetCharData(charId);
+        data = DataBaseManager.instance.GetEnemyData(charId);
         GetClassData();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        hPCntl.GetCharHP(data.hP);
+        hPCtrl.GetCharHP(data.baseHP);
     }
 
     // Update is called once per frame
@@ -39,6 +39,6 @@ public class CharacterBase : MonoBehaviour
     /// </summary>
     private void GetClassData()
     {
-        hPCntl = GetComponent<HPController>();
+        hPCtrl = GetComponent<HPController>();
     }
 }

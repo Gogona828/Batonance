@@ -12,9 +12,7 @@ public class PlayerBase : MonoBehaviour
     void Start()
     {
         ClassReference();
-        data = DataBaseManager.instance.GetPlayerData();
-        hPCtrl.GetCharHP(data.baseHP);
-        playerAtkCtrl.GetPlayerAttackPower(data.baseAtk);
+        ValueDelivery();
     }
 
     // Update is called once per frame
@@ -23,9 +21,22 @@ public class PlayerBase : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 各クラスの参照
+    /// </summary>
     private void ClassReference()
     {
         hPCtrl = GetComponent<HPController>();
         playerAtkCtrl = GetComponent<PlayerAttack>();
+    }
+
+    /// <summary>
+    /// 他クラスへの値の受け渡し
+    /// </summary>
+    private void ValueDelivery()
+    {
+        data = DataBaseManager.instance.GetPlayerData();
+        hPCtrl.GetCharHP(data.baseHP);
+        playerAtkCtrl.GetPlayerAttackPower(data.baseAtk);
     }
 }

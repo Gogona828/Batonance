@@ -1079,6 +1079,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1158432047}
+  - {fileID: 1473819722}
   - {fileID: 4774845037825794626}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1250,6 +1251,12 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1473819722 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 4059800060523240449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503641199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,6 +2016,79 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: -15}
   m_SizeDelta: {x: 200, y: 10}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &4059800060523240449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1310242049}
+    m_Modifications:
+    - target: {fileID: 323832285145435395, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Meiko
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.925
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095970186593687481, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c367eacee7f214a329d3f669bd7ac5aa, type: 3}
 --- !u!1001 &4094027303453569553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2294,6 +2374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Meiko
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922730628963848711, guid: e6ea03601836f4a4eb3c87f2e1c01c63,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7735401270406219965, guid: e6ea03601836f4a4eb3c87f2e1c01c63,
         type: 3}

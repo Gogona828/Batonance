@@ -874,8 +874,8 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1503641202}
-          m_TargetAssemblyTypeName: SignalGenerator, Assembly-CSharp
-          m_MethodName: DebugComment
+          m_TargetAssemblyTypeName: SignalReceiver, Assembly-CSharp
+          m_MethodName: SignalReceive
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503641199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929ea5ec65e004c3593fe3da71d644f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b072acb9547e426aba4e2c942c6189b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1579560508

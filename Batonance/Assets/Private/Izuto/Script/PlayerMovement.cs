@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f; // スピード変更
-    [SerializeField] private float jumpSpeed = 100.0f; // ジャンプ力変更
-    [SerializeField] private float gravity = 20.0f; // 重力変更
-    [SerializeField] private float maxHeight = 3.0f;// プレイヤーの高さの制限
-    [SerializeField] private float guardMagnification = 2.0f;
+    // [SerializeField] private float jumpSpeed = 100.0f; // ジャンプ力変更
+    // [SerializeField] private float gravity = 20.0f; // 重力変更
+    // [SerializeField] private float maxHeight = 3.0f;// プレイヤーの高さの制限
+    // [SerializeField] private float guardMagnification = 2.0f;
     private CharacterController PC;//(PlayerCharacter)
     private Vector3 moveDirection;// X・Y・Z軸(移動方向)を保持するための関数(.Zeroで0に指定)
     private float height;// プレイヤーの高さ
-    private bool isDefending = false; // ガードの判定
+    // private bool isDefending = false; // ガードの判定
     [SerializeField]
     private GameObject playerModel;
     [System.NonSerialized]
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         //    transform.position = new Vector3(transform.position.x, maxHeight, transform.position.z);
         //}
 
-        {
+        /* {
             if (Input.GetMouseButtonDown(1))// 右クリックが押されたら防御開始
             {
                 Debug.Log("Defending");
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 isDefending = false;
             }
-        }
+        } */
     }
 
     void PCMove()
@@ -82,12 +82,12 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Run", false);
             }
 
-            if (PC.isGrounded && Input.GetKeyDown(KeyCode.Space))//地面に接地かつSpaceキーの押された時
+            /* if (PC.isGrounded && Input.GetKeyDown(KeyCode.Space))//地面に接地かつSpaceキーの押された時
             {
                 Debug.Log("Jump");
                 animator.SetTrigger("Jump");
                 moveDirection.y += jumpSpeed;
-            }
+            } */
         }
         moveDirection.y += Physics.gravity.y * Time.deltaTime;// 重力の適用
         
@@ -108,4 +108,9 @@ public class PlayerMovement : MonoBehaviour
     //        DamageManager.instance.DamageCalculation(damageAmount,hpBar);
     //    }
     //}
+
+    public void GetPlayerSpeed(float spe)
+    {
+        speed = spe;
+    }
 }

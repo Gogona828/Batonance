@@ -21,8 +21,8 @@ public class PlayerAttack : MonoBehaviour
     private int maxComboNumber = 3;
 
     private float time = 0;
-    /* [SerializeField]
-    private Animator animator; */
+    [SerializeField]
+    private Animator animator;
     /* [SerializeField, Tooltip("斬撃エフェクト")]
     private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
     /* [SerializeField, Tooltip("斬撃SE")]
@@ -66,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
     {
         // 最大コンボ数なら攻撃を中断
         if (comboCount == maxComboNumber) return;
-        // animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
         /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         

@@ -942,9 +942,10 @@ GameObject:
   - component: {fileID: 1310242050}
   - component: {fileID: 1310242051}
   - component: {fileID: 1310242052}
+  - component: {fileID: 1310242053}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,6 +1096,27 @@ MonoBehaviour:
   avoidDistance: 5
   avoidSpeed: 10
   moveScript: {fileID: 1310242051}
+  animator: {fileID: 4774845037825794628}
+--- !u!114 &1310242053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310242045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a287840b90e48bd824fa93c48d20ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPower: 2
+  coolTime: 0.1
+  comboEndCoolTime: 1
+  timeContinueCombo: 1
+  comboCount: 0
+  maxComboNumber: 3
+  animator: {fileID: 4774845037825794628}
+  canAttack: 1
 --- !u!1 &1331744343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1694,7 @@ MonoBehaviour:
   timeContinueCombo: 1
   comboCount: 0
   maxComboNumber: 3
+  animator: {fileID: 0}
   canAttack: 1
 --- !u!1 &1838805953
 GameObject:

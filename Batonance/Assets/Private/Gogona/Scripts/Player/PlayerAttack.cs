@@ -22,10 +22,10 @@ public class PlayerAttack : MonoBehaviour
 
     private float time = 0;
     /* [SerializeField]
-    private Animator animator;
-    [SerializeField, Tooltip("斬撃エフェクト")]
-    private List<ParticleSystem> effectList = new List<ParticleSystem>();
-    [SerializeField, Tooltip("斬撃SE")]
+    private Animator animator; */
+    /* [SerializeField, Tooltip("斬撃エフェクト")]
+    private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
+    /* [SerializeField, Tooltip("斬撃SE")]
     private List<AudioClip> attackSEList = new List<AudioClip>();
     private AudioSource audioSource; */
 
@@ -66,8 +66,8 @@ public class PlayerAttack : MonoBehaviour
     {
         // 最大コンボ数なら攻撃を中断
         if (comboCount == maxComboNumber) return;
-        /* animator.SetTrigger("Attack");
-        await AttackEffect(comboCount);
+        // animator.SetTrigger("Attack");
+        /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         
         // コンボカウントを足す

@@ -54,5 +54,5 @@ Material:
     - _ShadowBlend: 0
     - _ShadowSize: -0.12
     m_Colors:
-    - _ShadowColor: {r: 0.8301887, g: 0.7714489, b: 0.7714489, a: 0}
+    - _ShadowColor: {r: 0.9245283, g: 0.87655747, b: 0.87655747, a: 0}
   m_BuildTextureStacks: []

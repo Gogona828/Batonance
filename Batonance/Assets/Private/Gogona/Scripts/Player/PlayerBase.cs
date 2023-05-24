@@ -7,7 +7,8 @@ public class PlayerBase : MonoBehaviour
 {
     private PlayerDataBase data;
     private HPController hPCtrl;
-    private PlayerAttack playerAtkCtrl;
+    private PlayerAttack playerAtk;
+    private PlayerMovement playerMov;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,8 @@ public class PlayerBase : MonoBehaviour
     private void ClassReference()
     {
         hPCtrl = GetComponent<HPController>();
-        playerAtkCtrl = GetComponent<PlayerAttack>();
+        playerAtk = GetComponent<PlayerAttack>();
+        playerMov = GetComponent<PlayerMovement>();
     }
 
     /// <summary>
@@ -37,6 +39,7 @@ public class PlayerBase : MonoBehaviour
     {
         data = DataBaseManager.instance.GetPlayerData();
         hPCtrl.GetCharHP(data.baseHP);
-        playerAtkCtrl.GetPlayerAttackPower(data.baseAtk);
+        playerAtk.GetPlayerAttackPower(data.baseAtk);
+        playerMov.GetPlayerSpeed(data.baseSpd);
     }
 }

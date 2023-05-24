@@ -11,10 +11,11 @@ public class PlayerAvoid : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField]
     private PlayerMovement moveScript;
+    [SerializeField]
     private Animator animator;
     void Start()
     {
-        animator = moveScript.animator;
+        // animator = moveScript.animator;
     }
     void Update()
     {

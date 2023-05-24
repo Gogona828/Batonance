@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDataBase
   m_EditorClassIdentifier: 
   enemyDatas:
-  - id: 0
+  - id: 1
     name: Narasu
     baseHP: 100
     baseAtk: 20

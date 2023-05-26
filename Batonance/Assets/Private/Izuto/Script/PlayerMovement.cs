@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             forward = Camera.main.transform.TransformDirection(Vector3.forward);
             right = Camera.main.transform.TransformDirection(Vector3.right);
             moveDirection += (Input.GetAxis("Horizontal") * right + Input.GetAxis("Vertical") * forward).normalized;
+            // moveDirection += (Input.GetAxis("LStickX") * right + Input.GetAxis("LStickY") * forward).normalized;
             moveDirection *= speed;
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
             {

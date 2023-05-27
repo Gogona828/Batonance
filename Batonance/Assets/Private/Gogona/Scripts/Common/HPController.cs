@@ -24,6 +24,9 @@ public class HPController : MonoBehaviour, IDamagable
     /// <param name="_damage"></param>
     public void Damage(float _damage)
     {
+        if (gameObject.tag == "Just") {
+
+        }
         // ダメージ分減少
         currentHP -= _damage;
         hPBar.value = currentHP / maxHP;

@@ -9,6 +9,8 @@ public class PlayerBase : MonoBehaviour
     private HPController hPCtrl;
     private PlayerAttack playerAtk;
     private PlayerMovement playerMov;
+    private PlayreGuard playerDef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class PlayerBase : MonoBehaviour
         hPCtrl = GetComponent<HPController>();
         playerAtk = GetComponent<PlayerAttack>();
         playerMov = GetComponent<PlayerMovement>();
+        playerDef = GetComponent<PlayreGuard>();
     }
 
     /// <summary>
@@ -41,5 +44,6 @@ public class PlayerBase : MonoBehaviour
         hPCtrl.GetCharHP(data.baseHP);
         playerAtk.GetPlayerAttackPower(data.baseAtk);
         playerMov.GetPlayerSpeed(data.baseSpd);
+        playerDef.GetPlayerGuard(data.baseDef);
     }
 }

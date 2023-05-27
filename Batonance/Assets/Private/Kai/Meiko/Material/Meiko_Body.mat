@@ -78,7 +78,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowTexture:
-        m_Texture: {fileID: 2800000, guid: 29d77060a77917d4394cae2680f2e873, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43adb873a7bcae6449e3e0649d764ebf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -131,8 +131,8 @@ Material:
     - _RimLightBlend: 0
     - _RimLightSize: 0
     - _SampleGI: 0
-    - _ShadowBlend: 0
-    - _ShadowSize: -0.12
+    - _ShadowBlend: 0.1
+    - _ShadowSize: -0.27
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -145,7 +145,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowColor: {r: 0.9411765, g: 0.88235295, b: 0.88235295, a: 0}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0}
+    - _ShadowColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

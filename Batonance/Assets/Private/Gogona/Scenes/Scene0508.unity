@@ -1230,7 +1230,6 @@ MonoBehaviour:
   attackPower: 2
   coolTime: 0.1
   dealDamage: {fileID: 464610978}
-  comboEndCoolTime: 1
   timeContinueCombo: 1
   comboCount: 0
   maxComboNumber: 3
@@ -1837,7 +1836,6 @@ MonoBehaviour:
   attackPower: 2
   coolTime: 0.1
   dealDamage: {fileID: 0}
-  comboEndCoolTime: 1
   timeContinueCombo: 1
   comboCount: 0
   maxComboNumber: 3
@@ -2171,6 +2169,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.531
       objectReference: {fileID: 0}
+    - target: {fileID: 1236516467278922993, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60c17f4622550423a9058efb8d257447, type: 2}
     - target: {fileID: 1576460247156971473, guid: c367eacee7f214a329d3f669bd7ac5aa,
         type: 3}
       propertyPath: m_RootOrder

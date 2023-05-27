@@ -15,9 +15,7 @@ public class HPController : MonoBehaviour, IDamagable
     // Start is called before the first frame update
     void Start()
     {
-        // 現在HPを最大HPにする
-        currentHP = maxHP;
-        hPBar.value = currentHP / maxHP;
+        
     }
 
     /// <summary>
@@ -44,5 +42,8 @@ public class HPController : MonoBehaviour, IDamagable
     public void GetCharHP(float hP)
     {
         maxHP = hP;
+        // 現在HPを最大HPにする
+        currentHP = maxHP;
+        hPBar.value = currentHP / maxHP;
     }
 }

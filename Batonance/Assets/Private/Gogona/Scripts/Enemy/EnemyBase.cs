@@ -12,6 +12,7 @@ public class EnemyBase : MonoBehaviour
     // 各クラスの取得
     private HPController hPCtrl;
     private EnemyAttack enemyAtk;
+    private EnemyMovement enemyMov;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -28,6 +29,7 @@ public class EnemyBase : MonoBehaviour
     {
         hPCtrl.GetCharHP(data.baseHP);
         enemyAtk.GetEnemyAtk(data.baseAtk);
+        enemyMov.GetEnemySpeed(data.baseSpd);
     }
 
     // Update is called once per frame
@@ -43,5 +45,6 @@ public class EnemyBase : MonoBehaviour
     {
         hPCtrl = GetComponent<HPController>();
         enemyAtk = GetComponent<EnemyAttack>();
+        enemyMov = GetComponent<EnemyMovement>();
     }
 }

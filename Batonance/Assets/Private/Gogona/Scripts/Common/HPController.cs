@@ -25,7 +25,7 @@ public class HPController : MonoBehaviour, IDamagable
     public void Damage(float _damage)
     {
         if (gameObject.tag == "Just") {
-
+            Debug.Log($"Just");
         }
         // ダメージ分減少
         currentHP -= _damage;
@@ -33,6 +33,7 @@ public class HPController : MonoBehaviour, IDamagable
 
         // 現在HPが0以下なら
         if (currentHP <= 0) {
+            if (gameObject.CompareTag("Player")) return;
             // ゲームオブジェクトを破壊
             Destroy(gameObject);
         }

@@ -120,8 +120,8 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
-    public void GetPlayerSpeed(float spe)
+    public void GetPlayerSpeed(float _spe)
     {
-        speed = spe;
+        speed = _spe;
     }
 }

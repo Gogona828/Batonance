@@ -16,7 +16,7 @@ public class DealDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // ダメージを与えるのがPlayerの場合
-        if (gameObject.CompareTag("Player")) {
+        if (gameObject.CompareTag("PlayerAttack")) {
             if (other.gameObject.CompareTag("Enemy")) {
                 Debug.Log($"enemyだよ");
                 other.gameObject.GetComponent<HPController>().Damage(damage);
@@ -24,8 +24,9 @@ public class DealDamage : MonoBehaviour
         }
 
         // ダメージを与えるのがEnemyの場合
-        if (gameObject.CompareTag("Enemy")) {
+        if (gameObject.CompareTag("EnemyAttack")) {
             if (other.gameObject.CompareTag("Player")) {
+                Debug.Log($"Playerにあたったで！！");
                 other.gameObject.GetComponent<HPController>().Damage(damage);
             }
         }

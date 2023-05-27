@@ -15,4 +15,4 @@ MonoBehaviour:
   baseHP: 100
   baseAtk: 10
   baseDef: 10
-  baseSpd: 10
+  baseSpd: 3

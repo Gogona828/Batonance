@@ -23,11 +23,11 @@ public class HPController : MonoBehaviour, IDamagable
     /// <summary>
     /// ダメージを受けた時に呼び出す
     /// </summary>
-    /// <param name="damage"></param>
-    public void Damage(float damage)
+    /// <param name="_damage"></param>
+    public void Damage(float _damage)
     {
         // ダメージ分減少
-        currentHP -= damage;
+        currentHP -= _damage;
         hPBar.value = currentHP / maxHP;
 
         // 現在HPが0以下なら

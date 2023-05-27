@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
     private void RotateCamera()
     {
         angle = new Vector3(Input.GetAxis("Mouse X") * -rotateSpeed, 0, 0);
+        // angle = new Vector3(Input.GetAxis("RStickX") * -rotateSpeed, 0, 0);
         mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.down, angle.x * 2);
 
         Cursor.lockState = CursorLockMode.Locked;

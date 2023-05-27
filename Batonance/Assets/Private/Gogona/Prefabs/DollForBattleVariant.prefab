@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 707e2ec0fd043be4d9889d64ac9354e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 707e2ec0fd043be4d9889d64ac9354e3,
         type: 3}
@@ -63,10 +63,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2827873731504850022, guid: 707e2ec0fd043be4d9889d64ac9354e3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b504b10b7361488086fad9fda884709, type: 2}
     - target: {fileID: 919132149155446097, guid: 707e2ec0fd043be4d9889d64ac9354e3,
         type: 3}
       propertyPath: m_Name
-      value: Player (1) Variant
+      value: DollForBattleVariant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

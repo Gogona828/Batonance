@@ -1230,7 +1230,6 @@ MonoBehaviour:
   attackPower: 2
   coolTime: 0.1
   dealDamage: {fileID: 464610978}
-  comboEndCoolTime: 1
   timeContinueCombo: 1
   comboCount: 0
   maxComboNumber: 3
@@ -1837,7 +1836,6 @@ MonoBehaviour:
   attackPower: 2
   coolTime: 0.1
   dealDamage: {fileID: 0}
-  comboEndCoolTime: 1
   timeContinueCombo: 1
   comboCount: 0
   maxComboNumber: 3
@@ -1854,6 +1852,7 @@ GameObject:
   - component: {fileID: 1838805954}
   - component: {fileID: 1838805955}
   - component: {fileID: 1838805956}
+  - component: {fileID: 1838805958}
   - component: {fileID: 1838805957}
   m_Layer: 0
   m_Name: GameManager
@@ -2008,6 +2007,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1838805958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838805953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a1aa6ba39c34cc9b9d3286747439b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_shouldUseCntl: 0
 --- !u!1 &1911917707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2183,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.531
       objectReference: {fileID: 0}
+    - target: {fileID: 1236516467278922993, guid: c367eacee7f214a329d3f669bd7ac5aa,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60c17f4622550423a9058efb8d257447, type: 2}
     - target: {fileID: 1576460247156971473, guid: c367eacee7f214a329d3f669bd7ac5aa,
         type: 3}
       propertyPath: m_RootOrder

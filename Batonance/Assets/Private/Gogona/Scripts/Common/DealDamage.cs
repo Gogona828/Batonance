@@ -7,6 +7,8 @@ public class DealDamage : MonoBehaviour
     [SerializeField]
     private float damage;
 
+    private HPController hPCtrl;
+
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// </summary>
@@ -14,12 +16,21 @@ public class DealDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Deal damage for " + other.gameObject.name);
-        // 自分と同じタグならリターン
-        if (gameObject.tag == other.gameObject.tag) return;
 
-        // 相手にHPControllerが付いていたらダメージを与える。
-        if (other.gameObject.TryGetComponent(out HPController hPCtrl)) {
-            hPCtrl.Damage(damage);
+        // ダメージを与えるのがPlayerの場合
+        if (gameObject.CompareTag("Player")) {
+            if (other.gameObject.CompareTag("Enemy")) {
+                hPCtrl = other.gameObject.GetComponent<HPController>();
+                hPCtrl.Damage(damage);
+            }
+        }
+
+        // ダメージを与えるのがEnemyの場合
+        if (gameObject.CompareTag("Enemy")) {
+            if (other.gameObject.CompareTag("Player")) {
+                hPCtrl = other.gameObject.GetComponent<HPController>();
+                hPCtrl.Damage(damage);
+            }
         }
     }
 

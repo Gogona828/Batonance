@@ -13,8 +13,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
     [Header("コンボ関連")]
-    [SerializeField, Tooltip("コンボ終わりのクールタイム")]
-    private float comboEndCoolTime = 1.0f;
+    /* [SerializeField, Tooltip("コンボ終わりのクールタイム")]
+    private float comboEndCoolTime = 1.0f; */
     [SerializeField, Tooltip("コンボが継続する時間")]
     private float timeContinueCombo = 1.0f;
     [SerializeField, Tooltip("コンボ数")]
@@ -64,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// 攻撃の処理
     /// </summary>
-    public async void Attack()
+    public /* async */ void Attack()
     {
         // 最大コンボ数なら攻撃を中断
         if (comboCount == maxComboNumber) return;
@@ -74,18 +74,18 @@ public class PlayerAttack : MonoBehaviour
         /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         
-        // コンボカウントを足す
+        /* // コンボカウントを足す
         comboCount++;
 
         // コンボが続くかを判定
         if (time <= timeContinueCombo && comboCount > 1) {
             await Combo();
-        }
+        } */
         
         time = 0;
     }
 
-    /// <summary>
+    /* /// <summary>
     /// コンボの処理
     /// </summary>
     public async UniTask Combo()
@@ -101,7 +101,7 @@ public class PlayerAttack : MonoBehaviour
             canAttack = true;
             comboCount = 0;
         }
-    }
+    } */
 
     /* /// <summary>
     /// エフェクト操作

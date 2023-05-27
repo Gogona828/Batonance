@@ -68,8 +68,12 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = Vector3.zero;
             forward = Camera.main.transform.TransformDirection(Vector3.forward);
             right = Camera.main.transform.TransformDirection(Vector3.right);
-            moveDirection += (Input.GetAxis("Horizontal") * right + Input.GetAxis("Vertical") * forward).normalized;
-            // moveDirection += (Input.GetAxis("LStickX") * right + Input.GetAxis("LStickY") * forward).normalized;
+            if (UsePCController.s_shouldUseCntl) {
+                moveDirection += (Input.GetAxis("LStickX") * right + Input.GetAxis("LStickY") * forward).normalized;
+            }
+            else {
+                moveDirection += (Input.GetAxis("Horizontal") * right + Input.GetAxis("Vertical") * forward).normalized;
+            }
             moveDirection *= speed;
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
             {
@@ -78,6 +82,12 @@ public class PlayerMovement : MonoBehaviour
                 playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
                 animator.SetBool("Run", true);
             }
+            /* else if (Input.GetAxis("LStickX") != 0 || Input.GetAxis("LStickY") != 0) {
+                facingReinforcement = moveDirection;
+                facingReinforcement.y = 0;
+                playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
+                animator.SetBool("Run", true);
+            } */
             else
             {
                 animator.SetBool("Run", false);

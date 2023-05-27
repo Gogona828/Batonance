@@ -15,21 +15,18 @@ public class DealDamage : MonoBehaviour
     /// <param name="other">The other Collider involved in this collision.</param>
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Deal damage for " + other.gameObject.name);
-
         // ダメージを与えるのがPlayerの場合
         if (gameObject.CompareTag("Player")) {
             if (other.gameObject.CompareTag("Enemy")) {
-                hPCtrl = other.gameObject.GetComponent<HPController>();
-                hPCtrl.Damage(damage);
+                Debug.Log($"enemyだよ");
+                other.gameObject.GetComponent<HPController>().Damage(damage);
             }
         }
 
         // ダメージを与えるのがEnemyの場合
         if (gameObject.CompareTag("Enemy")) {
             if (other.gameObject.CompareTag("Player")) {
-                hPCtrl = other.gameObject.GetComponent<HPController>();
-                hPCtrl.Damage(damage);
+                other.gameObject.GetComponent<HPController>().Damage(damage);
             }
         }
     }

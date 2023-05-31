@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ButtonFunction : MonoBehaviour
 {
-
+    [SerializeField]
+    private EventSystem eventSystem;
     /// <summary>
     /// タイトルシーンに移行する関数
     /// </summary>
@@ -26,7 +28,7 @@ public class ButtonFunction : MonoBehaviour
     public void DisplayConfig(GameObject config)
     {
         Debug.Log("コンフィグ開けたぞ！");
-        
+        //eventSystem.currentSelectedGameObject.transform.position += new Vector3(100,100,100);
         config.SetActive(!config.activeSelf);
     }
 }

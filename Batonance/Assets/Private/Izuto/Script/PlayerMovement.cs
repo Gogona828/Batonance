@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 right;
     [System.NonSerialized]
     public Vector3 facingReinforcement;
+    private bool isWalk;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,17 +81,16 @@ public class PlayerMovement : MonoBehaviour
                 facingReinforcement = moveDirection;
                 facingReinforcement.y = 0;
                 playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
-                animator.SetBool("Run", true);
+                isWalk = true;
             }
             /* else if (Input.GetAxis("LStickX") != 0 || Input.GetAxis("LStickY") != 0) {
                 facingReinforcement = moveDirection;
                 facingReinforcement.y = 0;
                 playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
-                animator.SetBool("Run", true);
             } */
             else
             {
-                animator.SetBool("Run", false);
+                isWalk = false;
             }
 
             /* if (PC.isGrounded && Input.GetKeyDown(KeyCode.Space))//地面に接地かつSpaceキーの押された時
@@ -103,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y += Physics.gravity.y * Time.deltaTime;// 重力の適用
         
         PC.Move(moveDirection * Time.deltaTime);// 移動の実行
+        animator.SetFloat("Walk", Mathf.Abs(moveDirection.x+ moveDirection.z));
+        animator.SetBool("BoolWalk", isWalk);
     }
 
     //public float CalculateDamage(float damageAmount)// ダメージ計算時に呼ばれる関数

@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     [System.NonSerialized]
     public Vector3 facingReinforcement;
     private bool isWalk;
+    private float latePos;
+    private float velocity;
+    [SerializeField]
+    private float minVelocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +94,14 @@ public class PlayerMovement : MonoBehaviour
             } */
             else
             {
+                if (Mathf.Abs(velocity) > minVelocity)
+                {
+                    animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
+                    animator.SetFloat("Walktest", velocity);
+                    velocity = velocity / 2;
+                }
                 isWalk = false;
+                return;
             }
 
             /* if (PC.isGrounded && Input.GetKeyDown(KeyCode.Space))//地面に接地かつSpaceキーの押された時
@@ -100,10 +111,12 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection.y += jumpSpeed;
             } */
         }
+        velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
+        animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
+        latePos = (transform.position.x + transform.position.z) / 2;
         moveDirection.y += Physics.gravity.y * Time.deltaTime;// 重力の適用
         
         PC.Move(moveDirection * Time.deltaTime);// 移動の実行
-        animator.SetFloat("Walk", Mathf.Abs(moveDirection.x+ moveDirection.z));
         animator.SetBool("BoolWalk", isWalk);
     }
 

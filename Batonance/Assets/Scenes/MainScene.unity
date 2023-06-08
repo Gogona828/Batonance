@@ -23336,6 +23336,7 @@ MonoBehaviour:
   speed: 5
   playerModel: {fileID: 655080404}
   hpBarObj: {fileID: 355128233}
+  minVelocity: 1e-12
 --- !u!114 &1252129449
 MonoBehaviour:
   m_ObjectHideFlags: 0

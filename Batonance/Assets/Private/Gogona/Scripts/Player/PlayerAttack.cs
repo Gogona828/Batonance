@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private float coolTime = 0.1f;
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
+
     [Header("コンボ関連")]
     /* [SerializeField, Tooltip("コンボ終わりのクールタイム")]
     private float comboEndCoolTime = 1.0f; */
@@ -25,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
     private float time = 0;
     [SerializeField]
     private Animator animator;
+    [SerializeField, Tooltip("アニメーションの時間")]
+    private float[] animationCoolTime;
     /* [SerializeField, Tooltip("斬撃エフェクト")]
     private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
     /* [SerializeField, Tooltip("斬撃SE")]
@@ -43,6 +46,7 @@ public class PlayerAttack : MonoBehaviour
         }
         //Componentを取得
         audioSource = GetComponent<AudioSource>(); */
+        dealDamage.gameObject.tag = "Player";
     }
 
     // Update is called once per frame
@@ -64,13 +68,15 @@ public class PlayerAttack : MonoBehaviour
     /// <summary>
     /// 攻撃の処理
     /// </summary>
-    public /* async */ void Attack()
+    public async void Attack()
     {
         // 最大コンボ数なら攻撃を中断
         if (comboCount == maxComboNumber) return;
 
         // 攻撃アニメーションの再生
         animator.SetTrigger("Attack");
+        // 攻撃タグに変更
+        await AttackTagSwitching();
         /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         
@@ -83,6 +89,13 @@ public class PlayerAttack : MonoBehaviour
         } */
         
         time = 0;
+    }
+
+    public async UniTask AttackTagSwitching()
+    {
+        dealDamage.gameObject.tag = "PlayerAttack";
+        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
+        dealDamage.gameObject.tag = "Player";
     }
 
     /* /// <summary>

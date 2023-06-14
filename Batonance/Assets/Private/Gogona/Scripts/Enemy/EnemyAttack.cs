@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using System;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -10,15 +12,30 @@ public class EnemyAttack : MonoBehaviour
     private DealDamage dealDamage;
     [SerializeField]
     private Animator animator;
+    [SerializeField, Tooltip("アニメーションの時間")]
+    private float animationCoolTime;
 
-    public void Attack()
+    private void Start()
+    {
+        dealDamage.gameObject.tag = "Enemy";
+    }
+
+    public async void Attack()
     {
         animator.SetTrigger("Attack");
+        await AttackTagSwitching();
     }
 
     public void GetEnemyAtk(float atk)
     {
         atkPower = atk;
         dealDamage.SetAttackPower(atkPower);
+    }
+
+    public async UniTask AttackTagSwitching()
+    {
+        dealDamage.gameObject.tag = "EnemyAttack";
+        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime));
+        dealDamage.gameObject.tag = "Enemy";
     }
 }

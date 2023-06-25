@@ -20,8 +20,8 @@ public class CameraController : MonoBehaviour
 
     private void RotateCamera()
     {
-        if (UsePCController.s_shouldUseCntl) {
-            angle = new Vector3(Input.GetAxis("RStickX") * -rotateSpeed, 0, 0);
+        if (UsePCController.s_shouldUseCntl && (Input.GetAxis("RStickX") >= 0.01f || Input.GetAxis("RStickX") <= -0.01f)) {
+            angle = new Vector3(Input.GetAxis("RStickX") * -rotateSpeed * 10, 0, 0);
         }
         else {
             angle = new Vector3(Input.GetAxis("Mouse X") * -rotateSpeed, 0, 0);

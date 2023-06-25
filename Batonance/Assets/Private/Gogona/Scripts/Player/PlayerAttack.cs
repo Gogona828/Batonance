@@ -7,7 +7,7 @@ using System;
 public class PlayerAttack : MonoBehaviour
 {
     [Tooltip("攻撃力")]
-    public float attackPower = 2.0f;
+    public float attackPower = 0f;
     [SerializeField, Tooltip("クールタイム")]
     private float coolTime = 0.1f;
     [SerializeField, Tooltip("DealDamageの参照")]
@@ -56,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
         /* if (!StateManager.instance.isNormalMode) return; */
         time += Time.deltaTime;
         // 攻撃をする
-        if (time >= coolTime && Input.GetMouseButtonDown(0) && canAttack) {
+        if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && canAttack) {
             Attack();
         }
         // コンボをしなかったらcomboCountを0にする

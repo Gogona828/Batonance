@@ -80,7 +80,14 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection += (Input.GetAxis("Horizontal") * right + Input.GetAxis("Vertical") * forward).normalized;
             }
             moveDirection *= speed;
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
+            if (UsePCController.s_shouldUseCntl && (Input.GetAxis("LStickX") != 0 || Input.GetAxis("LStickY") != 0))
+            {
+                facingReinforcement = moveDirection;
+                facingReinforcement.y = 0;
+                playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
+                isWalk = true;
+            }
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
             {
                 facingReinforcement = moveDirection;
                 facingReinforcement.y = 0;

@@ -33,9 +33,10 @@ public class PlayerAttack : MonoBehaviour
     /* [SerializeField, Tooltip("斬撃SE")]
     private List<AudioClip> attackSEList = new List<AudioClip>();
     private AudioSource audioSource; */
+    public bool isAttack;
 
-    [SerializeField, Header("デバック用")]
-    private bool canAttack = true;
+    /* [SerializeField, Header("デバック用")]
+    private bool canAttack = true; */
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class PlayerAttack : MonoBehaviour
         //Componentを取得
         audioSource = GetComponent<AudioSource>(); */
         dealDamage.gameObject.tag = "Player";
+        isAttack = false;
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
         /* if (!StateManager.instance.isNormalMode) return; */
         time += Time.deltaTime;
         // 攻撃をする
-        if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && canAttack) {
+        if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && !isAttack) {
             Attack();
         }
         // コンボをしなかったらcomboCountを0にする
@@ -70,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
     /// </summary>
     public async void Attack()
     {
+        isAttack = true;
         // 最大コンボ数なら攻撃を中断
         if (comboCount == maxComboNumber) return;
 
@@ -89,6 +92,7 @@ public class PlayerAttack : MonoBehaviour
         } */
         
         time = 0;
+        isAttack = false;
     }
 
     public async UniTask AttackTagSwitching()

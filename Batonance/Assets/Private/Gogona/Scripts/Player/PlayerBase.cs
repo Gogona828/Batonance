@@ -9,7 +9,7 @@ public class PlayerBase : MonoBehaviour
     private HPController hPCtrl;
     private PlayerAttack playerAtk;
     private PlayerMovement playerMov;
-    private PlayreGuard playerDef;
+    private PlayerGuard playerDef;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class PlayerBase : MonoBehaviour
         hPCtrl = GetComponent<HPController>();
         playerAtk = GetComponent<PlayerAttack>();
         playerMov = GetComponent<PlayerMovement>();
-        playerDef = GetComponent<PlayreGuard>();
+        playerDef = GetComponent<PlayerGuard>();
     }
 
     /// <summary>

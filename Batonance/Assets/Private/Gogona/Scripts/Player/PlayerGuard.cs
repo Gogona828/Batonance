@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayreGuard : MonoBehaviour
+public class PlayerGuard : MonoBehaviour
 {
     [SerializeField, Tooltip("防御力")]
     private float defensePower;

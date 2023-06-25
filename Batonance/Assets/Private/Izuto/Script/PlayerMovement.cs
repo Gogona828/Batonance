@@ -29,10 +29,16 @@ public class PlayerMovement : MonoBehaviour
     private float velocity;
     [SerializeField]
     private float minVelocity;
+
+    private PlayerGuard playerGuard;
+    private PlayerAttack playerAtk;
+
     // Start is called before the first frame update
     void Start()
     {
         PC = GetComponent<CharacterController>();
+        playerGuard = GetComponent<PlayerGuard>();
+        playerAtk = GetComponent<PlayerAttack>();
         moveDirection = Vector3.zero;
         animator = playerModel.GetComponent<Animator>();
         hpBar = hpBarObj.GetComponent<IDamagable>();
@@ -68,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         // キャラクターの移動処理
         //moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //moveDirection = transform.TransformDirection(moveDirection);
-        if (PC.isGrounded)
+        if (PC.isGrounded && !playerGuard.isGuard && !playerAtk.isAttack)
         {
             moveDirection = Vector3.zero;
             forward = Camera.main.transform.TransformDirection(Vector3.forward);
@@ -79,7 +85,9 @@ public class PlayerMovement : MonoBehaviour
             else {
                 moveDirection += (Input.GetAxis("Horizontal") * right + Input.GetAxis("Vertical") * forward).normalized;
             }
+
             moveDirection *= speed;
+
             if (UsePCController.s_shouldUseCntl && (Input.GetAxis("LStickX") != 0 || Input.GetAxis("LStickY") != 0))
             {
                 facingReinforcement = moveDirection;
@@ -94,11 +102,6 @@ public class PlayerMovement : MonoBehaviour
                 playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
                 isWalk = true;
             }
-            /* else if (Input.GetAxis("LStickX") != 0 || Input.GetAxis("LStickY") != 0) {
-                facingReinforcement = moveDirection;
-                facingReinforcement.y = 0;
-                playerModel.transform.rotation = Quaternion.LookRotation(-facingReinforcement);
-            } */
             else
             {
                 if (Mathf.Abs(velocity) > minVelocity)
@@ -118,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection.y += jumpSpeed;
             } */
         }
+        else if (playerGuard.isGuard || playerAtk.isAttack) return;
         velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
         animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
         latePos = (transform.position.x + transform.position.z) / 2;

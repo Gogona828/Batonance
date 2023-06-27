@@ -26,9 +26,9 @@ public class EnemyAttack : MonoBehaviour
         await AttackTagSwitching();
     }
 
-    public void GetEnemyAtk(float atk)
+    public void GetEnemyAtk(float _atk)
     {
-        atkPower = atk;
+        atkPower = _atk;
         dealDamage.SetAttackPower(atkPower);
     }
 

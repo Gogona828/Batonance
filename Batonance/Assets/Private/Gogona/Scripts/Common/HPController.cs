@@ -12,13 +12,15 @@ public class HPController : MonoBehaviour, IDamagable
     [SerializeField, Tooltip("HPバー")]
     private Slider hPBar;
 
-    private PlayreGuard playerDef;
+    private PlayerGuard playerDef;
+    private CounterAttack counterAtk;
 
     // Start is called before the first frame update
     void Start()
     {
         if (gameObject.CompareTag("Player")) {
-            playerDef = GetComponent<PlayreGuard>();
+            playerDef = GetComponent<PlayerGuard>();
+            counterAtk = GetComponent<CounterAttack>();
         }
     }
 
@@ -28,10 +30,11 @@ public class HPController : MonoBehaviour, IDamagable
     /// <param name="_damage"></param>
     public void Damage(float _damage)
     {
-        if (gameObject.tag == "Just") {
-            Debug.Log($"Just");
+        if (gameObject.layer == 6 && playerDef.isGuard) {
+            counterAtk.AddCounterLevel(playerDef.parryTimes);
+            return;
         }
-        if (gameObject.CompareTag("Player") && playerDef.isGuard) {
+        else if (gameObject.CompareTag("Player") && playerDef.isGuard) {
             _damage = playerDef.DamageDecrease(_damage);
         }
         // ダメージ分減少

@@ -6,6 +6,7 @@ public class DealDamage : MonoBehaviour
 {
     [SerializeField]
     private float damage;
+    public bool isCounterAttack = false;
 
     private HPController hPCtrl;
 
@@ -19,8 +20,8 @@ public class DealDamage : MonoBehaviour
         if (gameObject.CompareTag("PlayerAttack")) {
             if (other.gameObject.CompareTag("Enemy")) {
                 Debug.Log($"enemyだよ");
-                gameObject.tag = "Player";
                 other.gameObject.GetComponent<HPController>().Damage(damage);
+                gameObject.tag = "Player";
             }
         }
 
@@ -28,8 +29,8 @@ public class DealDamage : MonoBehaviour
         if (gameObject.CompareTag("EnemyAttack")) {
             if (other.gameObject.CompareTag("Player")) {
                 Debug.Log($"Playerにあたったで！！");
-                gameObject.tag = "Enemy";
                 other.gameObject.GetComponent<HPController>().Damage(damage);
+                gameObject.tag = "Enemy";
             }
         }
     }

@@ -23361,6 +23361,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a5f0e0541adbd4456bc564cdd8895ca8, type: 2}
   - {fileID: 2100000, guid: bbcae182d92584b2ca6bd2a49a67c375, type: 2}
   counterAttackPower: 0
+  animator: {fileID: 655080406}
+  dealDamage: {fileID: 655080405}
 --- !u!1001 &1252682850
 PrefabInstance:
   m_ObjectHideFlags: 0

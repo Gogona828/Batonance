@@ -6,6 +6,7 @@ public class DealDamage : MonoBehaviour
 {
     [SerializeField]
     private float damage;
+    public bool isCounterAttack = false;
 
     private HPController hPCtrl;
 

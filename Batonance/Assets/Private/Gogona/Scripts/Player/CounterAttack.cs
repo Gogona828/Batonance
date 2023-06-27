@@ -12,14 +12,15 @@ public class CounterAttack : MonoBehaviour
     private Material[] mat;
     [SerializeField, Tooltip("カウンターの攻撃力"), Header("カウンター関連")]
     private float counterAttackPower;
-    /* [SerializeField, Tooltip("カウンターのアニメーション")]
-    private Animator animator; */
+    [SerializeField, Tooltip("カウンターのアニメーション")]
+    private Animator animator;
 
     // PlayerAttackの参照
     private PlayerAttack playerAtk;
     // PlayerGuardの参照
     private PlayerGuard playerDef;
     // DealDamageの参照
+    [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
 
     // Start is called before the first frame update
@@ -27,15 +28,14 @@ public class CounterAttack : MonoBehaviour
     {
         playerAtk = GetComponent<PlayerAttack>();
         playerDef = GetComponent<PlayerGuard>();
-        dealDamage = GetComponent<DealDamage>();
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
         // Eキーでカウンター
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("TriangleButton")) && playerDef.parryTimes != 0) {
-            Counter(playerDef.parryTimes);
+            await Counter(playerDef.parryTimes);
         };
     }
 
@@ -49,6 +49,7 @@ public class CounterAttack : MonoBehaviour
         if (_counterLevel > playerDef.parryMax - 1) return;
         Debug.Log($"パリィ");
         _counterLevel++;
+        playerDef.parryTimes = _counterLevel;
         batonance.material = mat[_counterLevel - 1];
     }
 
@@ -56,12 +57,18 @@ public class CounterAttack : MonoBehaviour
     /// カウンターアクション
     /// </summary>
     /// <param name="_counterLevel"></param>
-    public void Counter(int _counterLevel)
+    public async UniTask Counter(int _counterLevel)
     {
+        // カウンター攻撃状態にする
+        dealDamage.isCounterAttack = true;
         // 攻撃力をカウンターレベルに応じて上昇させる
         counterAttackPower = (int)Math.Floor(Math.Pow(_counterLevel, 2) * playerAtk.attackPower);
         // 与えるダメージ量を変更
         dealDamage.SetAttackPower(counterAttackPower);
+        animator.SetTrigger("Attack");
         playerDef.parryTimes = 0;
+        await UniTask.Delay(500);
+        dealDamage.isCounterAttack = false;
+        dealDamage.SetAttackPower(playerAtk.attackPower);
     }
 }

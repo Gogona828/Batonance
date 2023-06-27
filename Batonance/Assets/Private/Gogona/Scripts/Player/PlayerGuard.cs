@@ -15,8 +15,8 @@ public class PlayerGuard : MonoBehaviour
     public bool isGuard;
 
     [Header("アニメーション")]
-    /* [SerializeField, Tooltip("ガードのアニメーション")]
-    private Animator animator; */
+    [SerializeField, Tooltip("ガードのアニメーション")]
+    private Animator animator;
 
     [Header("パリィ関連")]
     // CounterAttackの参照
@@ -58,7 +58,8 @@ public class PlayerGuard : MonoBehaviour
     private async UniTask Guard()
     {
         isGuard = true;
-        guard.SetActive(true);
+        animator.SetTrigger("Defence");
+        // guard.SetActive(true);
 
         // レイヤーを"Just"に変更
         gameObject.layer = 6;

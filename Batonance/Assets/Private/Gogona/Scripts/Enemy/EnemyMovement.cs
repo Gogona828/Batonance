@@ -18,7 +18,13 @@ public class EnemyMovement : MonoBehaviour
     //視野範囲にプレイヤーがいるとT、いないならF
     /* [System.NonSerialized] */
     public bool isLooking;
+    // 攻撃範囲内かどうか
+    public bool InAttackRange() {
+        if (navmesh.remainingDistance <= navmesh.stoppingDistance) return true;
+        else return false;
+    }
     private Animator animator;
+
     void Start()
     {
         enemyAtk = GetComponent<EnemyAttack>();
@@ -34,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         {
             navmesh.SetDestination(player.transform.position); //追尾位置更新
             transform.LookAt(player.transform); //プレイヤーの方見る
-            if (!enemyAtk.isEnemyAttack)
+            if (enemyAtk.isEnemyAttack)
             {
                 navmesh.isStopped = true;//止める
             }

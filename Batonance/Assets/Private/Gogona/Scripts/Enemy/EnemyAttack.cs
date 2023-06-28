@@ -10,19 +10,27 @@ public class EnemyAttack : MonoBehaviour
     private float atkPower;
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
+    private EnemyMovement enemyMov;
     [SerializeField]
     private Animator animator;
     [SerializeField, Tooltip("アニメーションの時間")]
     private float animationCoolTime;
     public bool isEnemyAttack = false;
+    [SerializeField]
+    private bool inAttackRange = false;
 
     private void Start()
     {
         dealDamage.gameObject.tag = "Enemy";
+        enemyMov = GetComponent<EnemyMovement>();
     }
 
-    public async void Attack()
+    public async void AttackSignal()
     {
+        // 視野範囲に入ってなかったらリターン
+        inAttackRange = enemyMov.InAttackRange();
+        if (!enemyMov.isLooking) return;
+        if (!inAttackRange) return;
         isEnemyAttack = true;
         animator.SetTrigger("Attack");
         await AttackTagSwitching();

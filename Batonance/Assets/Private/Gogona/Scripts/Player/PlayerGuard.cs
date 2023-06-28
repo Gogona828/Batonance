@@ -58,8 +58,8 @@ public class PlayerGuard : MonoBehaviour
     private async UniTask Guard()
     {
         isGuard = true;
-        animator.SetTrigger("Defence");
-        // guard.SetActive(true);
+        // animator.SetTrigger("Defence");
+        guard.SetActive(true);
 
         // レイヤーを"Just"に変更
         gameObject.layer = 6;

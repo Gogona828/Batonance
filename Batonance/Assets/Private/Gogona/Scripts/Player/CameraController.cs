@@ -28,6 +28,6 @@ public class CameraController : MonoBehaviour
         }
         mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.down, angle.x * 2);
 
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 }

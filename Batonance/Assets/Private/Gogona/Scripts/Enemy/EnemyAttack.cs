@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     private Animator animator;
     [SerializeField, Tooltip("アニメーションの時間")]
     private float animationCoolTime;
+    public bool isEnemyAttack = false;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
 
     public async void Attack()
     {
+        isEnemyAttack = true;
         animator.SetTrigger("Attack");
         await AttackTagSwitching();
     }
@@ -37,5 +39,6 @@ public class EnemyAttack : MonoBehaviour
         dealDamage.gameObject.tag = "EnemyAttack";
         await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime));
         dealDamage.gameObject.tag = "Enemy";
+        isEnemyAttack = false;
     }
 }

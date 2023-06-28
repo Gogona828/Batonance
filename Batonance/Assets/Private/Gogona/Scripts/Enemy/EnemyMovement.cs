@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private float personalSpace;
     // [System.NonSerialized]
     public NavMeshAgent navmesh;
+    private EnemyAttack enemyAtk;
     public GameObject player;
     //視野範囲にプレイヤーがいるとT、いないならF
     /* [System.NonSerialized] */
@@ -20,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     void Start()
     {
+        enemyAtk = GetComponent<EnemyAttack>();
         // navmesh = this.gameObject.GetComponent<NavMeshAgent>();
         navmesh.isStopped = true;//最初は止まっている
         navmesh.SetDestination(player.transform.position);
@@ -32,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
         {
             navmesh.SetDestination(player.transform.position); //追尾位置更新
             transform.LookAt(player.transform); //プレイヤーの方見る
-            if (navmesh.remainingDistance <= personalSpace)
+            if (!enemyAtk.isEnemyAttack)
             {
                 navmesh.isStopped = true;//止める
             }

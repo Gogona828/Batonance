@@ -6,16 +6,16 @@ using System;
 
 public class AttackSignal : MonoBehaviour
 {
-    [SerializeField, Tooltip("攻撃前エフェクト")]
-    private ParticleSystem effectBeforeAttack;
+    // [SerializeField, Tooltip("攻撃前エフェクト")]
+    // private ParticleSystem effectBeforeAttack;
     [SerializeField, Tooltip("エフェクト再生時間")]
     private int effectReproducingTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        effectBeforeAttack.Stop();
-        effectBeforeAttack.gameObject.GetComponent<BoxCollider>().enabled = false;
+        // effectBeforeAttack.Stop();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     // Update is called once per frame
@@ -27,12 +27,17 @@ public class AttackSignal : MonoBehaviour
     /// <summary>
     /// 攻撃前の合図をする
     /// </summary>
-    public async UniTask MakeSignalBeforeAttack()
+    public async void MakeSignalBeforeAttack()
     {
-        effectBeforeAttack.Play();
-        effectBeforeAttack.gameObject.GetComponent<BoxCollider>().enabled = true;
+        await ControlEffectReproducingTime();
+    }
+
+    public async UniTask ControlEffectReproducingTime()
+    {
+        // effectBeforeAttack.Play();
+        gameObject.GetComponent<BoxCollider>().enabled = true;
         await UniTask.Delay(effectReproducingTime);
-        effectBeforeAttack.Stop();
-        effectBeforeAttack.gameObject.GetComponent<BoxCollider>().enabled = false;
+        // effectBeforeAttack.Stop();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 }

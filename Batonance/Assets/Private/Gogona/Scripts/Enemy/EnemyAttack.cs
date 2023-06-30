@@ -36,17 +36,17 @@ public class EnemyAttack : MonoBehaviour
         await AttackTagSwitching();
     }
 
-    public void GetEnemyAtk(float _atk)
-    {
-        atkPower = _atk;
-        dealDamage.SetAttackPower(atkPower);
-    }
-
     public async UniTask AttackTagSwitching()
     {
         dealDamage.gameObject.tag = "EnemyAttack";
         await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime));
         dealDamage.gameObject.tag = "Enemy";
         isEnemyAttack = false;
+    }
+
+    public void GetEnemyAtk(float _atk)
+    {
+        atkPower = _atk;
+        dealDamage.SetAttackPower(atkPower);
     }
 }

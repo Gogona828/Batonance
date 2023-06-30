@@ -20525,6 +20525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batonance: {fileID: 655080409}
+  defaultMaterial: {fileID: 2100000, guid: f2b6c703a19cdf841aee949f7e69efa8, type: 2}
   mat:
   - {fileID: 2100000, guid: 96288d819402746ba82e662945c1eb7d, type: 2}
   - {fileID: 2100000, guid: a5f0e0541adbd4456bc564cdd8895ca8, type: 2}

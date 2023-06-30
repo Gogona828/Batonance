@@ -8,6 +8,8 @@ public class CounterAttack : MonoBehaviour
 {
     [SerializeField, Tooltip("Batonanceの参照")]
     private MeshRenderer batonance;
+    [SerializeField, Tooltip("Batonanceの通常のマテリアル")]
+    private Material defaultMaterial;
     [SerializeField, Tooltip("カウンターレベルの色")]
     private Material[] mat;
     [SerializeField, Tooltip("カウンターの攻撃力"), Header("カウンター関連")]
@@ -36,7 +38,7 @@ public class CounterAttack : MonoBehaviour
         // Eキーでカウンター
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("TriangleButton")) && playerDef.parryTimes != 0) {
             await Counter(playerDef.parryTimes);
-        };
+        }
     }
 
     /// <summary>
@@ -67,8 +69,18 @@ public class CounterAttack : MonoBehaviour
         dealDamage.SetAttackPower(counterAttackPower);
         animator.SetTrigger("Attack");
         playerDef.parryTimes = 0;
-        await UniTask.Delay(500);
+
+        await AttackTagSwitching();
+
         dealDamage.isCounterAttack = false;
         dealDamage.SetAttackPower(playerAtk.attackPower);
+        batonance.material = defaultMaterial;
+    }
+
+    public async UniTask AttackTagSwitching()
+    {
+        dealDamage.gameObject.tag = "PlayerAttack";
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        dealDamage.gameObject.tag = "Player";
     }
 }

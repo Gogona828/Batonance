@@ -23,7 +23,13 @@ public class EnemyMovement : MonoBehaviour
         if (navmesh.remainingDistance <= navmesh.stoppingDistance) return true;
         else return false;
     }
+    [SerializeField, Tooltip("アニメータ")]
     private Animator animator;
+    [SerializeField]
+    private float minVelocity;
+    private bool isWalk;
+    private float latePos;
+    private float velocity;
 
     void Start()
     {
@@ -43,11 +49,24 @@ public class EnemyMovement : MonoBehaviour
             if (enemyAtk.isEnemyAttack)
             {
                 navmesh.isStopped = true;//止める
+                if (Mathf.Abs(velocity) > minVelocity)
+                {
+                    animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
+                    animator.SetFloat("Walktest", velocity);
+                    velocity = velocity / 2;
+                }
+                isWalk = false;
+                return;
             }
             else
             {
                 navmesh.isStopped = false;//動く
+                isWalk = true;
             }
+            velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
+            animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
+            latePos = (transform.position.x + transform.position.z) / 2;
+            animator.SetBool("BoolWalk", isWalk);
             //animator.SetBool("Run", !navmesh.isStopped);
         }
     }

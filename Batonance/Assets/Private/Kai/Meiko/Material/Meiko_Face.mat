@@ -55,9 +55,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ShadowBlend: 0.1
+    - _ShadowBlend: 0.05
     - _ShadowSize: -0.3
     m_Colors:
+    - _LighatColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 0}
   m_BuildTextureStacks: []

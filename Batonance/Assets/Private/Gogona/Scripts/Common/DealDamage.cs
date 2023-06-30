@@ -18,9 +18,9 @@ public class DealDamage : MonoBehaviour
     {
         // ダメージを与えるのがPlayerの場合
         if (gameObject.CompareTag("PlayerAttack")) {
-            if (other.gameObject.CompareTag("Enemy")) {
+            if (other.gameObject.transform.root.gameObject.CompareTag("Enemy")) {
                 Debug.Log($"enemyだよ");
-                other.gameObject.GetComponent<HPController>().Damage(damage);
+                other.gameObject.transform.root.gameObject.GetComponent<HPController>().Damage(damage);
                 gameObject.tag = "Player";
             }
         }

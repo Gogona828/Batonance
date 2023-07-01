@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // private bool isDefending = false; // ガードの判定
     [SerializeField]
     private GameObject playerModel;
-    [System.NonSerialized]
+    // [System.NonSerialized]
     public Animator animator;
     [SerializeField]
     private GameObject hpBarObj;
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         playerGuard = GetComponent<PlayerGuard>();
         playerAtk = GetComponent<PlayerAttack>();
         moveDirection = Vector3.zero;
-        animator = playerModel.GetComponent<Animator>();
+        // animator = playerModel.GetComponent<Animator>();
         hpBar = hpBarObj.GetComponent<IDamagable>();
     }
 

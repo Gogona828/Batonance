@@ -14,8 +14,8 @@ public class PlayerAttack : MonoBehaviour
     private DealDamage dealDamage;
 
     [Header("コンボ関連")]
-    /* [SerializeField, Tooltip("コンボ終わりのクールタイム")]
-    private float comboEndCoolTime = 1.0f; */
+    [SerializeField, Tooltip("コンボ終わりのクールタイム")]
+    private float comboEndCoolTime = 1.0f;
     [SerializeField, Tooltip("コンボが継続する時間")]
     private float timeContinueCombo = 1.0f;
     [SerializeField, Tooltip("コンボ数")]
@@ -28,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
     private Animator animator;
     [SerializeField, Tooltip("アニメーションの時間")]
     private float[] animationCoolTime;
+    [SerializeField, Tooltip("斬撃エフェクト")]
+    private GameObject slashEffect;
     /* [SerializeField, Tooltip("斬撃エフェクト")]
     private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
     /* [SerializeField, Tooltip("斬撃SE")]
@@ -49,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); */
         dealDamage.gameObject.tag = "Player";
         isAttack = false;
+        slashEffect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -83,13 +86,13 @@ public class PlayerAttack : MonoBehaviour
         /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         
-        /* // コンボカウントを足す
+        // コンボカウントを足す
         comboCount++;
 
         // コンボが続くかを判定
-        if (time <= timeContinueCombo && comboCount > 1) {
+        if (time <= timeContinueCombo && comboCount > 0) {
             await Combo();
-        } */
+        }
         
         time = 0;
         isAttack = false;
@@ -100,9 +103,12 @@ public class PlayerAttack : MonoBehaviour
         dealDamage.gameObject.tag = "PlayerAttack";
         await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
         dealDamage.gameObject.tag = "Player";
+        slashEffect.SetActive(true);
+        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
+        slashEffect.SetActive(false);
     }
 
-    /* /// <summary>
+    /// <summary>
     /// コンボの処理
     /// </summary>
     public async UniTask Combo()
@@ -110,15 +116,15 @@ public class PlayerAttack : MonoBehaviour
         // 最大コンボ数に到達した時
         if (comboCount == maxComboNumber) {
             Debug.Log("最大コンボ！！");
-            canAttack = false;
+            // canAttack = false;
 
             // 最後のコンボのクールタイム
             await UniTask.Delay(TimeSpan.FromSeconds(comboEndCoolTime));
 
-            canAttack = true;
+            // canAttack = true;
             comboCount = 0;
         }
-    } */
+    }
 
     /* /// <summary>
     /// エフェクト操作

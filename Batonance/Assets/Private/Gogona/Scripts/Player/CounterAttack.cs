@@ -24,12 +24,15 @@ public class CounterAttack : MonoBehaviour
     // DealDamageの参照
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
+    [SerializeField, Tooltip("カウンターエフェクト")]
+    private GameObject counterEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         playerAtk = GetComponent<PlayerAttack>();
         playerDef = GetComponent<PlayerGuard>();
+        counterEffect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,7 +70,8 @@ public class CounterAttack : MonoBehaviour
         counterAttackPower = (int)Math.Floor(Math.Pow(_counterLevel, 2) * playerAtk.attackPower);
         // 与えるダメージ量を変更
         dealDamage.SetAttackPower(counterAttackPower);
-        animator.SetTrigger("Attack");
+        // animator.SetTrigger("Attack");
+        animator.Play("CounterAttack");
         playerDef.parryTimes = 0;
 
         await AttackTagSwitching();
@@ -79,8 +83,11 @@ public class CounterAttack : MonoBehaviour
 
     public async UniTask AttackTagSwitching()
     {
-        dealDamage.gameObject.tag = "PlayerAttack";
+        // dealDamage.gameObject.tag = "PlayerAttack";
+        await UniTask.Delay(TimeSpan.FromSeconds(1.0f));
+        // dealDamage.gameObject.tag = "Player";
+        counterEffect.SetActive(true);
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-        dealDamage.gameObject.tag = "Player";
+        counterEffect.SetActive(false);
     }
 }

@@ -25,7 +25,7 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         if (!canSelectButton) return;
-        if (!isPressedButton && (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W) || Input.GetAxisRaw("ArrowKeyLeftRight") == 1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == 1))
+        if (!isPressedButton && (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)/*  || Input.GetAxisRaw("ArrowKeyLeftRight") == 1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == 1 */))
         {
             isPressedButton = true;
             buttonNumber--;
@@ -34,7 +34,7 @@ public class ButtonController : MonoBehaviour
             ButtonSelection();
         }
 
-        else if (!isPressedButton && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetAxisRaw("ArrowKeyLeftRight") == -1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == -1))
+        else if (!isPressedButton && (Input.GetKeyDown(KeyCode.A)/* || Input.GetKeyDown(KeyCode.S) || Input.GetAxisRaw("ArrowKeyLeftRight") == -1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == -1 */))
         {
             isPressedButton = true;
             buttonNumber++;
@@ -43,7 +43,7 @@ public class ButtonController : MonoBehaviour
             ButtonSelection();
         }
 
-        if (isPressedButton && Mathf.Abs(Input.GetAxisRaw("ArrowKeyLeftRight")) != 1 && Mathf.Abs(Input.GetAxisRaw("ArrowKeyUpAndDown")) != 1)
+        if (isPressedButton/*  && Mathf.Abs(Input.GetAxisRaw("ArrowKeyLeftRight")) != 1 && Mathf.Abs(Input.GetAxisRaw("ArrowKeyUpAndDown")) != 1 */)
         {
             isPressedButton = false;
         }

@@ -44,6 +44,9 @@ public class HPController : MonoBehaviour, IDamagable
         // 現在HPが0以下なら
         if (currentHP <= 0) {
             if (gameObject.CompareTag("Player")) return;
+            else {
+                EnemyManager.instance.DecreaseEnemy(gameObject);
+            }
             // ゲームオブジェクトを破壊
             Destroy(gameObject);
         }

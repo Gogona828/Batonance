@@ -15,7 +15,7 @@ public class AttackSignal : MonoBehaviour
     void Start()
     {
         // effectBeforeAttack.Stop();
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class AttackSignal : MonoBehaviour
     public async UniTask ControlEffectReproducingTime()
     {
         // effectBeforeAttack.Play();
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         await UniTask.Delay(effectReproducingTime);
         // effectBeforeAttack.Stop();
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }

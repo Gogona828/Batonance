@@ -6,6 +6,8 @@ using System;
 
 public class AttackSignal : MonoBehaviour
 {
+    [SerializeField, Tooltip("EnemyAttackの参照")]
+    private EnemyMovement enemyMov;
     // [SerializeField, Tooltip("攻撃前エフェクト")]
     // private ParticleSystem effectBeforeAttack;
     [SerializeField, Tooltip("エフェクト再生時間")]
@@ -34,6 +36,7 @@ public class AttackSignal : MonoBehaviour
 
     public async UniTask ControlEffectReproducingTime()
     {
+        if (!enemyMov.InAttackRange()) return;
         // effectBeforeAttack.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         await UniTask.Delay(effectReproducingTime);

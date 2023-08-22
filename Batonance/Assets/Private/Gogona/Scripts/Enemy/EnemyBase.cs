@@ -25,18 +25,17 @@ public class EnemyBase : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Start() => Init();
+
+    /// <summary>
+    /// 初期化をする
+    /// </summary>
+    private void Init()
     {
         hPCtrl.GetCharHP(data.baseHP);
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);
         EnemyManager.instance.enemiesList.Add(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     /// <summary>

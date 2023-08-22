@@ -6099,6 +6099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85228573224664c0fa64cf6caa632833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMov: {fileID: 1145011610}
   effectReproducingTime: 500
 --- !u!1001 &372794145
 PrefabInstance:
@@ -20234,7 +20235,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -20280,7 +20281,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.784609
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -20295,7 +20296,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 40
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -23917,7 +23918,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.89
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24013,7 +24014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a1aa6ba39c34cc9b9d3286747439b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_shouldUseCntl: 1
+  m_shouldUseCntl: 0
 --- !u!320 &1436276117
 PlayableDirector:
   m_ObjectHideFlags: 0

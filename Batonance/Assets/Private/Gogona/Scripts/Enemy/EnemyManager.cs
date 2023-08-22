@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
+using System;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -33,22 +35,23 @@ public class EnemyManager : MonoBehaviour
     /// enemiesListの中身を減らす
     /// </summary>
     /// <param name="_enemy"></param>
-    public void DecreaseEnemy(GameObject _enemy)
+    public async void DecreaseEnemy(GameObject _enemy)
     {
         for (int i = 0; i < enemiesList.Count; i++) {
             if (enemiesList[i] == _enemy) {
                 enemiesList.RemoveAt(i);
             }
         }
-        DoGameEndJudgement();
+        await DoGameEndJudgement();
     }
 
     /// <summary>
     /// ゲームが終了するかどうかを判定
     /// </summary>
-    public void DoGameEndJudgement()
+    public async UniTask DoGameEndJudgement()
     {
         if (enemiesList.Count != 0) return;
+        await UniTask.Delay(500);
         SceneManager.LoadScene("EndScene");
     }
 }

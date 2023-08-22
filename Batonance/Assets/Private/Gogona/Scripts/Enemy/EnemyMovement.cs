@@ -11,19 +11,17 @@ public class EnemyMovement : MonoBehaviour
     //エネミーがプレイヤーを追いかける限界の距離
     [SerializeField]
     private float personalSpace;
-    // [System.NonSerialized]
     public NavMeshAgent navmesh;
     private EnemyAttack enemyAtk;
     public GameObject player;
-    //視野範囲にプレイヤーがいるとT、いないならF
-    /* [System.NonSerialized] */
+    //視野範囲にプレイヤーがいるとT、いないなら
     public bool isLooking;
     // 攻撃範囲内かどうか
     public bool InAttackRange() {
         if (navmesh.remainingDistance <= navmesh.stoppingDistance) return true;
         else return false;
     }
-    [SerializeField, Tooltip("アニメータ")]
+    [SerializeField, Tooltip("アニメーターの取得")]
     private Animator animator;
     [SerializeField]
     private float minVelocity;
@@ -34,21 +32,23 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemyAtk = GetComponent<EnemyAttack>();
-        // navmesh = this.gameObject.GetComponent<NavMeshAgent>();
-        navmesh.isStopped = true;//最初は止まっている
+        navmesh.isStopped = true;
         navmesh.SetDestination(player.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isLooking)//プレイヤーが視野範囲にいる時
+        //プレイヤーが視野範囲にいる時
+        if (isLooking)
         {
-            navmesh.SetDestination(player.transform.position); //追尾位置更新
-            transform.LookAt(player.transform); //プレイヤーの方見る
+            //追尾位置更新
+            navmesh.SetDestination(player.transform.position);
+            //プレイヤーの方見る
+            transform.LookAt(player.transform);
             if (enemyAtk.isEnemyAttack)
             {
-                navmesh.isStopped = true;//止める
+                navmesh.isStopped = true;
                 if (Mathf.Abs(velocity) > minVelocity)
                 {
                     animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
@@ -60,17 +60,20 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                navmesh.isStopped = false;//動く
+                navmesh.isStopped = false;
                 isWalk = true;
             }
             velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
             animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
             latePos = (transform.position.x + transform.position.z) / 2;
             animator.SetBool("BoolWalk", isWalk);
-            //animator.SetBool("Run", !navmesh.isStopped);
         }
     }
 
+    /// <summary>
+    /// 移動速度を取得する
+    /// </summary>
+    /// <param name="_spe"></param>
     public void GetEnemySpeed(float _spe)
     {
         speed = _spe;

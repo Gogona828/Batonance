@@ -11,20 +11,29 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
     private EnemyMovement enemyMov;
-    [SerializeField]
+    [SerializeField, Tooltip("アニメーターの取得")]
     private Animator animator;
     [SerializeField, Tooltip("アニメーションの時間")]
     private float animationCoolTime;
     public bool isEnemyAttack = false;
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃範囲に入っているかどうか")]
     private bool inAttackRange = false;
 
-    private void Start()
+    private void Start() => Init();
+
+    /// <summary>
+    /// 初期化をする
+    /// </summary>
+    private void Init()
     {
         dealDamage.gameObject.tag = "Enemy";
         enemyMov = GetComponent<EnemyMovement>();
     }
 
+    /// <summary>
+    /// 攻撃シグナルが呼ばれたら攻撃をする
+    /// </summary>
+    /// <returns></returns>
     public async void AttackSignal()
     {
         // 視野範囲に入ってなかったらリターン
@@ -36,14 +45,23 @@ public class EnemyAttack : MonoBehaviour
         await AttackTagSwitching();
     }
 
+    /// <summary>
+    /// 攻撃時にだけ攻撃判定を持たせる
+    /// </summary>
+    /// <returns></returns>
     public async UniTask AttackTagSwitching()
     {
         dealDamage.gameObject.tag = "EnemyAttack";
-        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime));
+        // アニメーションの時間分待機
+        await UniTask.Delay(TimeSpan.FromSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 1/60));
         dealDamage.gameObject.tag = "Enemy";
         isEnemyAttack = false;
     }
 
+    /// <summary>
+    /// 攻撃力を取得する
+    /// </summary>
+    /// <param name="_atk"></param>
     public void GetEnemyAtk(float _atk)
     {
         atkPower = _atk;

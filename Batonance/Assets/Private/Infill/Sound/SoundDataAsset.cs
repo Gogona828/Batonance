@@ -6,5 +6,7 @@ using UnityEngine;
 public class SoundDataAsset : ScriptableObject
 {
     public string soundKey = "Key";
-    public AudioClip SoundFile;
+    public AudioClip soundFile;
+    public int bpm;
+    public int offset;
 }

@@ -77,7 +77,7 @@ public class SoundManager : MonoBehaviour
         {
             if(list[i].soundKey == key)
             {
-                _clip = list[i].SoundFile;
+                _clip = list[i].soundFile;
             }
         }
         //出力

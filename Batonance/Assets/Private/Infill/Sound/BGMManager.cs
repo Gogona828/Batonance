@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Events;
 ///<summary>
@@ -22,7 +23,9 @@ public class BGMManager : MonoBehaviour
     private SoundDataAsset soundDataAsset;
 
     //通知用
-    [SerializeField]private UnityEvent subject = new UnityEvent();
+    public UnityEvent subject = new UnityEvent();
+    public delegate void HogeDelegate(string a);
+    HogeDelegate h;
 
     [Header("BGM"),SerializeField] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
@@ -43,6 +46,7 @@ public class BGMManager : MonoBehaviour
     {
         //Debugのデータセット
         DebugDataSet();
+        h = (a) => { TestCallEvent(); };
     }
 
     // Update is called once per frame
@@ -121,7 +125,7 @@ public class BGMManager : MonoBehaviour
             {
                 ResetBGM();
             }
-            Debug.Log(bpmTimer);
+            // Debug.Log(bpmTimer);
 
 
             //Debug用、通知タイミングにサウンドが鳴る。
@@ -168,7 +172,7 @@ public class BGMManager : MonoBehaviour
     private void DebugDataSet()
     {
         bpm = 185;
-        offset = 1000;
+        offset = 100;
         measure = 16;
         beat = 60f / bpm;
         firstPlay = true;

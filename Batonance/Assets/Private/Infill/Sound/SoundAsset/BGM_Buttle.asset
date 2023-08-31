@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c0b14f26e8bf7448f6d83e04e14cc8, type: 3}
-  m_Name: TestSoundDataAsset
+  m_Name: BGM_Buttle
   m_EditorClassIdentifier: 
   soundKey: Key
-  soundFile: {fileID: 0}
+  soundFile: {fileID: 8300000, guid: 6904f38597811d048b9c5753555e4893, type: 3}
   bpm: 120
-  meaasure: 0
-  offset: -0.15
+  meaasure: 32
+  offset: 0

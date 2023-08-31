@@ -12,22 +12,21 @@ public class BGMManager : MonoBehaviour
     //BPMのサウンド再生、通知用変数
     #region BGM
     private int bpm;    //BPM速度
-    private int offset; //曲再生するまでの時間(s)
+    private float offset; //曲再生するまでの時間(s)
     private float beat; //BPMから計算した１拍あたりの間隔秒数
     private int measure; //小節数
-    private int nowMeasureCount = 0;//小節数カウント.++が先に入るため１～１６の範囲内でカウントする。
+    private int nowMeasureCount = 0;//小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
     private float bpmTimer; //一小節の時間カウントタイマー
     private AudioSource bgmAudioSource;    //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;    //再生するBGM
     private bool firstPlay = true;    //offsetをセットするためのbool
     private SoundDataAsset soundDataAsset;
+    public SoundDataAsset debugFirstSoundDataAsset;//スタート時のサウンドアセット設定がめんどくさい
 
     //通知用
     public UnityEvent subject = new UnityEvent();
-    public delegate void HogeDelegate(string a);
-    HogeDelegate h;
 
-    [Header("BGM"),SerializeField] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
+    [Header("BGM")] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
     [SerializeField]private AudioSource metronomeSE;//メトロノームチェック用オブジェクト。未設定でも動作する。
     #endregion
@@ -35,7 +34,7 @@ public class BGMManager : MonoBehaviour
     #region Main
     private void Awake() {
         //シングルプレイ確定であれば、GameObject.Findで検索。
-        if (true) return;//全シーンのAudioSourceオブジェクト名が不明のため
+        if (false) return;//全シーンのAudioSourceオブジェクト名が不明のため
         
         //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上がtrueなら通らない↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         playerSoundObject = GameObject.Find("BGMAudioSource");
@@ -46,7 +45,6 @@ public class BGMManager : MonoBehaviour
     {
         //Debugのデータセット
         DebugDataSet();
-        h = (a) => { TestCallEvent(); };
     }
 
     // Update is called once per frame
@@ -63,6 +61,7 @@ public class BGMManager : MonoBehaviour
     #region 状態検知する関数
     //BGMズレを修正するための実験的関数
     //アプリケーションが読み込まれていない時、BGMを停止させる
+    //いらん
     private void OnApplicationPause(bool pauseStatus) {
         if(pauseStatus)
         {
@@ -85,6 +84,7 @@ public class BGMManager : MonoBehaviour
     {
         soundDataAsset = _useSoundDataAsset;
         SetData();
+        bgmAudioSource.Play();
     }
     ///<summary>
     ///セットされたScriptableObjectから各種データをセットする。要素数が増えた場合項目を増やすこと。
@@ -93,6 +93,7 @@ public class BGMManager : MonoBehaviour
     {
         bpm = soundDataAsset.bpm;
         offset = soundDataAsset.offset;
+        measure = soundDataAsset.meaasure;
         beat = 60f / bpm;
         bgmAudioClip = soundDataAsset.soundFile;
         firstPlay = true;
@@ -117,14 +118,14 @@ public class BGMManager : MonoBehaviour
 
             //bpm通知対応
             bpmTimer -= _beatTime;
-            nowMeasureCount++;
+            Debug.Log(nowMeasureCount);
             BPMNotifier();
             //floatの歪みを矯正
-            Debug.Log(nowMeasureCount);
-            if (nowMeasureCount  == measure)
+            if (nowMeasureCount  == measure - 1)
             {
                 ResetBGM();
             }
+            nowMeasureCount++;
             // Debug.Log(bpmTimer);
 
 
@@ -171,11 +172,12 @@ public class BGMManager : MonoBehaviour
     
     private void DebugDataSet()
     {
-        bpm = 185;
-        offset = 100;
-        measure = 16;
-        beat = 60f / bpm;
-        firstPlay = true;
+        SetBGM(debugFirstSoundDataAsset);
+        // bpm = 185;
+        // offset = 100;
+        // measure = 16;
+        // beat = 60f / bpm;
+        // firstPlay = true;
     }
     #endregion
 }

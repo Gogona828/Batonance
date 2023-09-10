@@ -8,6 +8,6 @@ public class SoundDataAsset : ScriptableObject
     public string soundKey = "Key";
     public AudioClip soundFile;
     public int bpm;
-    public int meaasure;
+    public int measure;
     public float offset;
 }

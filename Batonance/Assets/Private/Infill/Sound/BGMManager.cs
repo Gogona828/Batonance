@@ -93,7 +93,7 @@ public class BGMManager : MonoBehaviour
     {
         bpm = soundDataAsset.bpm;
         offset = soundDataAsset.offset;
-        measure = soundDataAsset.meaasure;
+        measure = soundDataAsset.measure;
         beat = 60f / bpm;
         bgmAudioClip = soundDataAsset.soundFile;
         firstPlay = true;

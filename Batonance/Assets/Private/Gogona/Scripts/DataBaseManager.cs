@@ -19,7 +19,6 @@ public class DataBaseManager : MonoBehaviour
         // インスタンスの生成
         if (instance == null) {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         // すでにあれば削除
         else {

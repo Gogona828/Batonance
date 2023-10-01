@@ -18,19 +18,28 @@ public class DealDamage : MonoBehaviour
     {
         // ダメージを与えるのがPlayerの場合
         if (gameObject.CompareTag("PlayerAttack")) {
-            if (other.gameObject.transform.root.gameObject.CompareTag("Enemy")) {
-                Debug.Log($"enemyだよ");
-                other.gameObject.transform.root.gameObject.GetComponent<HPController>().Damage(damage);
-                gameObject.tag = "Player";
+            switch (other.gameObject.tag) {
+                case "Enemy":
+                    Debug.Log($"enemyだよ" + other.gameObject.name);
+                    other.gameObject.GetComponent<HPController>().Damage(damage);
+                    gameObject.tag = "Untagged";
+                    break;
+                default:
+                    break;
             }
         }
 
         // ダメージを与えるのがEnemyの場合
         if (gameObject.CompareTag("EnemyAttack")) {
-            if (other.gameObject.CompareTag("Player")) {
-                Debug.Log($"Playerにあたったで！！");
-                other.gameObject.GetComponent<HPController>().Damage(damage);
-                gameObject.tag = "Enemy";
+            switch (other.gameObject.tag) {
+                case "Player":
+                    Debug.Log($"Playerにあたったで！！" + other.gameObject.name);
+                    if (other.gameObject.transform.root.gameObject.name != "Player") return;
+                    other.gameObject.GetComponent<HPController>().Damage(damage);
+                    gameObject.tag = "Untagged";
+                    break;
+                default:
+                    break;
             }
         }
     }

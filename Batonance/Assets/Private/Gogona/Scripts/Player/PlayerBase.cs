@@ -10,6 +10,14 @@ public class PlayerBase : MonoBehaviour
     private PlayerAttack playerAtk;
     private PlayerMovement playerMov;
     private PlayerGuard playerDef;
+    public enum PlayerState {
+        Idle,
+        Move,
+        Attack,
+        Guard
+    };
+
+    private PlayerState playerState;
 
     // Start is called before the first frame update
     void Start()

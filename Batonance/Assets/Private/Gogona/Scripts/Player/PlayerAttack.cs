@@ -22,7 +22,6 @@ public class PlayerAttack : MonoBehaviour
     private int comboCount = 0;
     [SerializeField, Tooltip("最大コンボ数")]
     private int maxComboNumber = 3;
-
     private float time = 0;
     [SerializeField]
     private Animator animator;
@@ -30,6 +29,9 @@ public class PlayerAttack : MonoBehaviour
     private float[] animationCoolTime;
     [SerializeField, Tooltip("斬撃エフェクト")]
     private GameObject slashEffect;
+    [SerializeField, Tooltip("エフェクト生成位置")]
+    private Transform effectGenerationPosition;
+
     /* [SerializeField, Tooltip("斬撃エフェクト")]
     private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
     /* [SerializeField, Tooltip("斬撃SE")]
@@ -51,7 +53,6 @@ public class PlayerAttack : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); */
         dealDamage.gameObject.tag = "Player";
         isAttack = false;
-        slashEffect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,8 +87,8 @@ public class PlayerAttack : MonoBehaviour
         /* await AttackEffect(comboCount);
         await AttackSE(comboCount); */
         
-        // コンボカウントを足す
-        comboCount++;
+        /* // コンボカウントを足す
+        comboCount++; */
 
         // コンボが続くかを判定
         if (time <= timeContinueCombo && comboCount > 0) {
@@ -102,10 +103,12 @@ public class PlayerAttack : MonoBehaviour
     {
         dealDamage.gameObject.tag = "PlayerAttack";
         await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
-        dealDamage.gameObject.tag = "Player";
-        slashEffect.SetActive(true);
-        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
-        slashEffect.SetActive(false);
+        dealDamage.gameObject.tag = "Untagged";
+        var effect = Instantiate(slashEffect, Vector3.zero, Quaternion.Euler(-180, 0, 60), effectGenerationPosition);
+        effect.transform.localPosition = new Vector3(0.1f, -0.5f, 0);
+        effect.transform.localRotation = Quaternion.Euler(-180, 0, 60);
+        effect.gameObject.GetComponent<DealDamage>().SetAttackPower(attackPower);
+        Destroy(effect, animationCoolTime[comboCount]);
     }
 
     /// <summary>

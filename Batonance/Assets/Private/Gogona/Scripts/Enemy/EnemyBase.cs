@@ -19,9 +19,7 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        // データベースからキャラデータを取得
-        data = DataBaseManager.instance.GetEnemyData(charId);
-        GetClassData();
+        
     }
 
     // Start is called before the first frame update
@@ -32,6 +30,9 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     private void Init()
     {
+        // データベースからキャラデータを取得
+        data = DataBaseManager.instance.GetEnemyData(charId);
+        GetClassData();
         hPCtrl.GetCharHP(data.baseHP);
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);

@@ -121,7 +121,10 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection.y += jumpSpeed;
             } */
         }
-        else if (playerGuard.isGuard || playerAtk.isAttack) return;
+        else if (playerGuard.isGuard || playerAtk.isAttack) {
+            isWalk = false;
+            return;
+        }
         velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
         animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
         latePos = (transform.position.x + transform.position.z) / 2;

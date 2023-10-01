@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HPController : MonoBehaviour, IDamagable
 {
@@ -14,6 +15,7 @@ public class HPController : MonoBehaviour, IDamagable
 
     private PlayerGuard playerDef;
     private CounterAttack counterAtk;
+    public bool isInvincibleMode = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +45,14 @@ public class HPController : MonoBehaviour, IDamagable
 
         // 現在HPが0以下なら
         if (currentHP <= 0) {
-            if (gameObject.CompareTag("Player")) return;
+            if (isInvincibleMode) return;
             else {
                 EnemyManager.instance.DecreaseEnemy(gameObject);
             }
             // ゲームオブジェクトを破壊
+            if (gameObject.CompareTag("Player")) {
+                SceneManager.LoadScene("EndScene");
+            }
             Destroy(gameObject);
         }
     }

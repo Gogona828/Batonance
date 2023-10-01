@@ -54,7 +54,7 @@ public class EnemyAttack : MonoBehaviour
         dealDamage.gameObject.tag = "EnemyAttack";
         // アニメーションの時間分待機
         await UniTask.Delay(TimeSpan.FromSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 1/60));
-        dealDamage.gameObject.tag = "Enemy";
+        dealDamage.gameObject.tag = "Untagged";
         isEnemyAttack = false;
     }
 

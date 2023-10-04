@@ -12,10 +12,16 @@ public class SoundManager : MonoBehaviour
     void Start(){
         bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
         Debug.Log("SoundManager_Start");
+        SetBGM_ButtleScene();
     }
 
     // Update is called once per frame
     void Update(){
         
+    }
+
+    void SetBGM_ButtleScene()
+    {
+        bgmManager.InitializeLoad();
     }
 }

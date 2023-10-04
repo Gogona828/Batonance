@@ -1,26 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NoteData
+namespace NotesData
 {
+    [Serializable]
     public class BaseData
     {
         public string name;
         public int maxBlock;
-        public int bpm;
+        public int BPM;
         public int offset;
     }
-    public class Note
+    [Serializable]
+    public class Notes
     {
-        public int lbp;
+        public int LBP;
         public int num;
         public int block;
         public int type;
     }
-
-    public class NoteList : MonoBehaviour
+    [Serializable]
+    public class NotesList
     {
-        public Note[] notes;
+        public Notes[] notes;
     }
 }

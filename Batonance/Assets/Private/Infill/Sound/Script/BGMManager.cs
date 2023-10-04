@@ -24,7 +24,7 @@ public class BGMManager : MonoBehaviour
     private bool firstPlay = true;    //offsetをセットするためのbool
     private SoundDataAsset soundDataAsset;
 
-    public long currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
+    public int currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
     public SoundDataAsset debugFirstSoundDataAsset;//スタート時のサウンドアセット設定がめんどくさい
 
     //通知用
@@ -97,6 +97,10 @@ public class BGMManager : MonoBehaviour
         soundDataAsset = _useSoundDataAsset;
         SetData();
         bgmAudioSource.Play();
+    }
+    public (int,int) GetMeasure()
+    {
+        return (nowMeasureCount, currentMeasureCount);
     }
     ///<summary>
     ///セットされたScriptableObjectから各種データをセットする。要素数が増えた場合項目を増やすこと。

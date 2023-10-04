@@ -4,23 +4,27 @@ using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Events;
 ///<summary>
-///BGMセット、再生、変更、通知の役割
+///BGMセット、再生、変更、通知の機能。
+///メインループは記述しない
 ///</summary>
 //外部から変更、通知リスト追加、通知リスト削除のアクセス。
 public class BGMManager : MonoBehaviour
 {
+    private bool set = false;//外部によって呼び出されたことがあるかの検知
     //BPMのサウンド再生、通知用変数
     #region BGM
     private int bpm;    //BPM速度
     private float offset; //曲再生するまでの時間(s)
     private float beat; //BPMから計算した１拍あたりの間隔秒数
     private int measure; //小節数
-    private int nowMeasureCount = 0;//小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
+    private int nowMeasureCount = 2;//小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
     private float bpmTimer; //一小節の時間カウントタイマー
     private AudioSource bgmAudioSource;    //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;    //再生するBGM
     private bool firstPlay = true;    //offsetをセットするためのbool
     private SoundDataAsset soundDataAsset;
+
+    public long currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
     public SoundDataAsset debugFirstSoundDataAsset;//スタート時のサウンドアセット設定がめんどくさい
 
     //通知用
@@ -33,18 +37,26 @@ public class BGMManager : MonoBehaviour
 
     #region Main
     private void Awake() {
+
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Debugのデータセット
+        // DebugDataSet();
+    }
+    public void InitializeLoad()
+    {
         //シングルプレイ確定であれば、GameObject.Findで検索。
         if (false) return;//全シーンのAudioSourceオブジェクト名が不明のため
         
         //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上がtrueなら通らない↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         playerSoundObject = GameObject.Find("BGMAudioSource");
         bgmAudioSource = playerSoundObject.GetComponent<AudioSource>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Debugのデータセット
+
         DebugDataSet();
+        set = true;
+        Debug.Log("Finished SoundSet");
     }
 
     // Update is called once per frame
@@ -55,7 +67,7 @@ public class BGMManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        Metronome();
+        if(set)Metronome();
     }
     #endregion
     #region 状態検知する関数
@@ -118,14 +130,14 @@ public class BGMManager : MonoBehaviour
 
             //bpm通知対応
             bpmTimer -= _beatTime;
-            Debug.Log(nowMeasureCount);
+            Debug.Log("NowMeasure:" + nowMeasureCount + ",currentMeasure:" + currentMeasureCount);
             BPMNotifier();
             //floatの歪みを矯正
-            if (nowMeasureCount  == measure - 1)
+            if (nowMeasureCount  == measure)
             {
-                ResetBGM();
+                BGMLoop();
             }
-            nowMeasureCount++;
+            AddMeasure();
             // Debug.Log(bpmTimer);
 
 
@@ -136,10 +148,15 @@ public class BGMManager : MonoBehaviour
             }
         }
     }
+    private void AddMeasure()
+    {
+        nowMeasureCount++;
+        currentMeasureCount++;
+    }
     ///<summary>
     ///BGMのループ時、もしくは曲変更時に呼び出し。タイマーリセット。
     ///</summary>
-    private void ResetBGM()
+    private void BGMLoop()
     {
         bpmTimer = 0f;
         nowMeasureCount = 0;

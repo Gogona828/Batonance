@@ -453,7 +453,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706933229}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4776494524683928209, guid: c6088c9374485b04b8fababb5d01e5bb,
     type: 2}
@@ -920,7 +920,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551934298}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4776494524683928209, guid: c6088c9374485b04b8fababb5d01e5bb,
     type: 2}
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b064a9ac55118444b254a2642bf5b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMeasureCount: 2
   debugFirstSoundDataAsset: {fileID: 11400000, guid: 88bb961de05a3344dad5760575d11a32,
     type: 2}
   subject:

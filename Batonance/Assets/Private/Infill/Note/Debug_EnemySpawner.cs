@@ -5,6 +5,7 @@ using NotesData;
 /// <summary>
 /// デバッグ用に動作させるためのスクリプト。NotesDataの読み込み発火が主。
 /// 機能集の備忘録として使用。
+/// NoteDataUnpackerを同じオブジェクトにAddComponentすること。
 /// </summary>
 public class Debug_EnemySpawner : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class Debug_EnemySpawner : MonoBehaviour
     {
         Debug.Log("通知");
         (int, int) measure = bgmManager.GetMeasure();
+        //Listの先頭要素の小節数を引っこ抜いて照合、合ってたら生成を行う
+        //初期ロードで生成し切るなら書き直し
         if(spawnEnemyData[0].num == measure.Item2)
         {
             //生成処理。

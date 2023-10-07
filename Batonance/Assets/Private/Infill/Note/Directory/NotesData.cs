@@ -16,7 +16,7 @@ namespace NotesData
     [Serializable]
     public class Notes
     {
-        public int LBP;
+        public int LPB;
         public int num;
         public int block;
         public int type;

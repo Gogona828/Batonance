@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        if (instance == null) {
+        if (!instance) {
             instance = this;
         }
         else {
@@ -48,10 +48,11 @@ public class EnemyManager : MonoBehaviour
     /// <summary>
     /// ゲームが終了するかどうかを判定
     /// </summary>
-    public async UniTask DoGameEndJudgement()
+    private async UniTask DoGameEndJudgement()
     {
         if (enemiesList.Count != 0) return;
-        await UniTask.Delay(500);
-        SceneManager.LoadScene("EndScene");
+        
+        // await UniTask.Delay(500);
+        // SceneManager.LoadScene("EndScene");
     }
 }

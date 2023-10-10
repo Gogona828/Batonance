@@ -17,7 +17,6 @@ public class FieldView : MonoBehaviour
         if(other.gameObject==enemyMov.player)//プレイヤーが視野範囲に入ってきた時
         {
             enemyMov.isLooking = true;
-            enemyMov.navmesh.isStopped = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -25,7 +24,6 @@ public class FieldView : MonoBehaviour
         if (other.gameObject == enemyMov.player)//プレイヤーが視野範囲からでて行った時
         {
             enemyMov.isLooking = false;
-            enemyMov.navmesh.isStopped = true;
         }
     }
 }

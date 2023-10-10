@@ -5,28 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionController : MonoBehaviour
 {
-    [SerializeField, Tooltip("遷移先のシーンの名前")]
-    private string sceneNameNextTransition;
+    private bool isTitleScene = false;
+    private string currentSceneName;
+    private string titleSceneName = "TitleScene";
+    private string mainSceneName = "MainScene";
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == titleSceneName) isTitleScene = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey/* GetButtonDown("CrossButton") */) {
-            SceneTransition();
+        if (isTitleScene && Input.anyKey) {
+            SceneTransition(mainSceneName);
         }
     }
 
     /// <summary>
-    /// シーンの遷移
+    /// シーン遷移
     /// </summary>
-    public void SceneTransition()
+    /// <param name="_sceneName"></param>
+    /// <returns></returns>
+    public void SceneTransition(string _sceneName)
     {
-        SceneManager.LoadScene(sceneNameNextTransition);
+        SceneManager.LoadScene(_sceneName);
     }
 }

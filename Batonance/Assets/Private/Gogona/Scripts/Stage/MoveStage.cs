@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Recorder;
 using UnityEngine;
 
 public class MoveStage : MonoBehaviour
@@ -16,17 +17,22 @@ public class MoveStage : MonoBehaviour
         else return false;
     }
     
+    // CreateStageを参照
+    private CreateStage createStage;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        createStage = transform.parent.gameObject.GetComponent<CreateStage>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0, 0, -moveSpeed);
-        if (shouldEraseStage()) Destroy(gameObject);
+        if (shouldEraseStage()) {
+            createStage.placedStages.Remove(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

@@ -32,8 +32,9 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         enemyAtk = GetComponent<EnemyAttack>();
-        navmesh.isStopped = true;
-        navmesh.SetDestination(player.transform.position);
+        isWalk = true;
+        /*navmesh.isStopped = true;
+        navmesh.SetDestination(player.transform.position);*/
     }
 
     // Update is called once per frame
@@ -42,13 +43,10 @@ public class EnemyMovement : MonoBehaviour
         //プレイヤーが視野範囲にいる時
         if (isLooking)
         {
-            //追尾位置更新
-            navmesh.SetDestination(player.transform.position);
             //プレイヤーの方見る
             transform.LookAt(player.transform);
             if (enemyAtk.isEnemyAttack)
             {
-                navmesh.isStopped = true;
                 if (Mathf.Abs(velocity) > minVelocity)
                 {
                     animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
@@ -60,12 +58,11 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                navmesh.isStopped = false;
                 isWalk = true;
             }
-            velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
+            // velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
             animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
-            latePos = (transform.position.x + transform.position.z) / 2;
+            // latePos = (transform.position.x + transform.position.z) / 2;
             animator.SetBool("BoolWalk", isWalk);
         }
     }
@@ -77,6 +74,5 @@ public class EnemyMovement : MonoBehaviour
     public void GetEnemySpeed(float _spe)
     {
         speed = _spe;
-        navmesh.speed = speed;
     }
 }

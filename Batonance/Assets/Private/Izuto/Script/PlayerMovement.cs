@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = Vector3.zero;
         // animator = playerModel.GetComponent<Animator>();
         hpBar = hpBarObj.GetComponent<IDamagable>();
+
+        isWalk = true;
     }
 
     // Update is called once per frame
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         // キャラクターの移動処理
         //moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //moveDirection = transform.TransformDirection(moveDirection);
-        if (PC.isGrounded && !playerGuard.isGuard && !playerAtk.isAttack)
+        /*if (PC.isGrounded && !playerGuard.isGuard && !playerAtk.isAttack)
         {
             moveDirection = Vector3.zero;
             forward = Camera.main.transform.TransformDirection(Vector3.forward);
@@ -119,15 +121,15 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Jump");
                 animator.SetTrigger("Jump");
                 moveDirection.y += jumpSpeed;
-            } */
+            } #1#
         }
         else if (playerGuard.isGuard || playerAtk.isAttack) {
             isWalk = false;
             return;
-        }
-        velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
-        animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
-        latePos = (transform.position.x + transform.position.z) / 2;
+        }*/
+        // velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
+        animator.SetFloat("Walk", 1/*Mathf.Abs(velocity / Time.deltaTime)*/);
+        // latePos = (transform.position.x + transform.position.z) / 2;
         moveDirection.y += Physics.gravity.y * Time.deltaTime;// 重力の適用
         
         PC.Move(moveDirection * Time.deltaTime);// 移動の実行

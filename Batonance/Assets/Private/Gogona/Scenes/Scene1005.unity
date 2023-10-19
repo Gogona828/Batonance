@@ -2326,6 +2326,7 @@ GameObject:
   - component: {fileID: 1252129445}
   - component: {fileID: 1252129455}
   - component: {fileID: 1252129456}
+  - component: {fileID: 1252129457}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2556,6 +2557,18 @@ MonoBehaviour:
   animator: {fileID: 655080406}
   dealDamage: {fileID: 655080405}
   counterEffect: {fileID: 1703006097}
+--- !u!114 &1252129457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252129444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a3523bddb5d47c5829cb22a0d560ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1285913121
 PrefabInstance:
   m_ObjectHideFlags: 0

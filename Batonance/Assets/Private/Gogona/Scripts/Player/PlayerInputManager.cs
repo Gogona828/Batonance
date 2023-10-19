@@ -27,19 +27,27 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 左入力が入った時、左に攻撃をする
+    /// </summary>
     public void LeftEntry()
     {
-        // TODO: 左入力の処理
         playerAttack.Attack();
     }
+
+    /// <summary>
+    /// 前入力が入った時、前方向に攻撃をする
+    /// </summary>
     public void FrontEntry()
     {
-        // TODO: 前入力の処理
         playerAttack.Attack();
     }
+
+    /// <summary>
+    /// 右入力が入った時、右方向に攻撃をする
+    /// </summary>
     public void RightEntry()
     {
-        // TODO: 右入力の処理
         playerAttack.Attack();
     }
 }

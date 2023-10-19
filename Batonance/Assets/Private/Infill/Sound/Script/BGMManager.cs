@@ -190,6 +190,12 @@ public class BGMManager : MonoBehaviour
         Debug.Log("Test:BPM通知");
         BPMNotifier();
     }
+
+    public void ResetMeasure()
+    {
+        currentMeasureCount = 2;
+        nowMeasureCount = 2;
+    }
     
     private void DebugDataSet()
     {

@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34feeef9-2def-4e50-8217-9b19b1b84c3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1005.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1005.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/ScriptableObject/EnemyDataBase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/ScriptableObject/EnemyDataBase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/CreateStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/CreateStage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/MoveStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/MoveStage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Player/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Player/PlayerInputManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/GeneratedEnemy__Tomita",
+    "git-widget-placeholder": "feature/CollectPlayerEntry__Gogona",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,6 +98,7 @@
       <workItem from="1696152836728" duration="828000" />
       <workItem from="1696673296536" duration="7989000" />
       <workItem from="1696986184251" duration="11123000" />
+      <workItem from="1697710996135" duration="496000" />
     </task>
     <servers />
   </component>

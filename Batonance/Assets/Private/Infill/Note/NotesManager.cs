@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NotesData;
+using JetBrains.Annotations;
 
 public class NotesManager : MonoBehaviour
 {
     NotesDataUnpacker notesDataUnpacker;
     public TextAsset notesData;
     private List<(int,float)> notesTimeList = new List<(int,float)>();
+    private Queue<(int, float)> notesTimeQueue = new Queue<(int, float)>();
     // Start is called before the first frame update
     void Start()
     {
         Initialization(notesData);
+        LoadQueue();
     }
 
     // Update is called once per frame
@@ -26,5 +29,18 @@ public class NotesManager : MonoBehaviour
     {
         notesDataUnpacker = this.GetComponent<NotesDataUnpacker>();
         notesTimeList = notesDataUnpacker.NotesDataUnpackToTime(text);
+    }
+
+    public (int,float) GetNotesTime()
+    {
+        return notesTimeQueue.Dequeue();
+    }
+    //再ロードの際読み込みし直し必要
+    public void LoadQueue()
+    {
+        foreach((int,float)item in notesTimeList)
+        {
+            notesTimeQueue.Enqueue(item);
+        }
     }
 }

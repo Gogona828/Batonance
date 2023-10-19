@@ -33,8 +33,9 @@ public class NotesDataUnpacker :MonoBehaviour
         for(int i = 0; i < notesData.Item2.notes.Length; i++)
         {
             int _num = notesData.Item2.notes[i].num;
+            int type = notesData.Item2.notes[i].type;
             //(ノーツ番号,ノーツ到達秒数)のint,float
-            returnData.Add((_num,(_BPM / 60f) * _num / _LPB));
+            returnData.Add((type,(_BPM / 60f) * _num / _LPB));
         }
         return returnData;
     }

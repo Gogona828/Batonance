@@ -31,10 +31,12 @@ public class CreateStage : MonoBehaviour
     {
         if (placedStages.Count < putStageNum) AddStage();
     }
-
+    
+    /// <summary>
+    /// ステージを追加する
+    /// </summary>
     private void AddStage()
     {
-        Debug.Log("ステージを生成");
         generatedStage = Instantiate(stagePrefab, stageGenerationPosition, Quaternion.identity, gameObject.transform);
         generatedStage.transform.position = placedStages[placedStages.Count - 1].transform.position + offset;
         placedStages.Add(generatedStage);

@@ -40,7 +40,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //プレイヤーが視野範囲にいる時
+        transform.position += new Vector3(0, 0, -speed);
+        /*//プレイヤーが視野範囲にいる時
         if (isLooking)
         {
             //プレイヤーの方見る
@@ -64,7 +65,7 @@ public class EnemyMovement : MonoBehaviour
             animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
             // latePos = (transform.position.x + transform.position.z) / 2;
             animator.SetBool("BoolWalk", isWalk);
-        }
+        }*/
     }
 
     /// <summary>

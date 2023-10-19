@@ -26,9 +26,7 @@ public class MoveStage : MonoBehaviour
         createStage = transform.parent.gameObject.GetComponent<CreateStage>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void FixedUpdate() {
         transform.position += new Vector3(0, 0, -moveSpeed);
         if (shouldEraseStage()) {
             createStage.placedStages.Remove(gameObject);

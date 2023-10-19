@@ -33,39 +33,10 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyAtk = GetComponent<EnemyAttack>();
         isWalk = true;
-        /*navmesh.isStopped = true;
-        navmesh.SetDestination(player.transform.position);*/
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void FixedUpdate() {
         transform.position += new Vector3(0, 0, -speed);
-        /*//プレイヤーが視野範囲にいる時
-        if (isLooking)
-        {
-            //プレイヤーの方見る
-            transform.LookAt(player.transform);
-            if (enemyAtk.isEnemyAttack)
-            {
-                if (Mathf.Abs(velocity) > minVelocity)
-                {
-                    animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
-                    animator.SetFloat("Walktest", velocity);
-                    velocity = velocity / 2;
-                }
-                isWalk = false;
-                return;
-            }
-            else
-            {
-                isWalk = true;
-            }
-            // velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
-            animator.SetFloat("Walk", Mathf.Abs(velocity / Time.deltaTime));
-            // latePos = (transform.position.x + transform.position.z) / 2;
-            animator.SetBool("BoolWalk", isWalk);
-        }*/
     }
 
     /// <summary>

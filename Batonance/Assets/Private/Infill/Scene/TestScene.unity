@@ -424,9 +424,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634932264}
-  - component: {fileID: 634932265}
   - component: {fileID: 634932266}
   - component: {fileID: 634932268}
+  - component: {fileID: 634932269}
   m_Layer: 0
   m_Name: NotesManager
   m_TagString: Untagged
@@ -449,19 +449,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &634932265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634932262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abaa5fa5fc4f3c24ca885f82549ddda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: efd16b6b4cca29442b2ead4d9c388500, type: 3}
 --- !u!114 &634932266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +471,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4e5f1c87a23bb3498b3fc4fd3a71c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &634932269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634932262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766567d95073add4a904d11adb4ac293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   notesData: {fileID: 4900000, guid: efd16b6b4cca29442b2ead4d9c388500, type: 3}

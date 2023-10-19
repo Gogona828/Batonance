@@ -9,7 +9,7 @@ using NotesData;
 /// </summary>
 public class Debug_EnemySpawner : MonoBehaviour
 {
-    NoteDataUnpacker noteDataUnpacker;
+    NotesDataUnpacker noteDataUnpacker;
     public TextAsset text;//読み込むJsonFile
     private (BaseData, NotesList) notesData;//デシリアライズデータの受け取り
     private List<Notes> spawnEnemyData = new List<Notes>();
@@ -19,7 +19,7 @@ public class Debug_EnemySpawner : MonoBehaviour
     void Start()
     {
         bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
-        noteDataUnpacker = this.GetComponent<NoteDataUnpacker>();
+        noteDataUnpacker = this.GetComponent<NotesDataUnpacker>();
         Set();
         AddSubjectListener();
     }
@@ -32,7 +32,7 @@ public class Debug_EnemySpawner : MonoBehaviour
     void Set()
     {
         //通常、読み込むためにtextAssetのJsonファイルを引数に関数を呼び出す
-        notesData = noteDataUnpacker.NoteDataUnpack(text);
+        notesData = noteDataUnpacker.NotesDataUnpack(text);
         //数値の獲得例
         //BPM（BaseDataの使用）
         // Debug.Log(notesData.Item1.BPM);
@@ -40,7 +40,7 @@ public class Debug_EnemySpawner : MonoBehaviour
         // Debug.Log(notesData.Item2.notes[0].num);
 
         //配列型のリストへコンバート。for文を使用するため、処理のネックに注意
-        spawnEnemyData = noteDataUnpacker.Convert_NoteListToList(notesData.Item2);
+        spawnEnemyData = noteDataUnpacker.Convert_NotesListToList(notesData.Item2);
         //データの取り方（SpawnEnemeyData　配列２のノーツ、numを獲得する）
         // Debug.Log(spawnEnemyData[2].num);
     }

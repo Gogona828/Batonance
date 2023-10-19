@@ -29,13 +29,14 @@ public class NotesDataUnpacker :MonoBehaviour
         List<(int, float)> returnData = new List<(int, float)>();
         int _BPM = notesData.Item1.BPM;
         int _LPB = notesData.Item2.notes[0].LPB;
+        Debug.Log("Data:NotesCount:" + notesData.Item2.notes.Length);
         Debug.Log("LPB:" + _LPB);
         for(int i = 0; i < notesData.Item2.notes.Length; i++)
         {
             int _num = notesData.Item2.notes[i].num;
             int type = notesData.Item2.notes[i].type;
             //(ノーツ番号,ノーツ到達秒数)のint,float
-            returnData.Add((type,(_BPM / 60f) * _num / _LPB));
+            returnData.Add((type, 60f / _BPM / _LPB * _num));
         }
         return returnData;
     }

@@ -33,6 +33,7 @@ public class NotesManager : MonoBehaviour
 
     public (int,float) GetNotesTime()
     {
+        if (notesTimeQueue.Count == 0) return (0,0);
         return notesTimeQueue.Dequeue();
     }
     //再ロードの際読み込みし直し必要

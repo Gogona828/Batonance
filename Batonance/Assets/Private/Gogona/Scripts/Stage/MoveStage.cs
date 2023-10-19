@@ -11,7 +11,7 @@ public class MoveStage : MonoBehaviour
     [SerializeField, Tooltip("ステージが消える位置")]
     private float positionDisappearPoint = -6f;
 
-    [SerializeField, Tooltip("ステージを消すかどうか")]
+    // ステージを消すかどうか
     private bool shouldEraseStage() {
         if (transform.position.z <= positionDisappearPoint) return true;
         else return false;

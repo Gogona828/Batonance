@@ -18,7 +18,7 @@ MonoBehaviour:
     baseHP: 200
     baseAtk: 20
     baseDef: 0
-    baseSpd: 2
+    baseSpd: 0.5
   - id: 2
     name: Mob1
     baseHP: 100

@@ -32,6 +32,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Tooltip("エフェクト生成位置")]
     private Transform effectGenerationPosition;
 
+    //ノーツ判定
+    private NotesInputCompare notesInputCompare;
+
     /* [SerializeField, Tooltip("斬撃エフェクト")]
     private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
     /* [SerializeField, Tooltip("斬撃SE")]
@@ -53,6 +56,9 @@ public class PlayerAttack : MonoBehaviour
         audioSource = GetComponent<AudioSource>(); */
         dealDamage.gameObject.tag = "Player";
         isAttack = false;
+
+        //ノーツ判定
+        notesInputCompare = GameObject.Find("NotesManager").GetComponent<NotesInputCompare>();
     }
 
     // Update is called once per frame
@@ -64,6 +70,7 @@ public class PlayerAttack : MonoBehaviour
         // 攻撃をする
         if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && !isAttack) {
             Attack();
+            notesInputCompare.InputAttack();
         }
         // コンボをしなかったらcomboCountを0にする
         if (time > timeContinueCombo) {

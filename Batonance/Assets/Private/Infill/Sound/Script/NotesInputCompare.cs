@@ -7,15 +7,15 @@ using NotesData;
 /// </summary>
 public class NotesInputCompare : MonoBehaviour
 {
-
-
+    private float timer = 0;
+    private NotesManager notesManager;
     // Start is called before the first frame update
     private void Awake() {
 
     }
     void Start()
     {
-
+        notesManager = GameObject.Find("NotesManager").GetComponent<NotesManager>();
     }
 
     // Update is called once per frame
@@ -23,13 +23,23 @@ public class NotesInputCompare : MonoBehaviour
     {
         
     }
-    int CompareTiming(float inputTime)
+    void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+    }
+
+    public void InputAttack()
+    {
+        int result = CompareTiming(timer);
+        Debug.Log(timer);
+    }
+    public int CompareTiming(float inputTime)
     {
         //0 = 良？とかでリスト化かenum化
         int result = 0;
-        //どうしよっか（Listを小節数だけ生成してしまった方が、findをする必要はない
-        //が、Listが冗長になる。逆に必要分だけにするなら、現在小節から最寄りのList位置を保存、計算する処理を毎発火ごとに行う必要がある？
-        //結論：後回し。
+
+        (int,float) _data = notesManager.GetNotesTime();
+        
         return result;
     }
 }

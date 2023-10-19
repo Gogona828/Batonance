@@ -9,6 +9,8 @@ public class NotesInputCompare : MonoBehaviour
 {
     private float timer = 0;
     private NotesManager notesManager;
+    private (int, float) data;
+    private bool hitCheck = false;//false => 処理が終わったノーツ True=>最新ノーツ
     // Start is called before the first frame update
     private void Awake() {
 
@@ -30,16 +32,52 @@ public class NotesInputCompare : MonoBehaviour
 
     public void InputAttack()
     {
-        int result = CompareTiming(timer);
-        Debug.Log(timer);
+        int result = CompareTiming(timer,1);
+        Debug.Log(result);
     }
-    public int CompareTiming(float inputTime)
+    //TODO:方向指定が実装できたら引数で取る方へシフト。
+    // public void InputAttack(int way)
+    // {
+    //     int result = CompareTiming(timer);
+    //     Debug.Log(timer);
+    // }
+    public int CompareTiming(float inputTime,int way)
     {
         //0 = 良？とかでリスト化かenum化
         int result = 0;
-
-        (int,float) _data = notesManager.GetNotesTime();
-        
+        (int, float) _data;
+        Debug.Log("DeQueue");
+        if(!hitCheck)
+        {
+            hitCheck = true;
+            data = notesManager.GetNotesTime();
+        }
+        _data = data;
+        if(way == _data.Item1)
+        {
+            float compareTime = Mathf.Abs(_data.Item2 - inputTime);
+            result = CompareTimeToInput(compareTime);
+            Debug.Log("DeQueue:" + result);
+        }
         return result;
+    }
+    //3秒以上はスルー、それ以外は有効。
+    private int CompareTimeToInput(float compareTime)
+    {
+        if(compareTime > 3f)
+        {
+            return 0;
+        }
+        hitCheck = false;
+        if (compareTime < 0.5f) 
+        {
+            return 1;
+        }
+        if (compareTime < 3f)
+        {
+            return 2;
+        }
+        else return 3;
+        
     }
 }

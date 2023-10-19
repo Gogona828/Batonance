@@ -43,4 +43,8 @@ public class NotesManager : MonoBehaviour
             notesTimeQueue.Enqueue(item);
         }
     }
+    public int NotesListCount()
+    {
+        return notesTimeList.Count;
+    }
 }

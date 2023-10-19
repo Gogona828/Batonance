@@ -37,12 +37,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    async void Start()
-    {
-        await CreateEnemy();
-    }
-
     /// <summary>
     /// enemiesListの中身を減らす
     /// </summary>
@@ -68,14 +62,18 @@ public class EnemyManager : MonoBehaviour
         // SceneManager.LoadScene("EndScene");
     }
 
-    private async UniTask CreateEnemy()
+    /// <summary>
+    /// 敵の種類、出現位置をランダムに生成
+    /// </summary>
+    /// <param name="popPosition"></param>
+    public void CreateEnemy(int popPosition)
     {
-        while(true) {
-            await UniTask.Delay(1000);
-            enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
-            spawnPointsRndNum = Random.Range(0, spawnPoints.Length);
-            Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[spawnPointsRndNum].transform.position,
-                Quaternion.identity);
-        }
+        enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
+        // MEMO: popPositionの値が入れば下は無視する予定
+        /* spawnPointsRndNum = Random.Range(0, spawnPoints.Length);
+        Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[spawnPointsRndNum].transform.position,
+            Quaternion.identity); */
+        Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[popPosition].transform.position,
+             Quaternion.identity);
     }
 }

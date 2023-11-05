@@ -8,8 +8,6 @@ public class PlayerBase : MonoBehaviour
     private PlayerDataBase data;
     private HPController hPCtrl;
     private PlayerAttack playerAtk;
-    private PlayerMovement playerMov;
-    private PlayerGuard playerDef;
     public enum PlayerState {
         Idle,
         Move,
@@ -39,8 +37,6 @@ public class PlayerBase : MonoBehaviour
     {
         hPCtrl = GetComponent<HPController>();
         playerAtk = GetComponent<PlayerAttack>();
-        playerMov = GetComponent<PlayerMovement>();
-        playerDef = GetComponent<PlayerGuard>();
     }
 
     /// <summary>
@@ -51,7 +47,5 @@ public class PlayerBase : MonoBehaviour
         data = DataBaseManager.instance.GetPlayerData();
         hPCtrl.GetCharHP(data.baseHP);
         playerAtk.GetPlayerAttackPower(data.baseAtk);
-        playerMov.GetPlayerSpeed(data.baseSpd);
-        playerDef.GetPlayerGuard(data.baseDef);
     }
 }

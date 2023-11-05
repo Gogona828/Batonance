@@ -35,7 +35,8 @@ public class EnemyMovement : MonoBehaviour
         isWalk = true;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         transform.position += new Vector3(0, 0, -speed);
     }
 

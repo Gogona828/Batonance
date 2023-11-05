@@ -2394,7 +2394,6 @@ GameObject:
   - component: {fileID: 1252129450}
   - component: {fileID: 1252129449}
   - component: {fileID: 1252129448}
-  - component: {fileID: 1252129447}
   - component: {fileID: 1252129446}
   - component: {fileID: 1252129445}
   - component: {fileID: 1252129456}
@@ -2450,22 +2449,6 @@ MonoBehaviour:
     type: 3}
   effectGenerationPosition: {fileID: 137316314}
   isAttack: 0
---- !u!114 &1252129447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252129444}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbf6c9ddfbc246a3a5de14029124fdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avoidDistance: 5
-  avoidSpeed: 10
-  moveScript: {fileID: 1252129448}
-  animator: {fileID: 655080406}
 --- !u!114 &1252129448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2595,7 +2578,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252129444}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f80ed9856df14626b19b38fb4da3272, type: 3}
   m_Name: 

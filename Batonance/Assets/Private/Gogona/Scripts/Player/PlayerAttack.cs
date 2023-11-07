@@ -55,7 +55,6 @@ public class PlayerAttack : MonoBehaviour
         // 攻撃をする
         if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && !isAttack) {
             Attack();
-            notesInputCompare.InputAttack();
         }
         // コンボをしなかったらcomboCountを0にする
         if (time > timeContinueCombo) {

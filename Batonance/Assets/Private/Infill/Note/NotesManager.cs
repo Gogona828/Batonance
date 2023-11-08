@@ -29,6 +29,7 @@ public class NotesManager : MonoBehaviour
     {
         notesDataUnpacker = this.GetComponent<NotesDataUnpacker>();
         notesTimeList = notesDataUnpacker.NotesDataUnpackToTime(text);
+        EnemyManager.instance.GetNotesList(notesTimeList);
     }
 
     public (int,float) GetNotesTime()

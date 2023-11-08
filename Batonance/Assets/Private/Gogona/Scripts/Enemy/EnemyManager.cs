@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class EnemyManager : MonoBehaviour
 {
     [Tooltip("Enemyリスト")]
-    public List<GameObject> enemiesList = new List<GameObject>();
+    public Queue<GameObject> enemiesQueue = new Queue<GameObject>();
 
     public static EnemyManager instance;
     
@@ -58,14 +58,14 @@ public class EnemyManager : MonoBehaviour
     }
 
     /// <summary>
-    /// enemiesListの中身を減らす
+    /// enemiesQueueの中身を減らす
     /// </summary>
     /// <param name="_enemy"></param>
     public async void DecreaseEnemy(GameObject _enemy)
     {
-        for (int i = 0; i < enemiesList.Count; i++) {
-            if (enemiesList[i] == _enemy) {
-                enemiesList.RemoveAt(i);
+        for (int i = 0; i < enemiesQueue.Count; i++) {
+            if (enemiesQueue.Peek() == _enemy) {
+                enemiesQueue.Dequeue();
             }
         }
         await DoGameEndJudgement();
@@ -76,7 +76,7 @@ public class EnemyManager : MonoBehaviour
     /// </summary>
     private async UniTask DoGameEndJudgement()
     {
-        if (enemiesList.Count != 0) return;
+        if (enemiesQueue.Count != 0) return;
         
         await UniTask.Delay(500);
         // SceneManager.LoadScene("EndScene");

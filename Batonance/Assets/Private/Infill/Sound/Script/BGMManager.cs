@@ -33,11 +33,15 @@ public class BGMManager : MonoBehaviour
     [Header("BGM")] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
     [SerializeField]private AudioSource metronomeSE;//メトロノームチェック用オブジェクト。未設定でも動作する。
+
+    // 富田が追加
+    public static BGMManager instance;
     #endregion
 
     #region Main
     private void Awake() {
-
+        if (!instance) instance = this;
+        else Destroy(this);
     }
     // Start is called before the first frame update
     void Start()
@@ -150,6 +154,9 @@ public class BGMManager : MonoBehaviour
             {
                 metronomeSE.PlayOneShot(metronomeSE.clip);
             }
+
+            // TODO: Enemyを生み出すか判断する
+            EnemyManager.instance.PrepareGeneration();
         }
     }
     private void AddMeasure()

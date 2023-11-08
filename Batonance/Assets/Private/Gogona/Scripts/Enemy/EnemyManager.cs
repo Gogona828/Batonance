@@ -23,11 +23,20 @@ public class EnemyManager : MonoBehaviour
     private int enemyTypesRndNum;
     // スポーン位置の乱数
     private int spawnPointsRndNum;
-    
+
+    // NotsManagerの取得
+    [SerializeField]
+    private NotesManager notesManager;
+    // ノーツの位置データ
+    private List<(int lane, float time)> notesPositionData = new List<(int lane, float time)>();
+    [SerializeField] private float delayTime;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
-    private void Awake()
+    private void Awake() => Initialize();
+    
+    private void Initialize()
     {
         if (!instance) {
             instance = this;
@@ -35,6 +44,24 @@ public class EnemyManager : MonoBehaviour
         else {
             Destroy(this);
         }
+    }
+
+    public void PrepareGeneration()
+    {
+        // notesPositionData = notesManager.GetNotesTime();
+        // Debug.Log($"GetNotesTime: {notesPositionData}");
+        // Debug.Log($"レーン: {notesPositionData.lane}\nタイム: {notesPositionData.time}");
+        // TODO: CreateEnemyをする
+    }
+
+    private void FixedUpdate()
+    {
+        GenerateEnemy();
+    }
+
+    private void GenerateEnemy()
+    {
+
     }
 
     /// <summary>
@@ -75,5 +102,18 @@ public class EnemyManager : MonoBehaviour
             Quaternion.identity); */
         Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[popPosition].transform.position,
              Quaternion.identity);
+    }
+
+    public void GetNotesList(List<(int _lane, float _time)> _notesList)
+    {
+        (int, float) _temporaryNotes;
+        Debug.Log($"default time: {_notesList[0]._time}");
+        
+        // 生成タイミングをずらす
+        for (int i = 0; i < _notesList.Count; i++) {
+            _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time - delayTime);
+            notesPositionData.Add(_temporaryNotes);
+        }
+        Debug.Log($"fixed time: {notesPositionData[0].time}");
     }
 }

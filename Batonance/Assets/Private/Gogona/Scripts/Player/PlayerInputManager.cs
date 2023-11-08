@@ -58,6 +58,7 @@ public class PlayerInputManager : MonoBehaviour
     public void LeftEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(0);
     }
 
     /// <summary>
@@ -66,6 +67,7 @@ public class PlayerInputManager : MonoBehaviour
     public void FrontEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(1);
     }
 
     /// <summary>
@@ -74,5 +76,6 @@ public class PlayerInputManager : MonoBehaviour
     public void RightEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(2);
     }
 }

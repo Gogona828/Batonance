@@ -11,9 +11,11 @@ public class NotesInputCompare : MonoBehaviour
     private NotesManager notesManager;
     private (int, float) data;
     private bool hitCheck = false;//false => 処理が終わったノーツ True=>最新ノーツ
+    public static NotesInputCompare instance;
     // Start is called before the first frame update
     private void Awake() {
-
+        if (!instance) instance = this;
+        else Destroy(this);
     }
     void Start()
     {
@@ -30,17 +32,13 @@ public class NotesInputCompare : MonoBehaviour
         timer += Time.deltaTime;
     }
 
-    public void InputAttack()
-    {
-        int result = CompareTiming(timer,1);
-        Debug.Log(result);
-    }
     //TODO:方向指定が実装できたら引数で取る方へシフト。
-    // public void InputAttack(int way)
-    // {
-    //     int result = CompareTiming(timer);
-    //     Debug.Log(timer);
-    // }
+    public void InputAttack(int way)
+    {
+        int result = CompareTiming(timer, way);
+        Debug.Log($"result: {result}");
+        Debug.Log(timer);
+    }
     public int CompareTiming(float inputTime,int way)
     {
         //0 = 良？とかでリスト化かenum化

@@ -7,21 +7,46 @@ public class PlayerInputManager : MonoBehaviour
 {
     private PlayerAttack playerAttack;
 
+    // 左入力の感知
+    private bool isLeftInputFound() {
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetButton("SquareButton"))
+            return true;
+        else return false;
+    }
+    // 前入力の感知
+    private bool isFrontInputFound() {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButton("TriangleButton"))
+            return true;
+        else return false;
+    }
+    // 右入力の感知
+    private bool isRightInputFound() {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetButton("CircleButton"))
+            return true;
+        else return false;
+    }
+
     private void Start()
     {
         playerAttack = GetComponent<PlayerAttack>();
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+        DetectButtonEntry();
+    }
+    
+    public void DetectButtonEntry()
+    {
+        if (isLeftInputFound()) {
             Debug.Log($"left attack");
             LeftEntry();
         }
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
+        else if (isFrontInputFound()) {
             Debug.Log($"front attack");
             FrontEntry();
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+        else if (isRightInputFound()) {
             Debug.Log($"right attack");
             RightEntry();
         }
@@ -33,6 +58,7 @@ public class PlayerInputManager : MonoBehaviour
     public void LeftEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(0);
     }
 
     /// <summary>
@@ -41,6 +67,7 @@ public class PlayerInputManager : MonoBehaviour
     public void FrontEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(1);
     }
 
     /// <summary>
@@ -49,5 +76,6 @@ public class PlayerInputManager : MonoBehaviour
     public void RightEntry()
     {
         playerAttack.Attack();
+        NotesInputCompare.instance.InputAttack(2);
     }
 }

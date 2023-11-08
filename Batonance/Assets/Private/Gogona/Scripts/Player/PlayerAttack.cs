@@ -35,25 +35,11 @@ public class PlayerAttack : MonoBehaviour
     //ノーツ判定
     private NotesInputCompare notesInputCompare;
 
-    /* [SerializeField, Tooltip("斬撃エフェクト")]
-    private List<ParticleSystem> effectList = new List<ParticleSystem>(); */
-    /* [SerializeField, Tooltip("斬撃SE")]
-    private List<AudioClip> attackSEList = new List<AudioClip>();
-    private AudioSource audioSource; */
     public bool isAttack;
-
-    /* [SerializeField, Header("デバック用")]
-    private bool canAttack = true; */
 
     // Start is called before the first frame update
     void Start()
     {
-        /* for (int i = 0; i < effectList.Count; i++) {
-            effectList[i].Stop();
-            effectList[i].gameObject.GetComponent<BoxCollider>().enabled = false;
-        }
-        //Componentを取得
-        audioSource = GetComponent<AudioSource>(); */
         dealDamage.gameObject.tag = "Player";
         isAttack = false;
 
@@ -65,12 +51,10 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         // 通常状態でないとリターン
-        /* if (!StateManager.instance.isNormalMode) return; */
         time += Time.deltaTime;
         // 攻撃をする
         if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && !isAttack) {
             Attack();
-            notesInputCompare.InputAttack();
         }
         // コンボをしなかったらcomboCountを0にする
         if (time > timeContinueCombo) {
@@ -91,8 +75,6 @@ public class PlayerAttack : MonoBehaviour
         animator.SetTrigger("Attack");
         // 攻撃タグに変更
         await AttackTagSwitching();
-        /* await AttackEffect(comboCount);
-        await AttackSE(comboCount); */
         
         /* // コンボカウントを足す
         comboCount++; */
@@ -135,26 +117,6 @@ public class PlayerAttack : MonoBehaviour
             comboCount = 0;
         }
     }
-
-    /* /// <summary>
-    /// エフェクト操作
-    /// </summary>
-    /// <param name="effectNumber"></param>
-    /// <returns></returns>
-    private async UniTask AttackEffect(int effectNumber)
-    {
-        effectList[effectNumber].Play();
-        effectList[effectNumber].gameObject.GetComponent<BoxCollider>().enabled = true;
-        await UniTask.Delay(TimeSpan.FromSeconds(effectList[effectNumber].startLifetime + effectList[effectNumber].startDelay));
-        effectList[effectNumber].Stop();
-        effectList[effectNumber].gameObject.GetComponent<BoxCollider>().enabled = false;
-    }
-
-    private async UniTask AttackSE(int sENumber)
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(effectList[sENumber].startDelay));
-        audioSource.PlayOneShot(attackSEList[sENumber]);
-    } */
 
     public void GetPlayerAttackPower(float _atkPower)
     {

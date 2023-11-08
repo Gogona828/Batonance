@@ -10,6 +10,11 @@ public class DealDamage : MonoBehaviour
 
     private HPController hPCtrl;
 
+    public void DefeatEnemy()
+    {
+        Destroy(EnemyManager.instance.enemiesQueue.Dequeue());
+    }
+
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// </summary>

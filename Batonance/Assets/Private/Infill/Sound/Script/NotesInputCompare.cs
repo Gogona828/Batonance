@@ -7,6 +7,8 @@ using NotesData;
 /// </summary>
 public class NotesInputCompare : MonoBehaviour
 {
+    [SerializeField, Tooltip("PlayerのDealDamageを入れる")]
+    private DealDamage dealDamage;
     private float timer = 0;
     private NotesManager notesManager;
     private (int, float) data;
@@ -55,6 +57,8 @@ public class NotesInputCompare : MonoBehaviour
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime);
+            // TODO: resultの結果に合わせてDealDamageを呼び出す
+            if (result == 0) dealDamage.DefeatEnemy();
             Debug.Log("DeQueue:" + result);
         }
         return result;

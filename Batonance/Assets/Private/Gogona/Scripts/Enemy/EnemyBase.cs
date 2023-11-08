@@ -36,7 +36,7 @@ public class EnemyBase : MonoBehaviour
         hPCtrl.GetCharHP(data.baseHP);
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);
-        EnemyManager.instance.enemiesList.Add(gameObject);
+        EnemyManager.instance.enemiesQueue.Enqueue(gameObject);
     }
 
     /// <summary>

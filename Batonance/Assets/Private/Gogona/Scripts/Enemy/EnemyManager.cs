@@ -28,8 +28,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private NotesManager notesManager;
     // ノーツの位置データ
-    private List<(int lane, float time)> notesPositionData = new List<(int lane, float time)>();
-    [SerializeField] private float delayTime;
+    private Queue<(int lane, float time)> notesPositionData = new Queue<(int lane, float time)>();
+    [SerializeField]
+    private const float delayTime = 4;
+    [SerializeField, Tooltip("いずれはBGMManagerからの参照か何かにしたい")]
+    private int bpm = 180;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -46,22 +49,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void PrepareGeneration()
+    public void PrepareGeneration(int count)
     {
-        // notesPositionData = notesManager.GetNotesTime();
-        // Debug.Log($"GetNotesTime: {notesPositionData}");
-        // Debug.Log($"レーン: {notesPositionData.lane}\nタイム: {notesPositionData.time}");
         // TODO: CreateEnemyをする
-    }
-
-    private void FixedUpdate()
-    {
-        GenerateEnemy();
-    }
-
-    private void GenerateEnemy()
-    {
-
+        if (notesPositionData.Count == 0) return;
+        if (notesPositionData.Peek().time != count) return;
+        CreateEnemy(notesPositionData.Dequeue().lane);
     }
 
     /// <summary>
@@ -93,7 +86,7 @@ public class EnemyManager : MonoBehaviour
     /// 敵の種類、出現位置をランダムに生成
     /// </summary>
     /// <param name="popPosition"></param>
-    public void CreateEnemy(int popPosition)
+    private void CreateEnemy(int popPosition)
     {
         enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
         // MEMO: popPositionの値が入れば下は無視する予定
@@ -107,13 +100,14 @@ public class EnemyManager : MonoBehaviour
     public void GetNotesList(List<(int _lane, float _time)> _notesList)
     {
         (int, float) _temporaryNotes;
-        Debug.Log($"default time: {_notesList[0]._time}");
+    
+        // Debug.Log($"default time: {_notesList[0]._time}");
         
         // 生成タイミングをずらす
         for (int i = 0; i < _notesList.Count; i++) {
-            _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time - delayTime);
-            notesPositionData.Add(_temporaryNotes);
+            _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time * (bpm / 60) - delayTime);
+            notesPositionData.Enqueue(_temporaryNotes);
         }
-        Debug.Log($"fixed time: {notesPositionData[0].time}");
+        // Debug.Log($"fixed time: {notesPositionData.Peek().time}");
     }
 }

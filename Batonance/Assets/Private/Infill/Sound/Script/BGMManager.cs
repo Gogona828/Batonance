@@ -14,6 +14,7 @@ public class BGMManager : MonoBehaviour
     //BPMのサウンド再生、通知用変数
     #region BGM
     private int bpm;    //BPM速度
+    public int BPM { get { return bpm; } set { value = bpm; } }
     private float offset; //曲再生するまでの時間(s)
     private float beat; //BPMから計算した１拍あたりの間隔秒数
     private int measure; //小節数
@@ -158,7 +159,7 @@ public class BGMManager : MonoBehaviour
             Debug.Log($"beat: {beat}");
 
             // TODO: 将来的には「UnityEvent<T0>」でイベントに追加したい
-            EnemyManager.instance.PrepareGeneration(nowMeasureCount);
+            EnemyManager.instance.PrepareGeneration(currentMeasureCount);
         }
     }
     private void AddMeasure()

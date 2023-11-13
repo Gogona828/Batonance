@@ -13,13 +13,6 @@ public class AdministerGameState : MonoBehaviour
     // シングルトン用のインスタンス変数
     public static AdministerGameState instance;
 
-    private void Update()
-    {
-        if (hasOveredGame)　{
-            ExecuteGameOverProcess();
-        }
-    }
-
     /// <summary>
     /// シングルトン化する
     /// </summary>
@@ -34,9 +27,17 @@ public class AdministerGameState : MonoBehaviour
     }
 
     /// <summary>
+    /// ゲームクリア処理を実行する
+    /// </summary>
+    public void GameClear()
+    {
+        // TODO: ゲームクリアに呼び出されるものを書く。
+    }
+
+    /// <summary>
     /// ゲームオーバー処理を実行する
     /// </summary>
-    public void ExecuteGameOverProcess()
+    public void GameOver()
     {
         showGameOver.ShowUI();
     }

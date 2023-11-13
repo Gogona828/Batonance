@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundKey: Key
   soundFile: {fileID: 8300000, guid: 6904f38597811d048b9c5753555e4893, type: 3}
-  bpm: 120
+  bpm: 180
   measure: 32
   offset: -0.2

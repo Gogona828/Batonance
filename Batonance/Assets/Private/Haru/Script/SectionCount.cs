@@ -8,7 +8,7 @@ public class SectionCount : MonoBehaviour
     private int currentSection = 1;
     public int CurrentSection { get { return currentSection; } private set{ value = currentSection; } }
     [SerializeField]
-    private int maxSection = 1;
+    private int maxSection;
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
     private void Awake()
@@ -34,11 +34,9 @@ public class SectionCount : MonoBehaviour
     /// <summary>
     /// 初期ロード
     /// </summary>
-    // TODO: private化してStartへ
-    public void InitialLoad()
+    private void InitialLoad()
     {
         currentSection = 1;
-        maxSection = 1;
         Debug.Log("初期化しました");
     }
     /// <summary>
@@ -46,17 +44,15 @@ public class SectionCount : MonoBehaviour
     /// </summary>
     public void ReLoad()
     {
-        // TODO: セクションを保存する必要がある
-        currentSection = 1;
         Debug.Log("再スタートしました");
     }
-
-    // TODO: 名前をもっと具体化する
-    public void Clear()
+    /// <summary>
+    /// 中間地点に辿り着いた時に呼び出す
+    /// </summary>
+    public void HalfwayPoint()
     {
         currentSection++;
-        if (currentSection > maxSection) maxSection = currentSection;
-        Debug.Log("クリアしました");
+        if (currentSection > maxSection) InitialLoad();
     }
 
 }

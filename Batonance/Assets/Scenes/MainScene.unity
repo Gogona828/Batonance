@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSection: 1
-  maxSection: 1
+  maxSection: 4
 --- !u!1001 &454352459
 PrefabInstance:
   m_ObjectHideFlags: 0

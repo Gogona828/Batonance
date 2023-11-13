@@ -51,8 +51,7 @@ public class HPController : MonoBehaviour, IDamagable
             }
             // ゲームオブジェクトを破壊
             if (gameObject.CompareTag("Player")) {
-                // TODO：ゲームオーバー処理を実行する
-                AdministerGameState.instance.ExecuteGameOverProcess();
+                AdministerGameState.instance.GameOver();
             }
             Destroy(gameObject);
         }

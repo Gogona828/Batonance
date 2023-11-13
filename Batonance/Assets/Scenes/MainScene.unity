@@ -649,15 +649,14 @@ GameObject:
   m_Component:
   - component: {fileID: 303570626}
   - component: {fileID: 303570625}
-  - component: {fileID: 303570624}
   - component: {fileID: 303570623}
-  - component: {fileID: 303570622}
   - component: {fileID: 303570621}
   - component: {fileID: 303570620}
   - component: {fileID: 303570619}
   - component: {fileID: 303570618}
   - component: {fileID: 303570616}
   - component: {fileID: 303570617}
+  - component: {fileID: 303570627}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -923,36 +922,6 @@ MonoBehaviour:
   - {fileID: 6487712439376569841, guid: 7263c42adb96a4978935b88dd5830e57, type: 3}
   notesManager: {fileID: 1640316486}
   bpm: 180
---- !u!114 &303570622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303570615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: a38b473dac4604ffbaa4ecbd56dcef2d, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1291110819}
-          m_TargetAssemblyTypeName: EnemyAttack, Assembly-CSharp
-          m_MethodName: AttackSignal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &303570623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,29 +935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shouldUseCntl: 0
---- !u!320 &303570624
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303570615}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 88c8dce5da059425ea53b8cc005db6d0, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 1
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -4014925391621079483, guid: 88c8dce5da059425ea53b8cc005db6d0, type: 2}
-    value: {fileID: 303570619}
-  - key: {fileID: 110408630013875606, guid: 88c8dce5da059425ea53b8cc005db6d0, type: 2}
-    value: {fileID: 303570622}
-  - key: {fileID: -2421649845189705018, guid: 88c8dce5da059425ea53b8cc005db6d0, type: 2}
-    value: {fileID: 547554600}
-  m_ExposedReferences:
-    m_References: []
 --- !u!114 &303570625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +965,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &303570627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303570615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5893ad7ac6d845bd9180f77dc9fe602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSection: 1
+  maxSection: 1
 --- !u!1001 &454352459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2901,18 +2861,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7263c42adb96a4978935b88dd5830e57, type: 3}
---- !u!114 &1291110819 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6808557093155249527, guid: 7263c42adb96a4978935b88dd5830e57,
-    type: 3}
-  m_PrefabInstance: {fileID: 1291110818}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6792b4e6e53a40e9afaac49fbb90609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1291110820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4795654935251564029, guid: 7263c42adb96a4978935b88dd5830e57,

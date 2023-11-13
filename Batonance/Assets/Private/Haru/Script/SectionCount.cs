@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class SectionCount : MonoBehaviour
 {
-    public int currentSection;
-    public int maxSection;
+    [SerializeField]
+    private int currentSection = 1;
+    public int CurrentSection { get { return currentSection; } private set{ value = currentSection; } }
+    [SerializeField]
+    private int maxSection = 1;
+    public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
     private void Awake()
     {
@@ -23,13 +27,14 @@ public class SectionCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InitialLoad();
+        InitialLoad();
         //Debug.Log(currentSection);
     }
 
     /// <summary>
     /// 初期ロード
     /// </summary>
+    // TODO: private化してStartへ
     public void InitialLoad()
     {
         currentSection = 1;
@@ -41,9 +46,12 @@ public class SectionCount : MonoBehaviour
     /// </summary>
     public void ReLoad()
     {
+        // TODO: セクションを保存する必要がある
         currentSection = 1;
         Debug.Log("再スタートしました");
     }
+
+    // TODO: 名前をもっと具体化する
     public void Clear()
     {
         currentSection++;

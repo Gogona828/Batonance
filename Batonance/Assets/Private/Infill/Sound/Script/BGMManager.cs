@@ -174,6 +174,8 @@ public class BGMManager : MonoBehaviour
     {
         bpmTimer = 0f;
         nowMeasureCount = 0;
+        // TODO: SectionCountで現在のセクション数を加算する。
+        // Section.instance.
     }
     #endregion
 

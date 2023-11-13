@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private const float delayTime = 4;
     [SerializeField, Tooltip("いずれはBGMManagerからの参照か何かにしたい")]
-    private int bpm = 180;
+    private int bpm;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -49,9 +49,13 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        bpm = BGMManager.instance.BPM;
+    }
+
     public void PrepareGeneration(int count)
     {
-        // TODO: CreateEnemyをする
+        // Enemyを生成できるかを判定する
         if (notesPositionData.Count == 0) return;
         if (notesPositionData.Peek().time != count) return;
         CreateEnemy(notesPositionData.Dequeue().lane);
@@ -89,25 +93,19 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemy(int popPosition)
     {
         enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
-        // MEMO: popPositionの値が入れば下は無視する予定
-        /* spawnPointsRndNum = Random.Range(0, spawnPoints.Length);
-        Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[spawnPointsRndNum].transform.position,
-            Quaternion.identity); */
         Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[popPosition].transform.position,
              Quaternion.identity);
     }
 
     public void GetNotesList(List<(int _lane, float _time)> _notesList)
     {
-        (int, float) _temporaryNotes;
-    
-        // Debug.Log($"default time: {_notesList[0]._time}");
+        (int, float _t) _temporaryNotes;
         
         // 生成タイミングをずらす
         for (int i = 0; i < _notesList.Count; i++) {
             _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time * (bpm / 60) - delayTime);
+            if (Math.Floor(_temporaryNotes._t) != Math.Ceiling(_temporaryNotes._t)) continue;
             notesPositionData.Enqueue(_temporaryNotes);
         }
-        // Debug.Log($"fixed time: {notesPositionData.Peek().time}");
     }
 }

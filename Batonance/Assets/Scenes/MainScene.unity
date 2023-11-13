@@ -915,7 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cdbc1c18c3a4c78b3fc3f19ad2c277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesList: []
   spawnPoints:
   - {fileID: 1922842725}
   - {fileID: 884242767}
@@ -1462,6 +1461,11 @@ PrefabInstance:
       propertyPath: dealDamage
       value: 
       objectReference: {fileID: 1150491099}
+    - target: {fileID: 1381814135052530816, guid: ba9f0f34dd5bbe8418a98f513a544b94,
+        type: 3}
+      propertyPath: notesData
+      value: 
+      objectReference: {fileID: 4900000, guid: 43491b05790c4ed42ac5df741b6a6a19, type: 3}
     - target: {fileID: 5461622008363447305, guid: ba9f0f34dd5bbe8418a98f513a544b94,
         type: 3}
       propertyPath: m_RootOrder

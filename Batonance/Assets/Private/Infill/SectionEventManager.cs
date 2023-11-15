@@ -8,15 +8,9 @@ public class SectionEventManager : MonoBehaviour
     public UnityEvent subject = new UnityEvent();
     private int nowSection = 0;
     public int NowSection { get { return nowSection; }　private set { value = nowSection; } }
-    private SectionCount sectionCount;
-    [SerializeField] GameObject sectionCountObject;
-    private void Start()
+    public void Initialize(int _nowSection)
     {
-        sectionCount = sectionCountObject.GetComponent<SectionCount>();
-    }
-    public void Initialize()
-    {
-        nowSection = sectionCount.MaxSection;
+        NowSection = _nowSection;
         subject.Invoke();
     }
 }

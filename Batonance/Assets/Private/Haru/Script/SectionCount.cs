@@ -5,10 +5,10 @@ using UnityEngine;
 public class SectionCount : MonoBehaviour
 {
     [SerializeField]
-    private int currentSection = 1;
+    private int currentSection = 1;//現在のセクションを保存する変数
     public int CurrentSection { get { return currentSection; } private set{ value = currentSection; } }
     [SerializeField]
-    private int maxSection;
+    private int maxSection;//そのシーンのステージのセクション数
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
     private void Awake()
@@ -52,7 +52,7 @@ public class SectionCount : MonoBehaviour
     public void HalfwayPoint()
     {
         currentSection++;
-        if (currentSection > maxSection) InitialLoad();
+        if (currentSection > maxSection) InitialLoad();//ステージクリア
     }
 
 }

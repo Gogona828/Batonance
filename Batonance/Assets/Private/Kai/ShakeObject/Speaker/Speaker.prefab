@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakerAnimator: {fileID: 6183485511283349181}
+  objectBPM: 2
+  songBPM: 180
 --- !u!95 &6183485511283349181
 Animator:
   serializedVersion: 5

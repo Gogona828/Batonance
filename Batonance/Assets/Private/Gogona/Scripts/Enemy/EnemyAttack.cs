@@ -36,8 +36,6 @@ public class EnemyAttack : MonoBehaviour
     /// <returns></returns>
     public async void AttackSignal()
     {
-        // 視野範囲に入ってなかったらリターン
-        inAttackRange = enemyMov.InAttackRange();
         if (!enemyMov.isLooking) return;
         if (!inAttackRange) return;
         isEnemyAttack = true;

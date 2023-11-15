@@ -11,16 +11,11 @@ public class EnemyMovement : MonoBehaviour
     //エネミーがプレイヤーを追いかける限界の距離
     [SerializeField]
     private float personalSpace;
-    public NavMeshAgent navmesh;
     private EnemyAttack enemyAtk;
     public GameObject player;
     //視野範囲にプレイヤーがいるとT、いないなら
     public bool isLooking;
-    // 攻撃範囲内かどうか
-    public bool InAttackRange() {
-        if (navmesh.remainingDistance <= navmesh.stoppingDistance) return true;
-        else return false;
-    }
+
     [SerializeField, Tooltip("アニメーターの取得")]
     private Animator animator;
     [SerializeField]

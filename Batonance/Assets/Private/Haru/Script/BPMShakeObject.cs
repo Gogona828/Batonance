@@ -6,18 +6,23 @@ public class BPMShakeObject : MonoBehaviour
 {
     [SerializeField]
     private Animator shakerAnimator;
-    private AnimatorClipInfo[] animatorStateinfo;
+    [SerializeField]
+    private int objectBPM;//スピードが1の場合のBPM
+    public float songBPM;
 
     void Start()
     {
-        animatorStateinfo = shakerAnimator.GetCurrentAnimatorClipInfo(0);//現在のアニメーションクリップの情報を取得 引数0はレイヤーの番号
         Debug.Log(shakerAnimator.speed);//コンソールに表示
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(shakerAnimator.speed<=5) shakerAnimator.speed++;
+        shakerAnimator.speed = songBPM/120;
         Debug.Log(shakerAnimator.speed);
+    }
+    public void BPMSwitching(float bpm)
+    {
+        songBPM = bpm;
     }
 }

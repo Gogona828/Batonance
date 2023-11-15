@@ -11,6 +11,9 @@ public class SectionCount : MonoBehaviour
     private int maxSection;//そのシーンのステージのセクション数
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
+
+    [SerializeField] private GameObject SectionEventManagerObject;
+    private SectionEventManager sectionEventManager;
     private void Awake()
     {
         //シングルトン
@@ -29,6 +32,9 @@ public class SectionCount : MonoBehaviour
     {
         InitialLoad();
         //Debug.Log(currentSection);
+
+        //スクリプトの設定
+        sectionEventManager = SectionEventManagerObject.GetComponent<SectionEventManager>();
     }
 
     /// <summary>
@@ -38,6 +44,8 @@ public class SectionCount : MonoBehaviour
     {
         currentSection = 1;
         Debug.Log("初期化しました");
+        //セクション更新時に発火するやつ
+        sectionEventManager.Initialize(currentSection);
     }
     /// <summary>
     /// ゲームオーバ時の再ロード
@@ -45,6 +53,8 @@ public class SectionCount : MonoBehaviour
     public void ReLoad()
     {
         Debug.Log("再スタートしました");
+        //セクション更新時に発火するやつ
+        sectionEventManager.Initialize(currentSection);
     }
     /// <summary>
     /// 中間地点に辿り着いた時に呼び出す
@@ -53,6 +63,8 @@ public class SectionCount : MonoBehaviour
     {
         currentSection++;
         if (currentSection > maxSection) InitialLoad();//ステージクリア
+        //セクション更新時に発火するやつ
+        sectionEventManager.Initialize(currentSection);
     }
 
 }

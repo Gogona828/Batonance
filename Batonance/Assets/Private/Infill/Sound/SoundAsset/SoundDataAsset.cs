@@ -10,4 +10,5 @@ public class SoundDataAsset : ScriptableObject
     public int bpm;
     public int measure;
     public float offset;
+    public TextAsset notesData;
 }

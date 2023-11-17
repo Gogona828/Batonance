@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 ///<summary>
 ///BGMセット、再生、変更、通知の機能。
-///メインループは記述しない
 ///</summary>
 //外部から変更、通知リスト追加、通知リスト削除のアクセス。
 public class BGMManager : MonoBehaviour
@@ -23,10 +22,9 @@ public class BGMManager : MonoBehaviour
     private AudioSource bgmAudioSource;    //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;    //再生するBGM
     private bool firstPlay = true;    //offsetをセットするためのbool
-    private SoundDataAsset soundDataAsset;
+    public SoundDataAsset soundDataAsset;
 
     public int currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
-    public SoundDataAsset debugFirstSoundDataAsset;//スタート時のサウンドアセット設定がめんどくさい
 
     //通知用
     public UnityEvent subject = new UnityEvent();
@@ -34,6 +32,8 @@ public class BGMManager : MonoBehaviour
     [Header("BGM")] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
     [SerializeField]private AudioSource metronomeSE;//メトロノームチェック用オブジェクト。未設定でも動作する。
+
+    SectionEventManager sectionEventManager;
 
     // 富田が追加
     public static BGMManager instance;
@@ -43,31 +43,23 @@ public class BGMManager : MonoBehaviour
     private void Awake() {
         if (!instance) instance = this;
         else Destroy(this);
+
+        sectionEventManager = GameObject.Find("SectionEventManager").GetComponent<SectionEventManager>();
+        sectionEventManager.subject.AddListener(SetBGM);
     }
     // Start is called before the first frame update
     void Start()
     {
-        //Debugのデータセット
-        // DebugDataSet();
+
     }
     public void InitializeLoad()
     {
-        //シングルプレイ確定であれば、GameObject.Findで検索。
-        if (false) return;//全シーンのAudioSourceオブジェクト名が不明のため
-        
-        //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上がtrueなら通らない↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        set = true;
         playerSoundObject = GameObject.Find("BGMAudioSource");
         bgmAudioSource = playerSoundObject.GetComponent<AudioSource>();
+        SetBGM();
 
-        DebugDataSet();
-        set = true;
         Debug.Log("Finished SoundSet");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void FixedUpdate()
@@ -75,40 +67,34 @@ public class BGMManager : MonoBehaviour
         if(set)Metronome();
     }
     #endregion
-    #region 状態検知する関数
-    //BGMズレを修正するための実験的関数
-    //アプリケーションが読み込まれていない時、BGMを停止させる
-    //いらん
-    private void OnApplicationPause(bool pauseStatus) {
-        if(pauseStatus)
-        {
-            Debug.Log("アプリ停止を検知");
-        }
-        else
-        {
-            Debug.Log("アプリ再開を検知");
-        }
-    }
-
-    #endregion
     
     #region BGM
     ///<summary>
-    ///外部からBGMを変更する場合に使用する。（恐らくSoundManagerに検索機能を付けてそこからアクセスだろうけど。）
-    ///なお外部からセットする場合これ以外のアクセスは不要
+    ///データのセットをしてAudioSourceの再生をする。
+    ///引数は無しorSoundDataAsset。引数なしの場合はセットされているものを再生。引数ありの場合はそれをセットして再生
     ///</summary>
+    public void SetBGM()
+    {
+        SetData();
+        bgmAudioSource.Play();
+    }
     public void SetBGM(SoundDataAsset _useSoundDataAsset)
     {
+        Debug.Log("SetBGM");
         soundDataAsset = _useSoundDataAsset;
         SetData();
         bgmAudioSource.Play();
     }
+    /// <summary>
+    /// 現在の小節数（楽曲のなかの何小節目か,全体から見て何小節目か)をreturnする
+    /// </summary>
+    /// <returns></returns>
     public (int,int) GetMeasure()
     {
         return (nowMeasureCount, currentMeasureCount);
     }
     ///<summary>
-    ///セットされたScriptableObjectから各種データをセットする。要素数が増えた場合項目を増やすこと。
+    ///セットされたScriptableObjectから各種データをセットする。
     ///</summary>
     private void SetData()
     {
@@ -188,34 +174,5 @@ public class BGMManager : MonoBehaviour
         subject.Invoke();
     }
 
-    #endregion
-    #region Debug
-
-
-    ///<summary>
-    ///通知システムの確認
-    ///</summary>
-    [ContextMenu("Method")]
-    public void TestCallEvent()
-    {
-        Debug.Log("Test:BPM通知");
-        BPMNotifier();
-    }
-
-    public void ResetMeasure()
-    {
-        currentMeasureCount = 2;
-        nowMeasureCount = 2;
-    }
-    
-    private void DebugDataSet()
-    {
-        SetBGM(debugFirstSoundDataAsset);
-        // bpm = 185;
-        // offset = 100;
-        // measure = 16;
-        // beat = 60f / bpm;
-        // firstPlay = true;
-    }
     #endregion
 }

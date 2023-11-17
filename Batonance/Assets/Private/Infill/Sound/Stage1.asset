@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c0b14f26e8bf7448f6d83e04e14cc8, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  soundKey: Key
+  soundFile: {fileID: 8300000, guid: 6904f38597811d048b9c5753555e4893, type: 3}
+  bpm: 180
+  measure: 8
+  offset: -0.15
+  notesData: {fileID: 4900000, guid: 43491b05790c4ed42ac5df741b6a6a19, type: 3}

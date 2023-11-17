@@ -23,7 +23,7 @@ public class BGMManager : MonoBehaviour
     private AudioSource bgmAudioSource;    //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;    //再生するBGM
     private bool firstPlay = true;    //offsetをセットするためのbool
-    private SoundDataAsset soundDataAsset;
+    public SoundDataAsset soundDataAsset;
 
     public int currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
     public SoundDataAsset debugFirstSoundDataAsset;//スタート時のサウンドアセット設定がめんどくさい
@@ -35,6 +35,8 @@ public class BGMManager : MonoBehaviour
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
     [SerializeField]private AudioSource metronomeSE;//メトロノームチェック用オブジェクト。未設定でも動作する。
 
+    SectionEventManager sectionEventManager;
+
     // 富田が追加
     public static BGMManager instance;
     #endregion
@@ -43,6 +45,9 @@ public class BGMManager : MonoBehaviour
     private void Awake() {
         if (!instance) instance = this;
         else Destroy(this);
+
+        sectionEventManager = GameObject.Find("SectionEventManager").GetComponent<SectionEventManager>();
+        sectionEventManager.subject.AddListener(SetBGM);
     }
     // Start is called before the first frame update
     void Start()
@@ -52,15 +57,14 @@ public class BGMManager : MonoBehaviour
     }
     public void InitializeLoad()
     {
+        set = true;
         //シングルプレイ確定であれば、GameObject.Findで検索。
         if (false) return;//全シーンのAudioSourceオブジェクト名が不明のため
         
         //↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓上がtrueなら通らない↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
         playerSoundObject = GameObject.Find("BGMAudioSource");
         bgmAudioSource = playerSoundObject.GetComponent<AudioSource>();
-
-        DebugDataSet();
-        set = true;
+        SetBGM();
         Debug.Log("Finished SoundSet");
     }
 
@@ -97,8 +101,14 @@ public class BGMManager : MonoBehaviour
     ///外部からBGMを変更する場合に使用する。（恐らくSoundManagerに検索機能を付けてそこからアクセスだろうけど。）
     ///なお外部からセットする場合これ以外のアクセスは不要
     ///</summary>
+    public void SetBGM()
+    {
+        SetData();
+        bgmAudioSource.Play();
+    }
     public void SetBGM(SoundDataAsset _useSoundDataAsset)
     {
+        Debug.Log("SetBGM");
         soundDataAsset = _useSoundDataAsset;
         SetData();
         bgmAudioSource.Play();
@@ -206,16 +216,6 @@ public class BGMManager : MonoBehaviour
     {
         currentMeasureCount = 2;
         nowMeasureCount = 2;
-    }
-    
-    private void DebugDataSet()
-    {
-        SetBGM(debugFirstSoundDataAsset);
-        // bpm = 185;
-        // offset = 100;
-        // measure = 16;
-        // beat = 60f / bpm;
-        // firstPlay = true;
     }
     #endregion
 }

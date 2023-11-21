@@ -58,8 +58,6 @@ public class SectionCount : MonoBehaviour
     {
         currentSection++;
         if (currentSection > maxSection) InitialLoad();//ステージクリア
-        //セクション更新時に発火するやつ
-        sectionEventManager.Initialize(currentSection);
     }
 
 }

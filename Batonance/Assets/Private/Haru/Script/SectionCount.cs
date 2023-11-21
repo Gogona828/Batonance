@@ -11,9 +11,7 @@ public class SectionCount : MonoBehaviour
     private int maxSection;//そのシーンのステージのセクション数
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
-
-    [SerializeField] private GameObject SectionEventManagerObject;
-    private SectionEventManager sectionEventManager;
+    [SerializeField]private SectionEventManager sectionEventManager;
     private void Awake()
     {
         //シングルトン
@@ -32,9 +30,6 @@ public class SectionCount : MonoBehaviour
     {
         InitialLoad();
         //Debug.Log(currentSection);
-
-        //スクリプトの設定
-        sectionEventManager = SectionEventManagerObject.GetComponent<SectionEventManager>();
     }
 
     /// <summary>

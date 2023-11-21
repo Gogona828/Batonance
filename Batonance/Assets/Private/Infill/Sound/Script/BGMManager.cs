@@ -145,6 +145,7 @@ public class BGMManager : MonoBehaviour
             bpmTimer -= _beatTime;
             //通知
             BPMNotifier();
+            Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
             //floatの歪みを矯正
             if (nowMeasureCount  == measure)
             {

@@ -1407,6 +1407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763457275}
   - component: {fileID: 763457274}
+  - component: {fileID: 763457276}
   m_Layer: 0
   m_Name: SectionEventManager
   m_TagString: Untagged
@@ -1444,6 +1445,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763457276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763457273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5893ad7ac6d845bd9180f77dc9fe602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSection: 1
+  maxSection: 4
+  sectionEventManager: {fileID: 763457274}
 --- !u!1001 &904227337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3323,7 +3339,6 @@ GameObject:
   - component: {fileID: 1436276116}
   - component: {fileID: 1436276120}
   - component: {fileID: 1436276121}
-  - component: {fileID: 1436276122}
   - component: {fileID: 1436276115}
   - component: {fileID: 1436276123}
   - component: {fileID: 1436276124}
@@ -3547,25 +3562,6 @@ MonoBehaviour:
   - {fileID: 6487712439376569841, guid: 7263c42adb96a4978935b88dd5830e57, type: 3}
   notesManager: {fileID: 0}
   bpm: 0
---- !u!114 &1436276122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436276114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b064a9ac55118444b254a2642bf5b9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundDataAsset: {fileID: 0}
-  currentMeasureCount: 2
-  subject:
-    m_PersistentCalls:
-      m_Calls: []
-  debugMetronome: 1
-  metronomeSE: {fileID: 1436276115}
 --- !u!82 &1436276123
 AudioSource:
   m_ObjectHideFlags: 0

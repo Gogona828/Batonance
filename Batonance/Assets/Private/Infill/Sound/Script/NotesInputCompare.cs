@@ -14,6 +14,8 @@ public class NotesInputCompare : MonoBehaviour
     private (int, float) data;
     private bool hitCheck = false;//false => 処理が終わったノーツ True=>最新ノーツ
     public static NotesInputCompare instance;
+
+    private NotesCount notesCount;
     // Start is called before the first frame update
     private void Awake() {
         if (!instance) instance = this;
@@ -21,7 +23,9 @@ public class NotesInputCompare : MonoBehaviour
     }
     void Start()
     {
-        notesManager = GameObject.Find("NotesManager").GetComponent<NotesManager>();
+        GameObject notesManagerObject = GameObject.Find("NotesManager");
+        notesCount = notesManagerObject.GetComponent<NotesCount>();
+        notesManager = notesManagerObject.GetComponent<NotesManager>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class NotesInputCompare : MonoBehaviour
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime);
+            Debug.Log($"result:{result}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
             if (result == 0) dealDamage.DefeatEnemy();
             Debug.Log("DeQueue:" + result);

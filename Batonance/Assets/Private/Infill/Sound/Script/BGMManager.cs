@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Events;
+using NotesData;
 ///<summary>
 ///BGMセット、再生、変更、通知の機能。
 ///</summary>
@@ -98,11 +99,13 @@ public class BGMManager : MonoBehaviour
     ///</summary>
     private void SetData()
     {
-        bpm = soundDataAsset.bpm;
-        offset = soundDataAsset.offset;
+        BaseData baseData = JsonUtility.FromJson<BaseData>(soundDataAsset.notesData.ToString());
+        bpm = baseData.BPM;
+        offset = baseData.offset;
         measure = soundDataAsset.measure;
         beat = 60f / bpm;
         bgmAudioClip = soundDataAsset.soundFile;
+        bgmAudioSource.clip = bgmAudioClip;
         firstPlay = true;
     }
     ///<summary>
@@ -160,7 +163,7 @@ public class BGMManager : MonoBehaviour
     {
         bpmTimer = 0f;
         nowMeasureCount = 0;
-        SectionCount.instance.HalfwayPoint();
+        //SectionCount.instance.HalfwayPoint();
     }
     #endregion
 

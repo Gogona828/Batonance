@@ -7,13 +7,16 @@ public class SectionEventManager : MonoBehaviour
 {
     public UnityEvent subject = new UnityEvent();
     private int nowSection = 0;
-    public int NowSection { get { return nowSection; }　private set { value = nowSection; } }
+    public int NowSection { get { return nowSection; } private set { value = nowSection; } }
+
     private void Start()
     {
         if(this.gameObject.name != "SectionEventManager")
         {
             Debug.LogWarning("Not the best object name");
         }
+
+        Initialize(0);
     }
     public void Initialize(int _nowSection)
     {

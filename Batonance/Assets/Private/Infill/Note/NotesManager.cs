@@ -13,8 +13,7 @@ public class NotesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Initialization(notesData);
-        LoadQueue();
+        
     }
 
     // Update is called once per frame

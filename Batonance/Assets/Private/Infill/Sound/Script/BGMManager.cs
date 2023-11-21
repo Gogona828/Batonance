@@ -29,6 +29,8 @@ public class BGMManager : MonoBehaviour
 
     //通知用
     public UnityEvent subject = new UnityEvent();
+    public UnityEvent subjectForHalf = new UnityEvent();
+    private bool callHalf = true;
 
     [Header("BGM")] private GameObject playerSoundObject;//AudioSourceのついているPlayerObject
     [Header("Debug"), SerializeField] private bool debugMetronome = false;
@@ -121,30 +123,41 @@ public class BGMManager : MonoBehaviour
         }
         //タイマー
         bpmTimer += Time.deltaTime;
-        if (bpmTimer >= _beatTime)
+        if (bpmTimer >= _beatTime / 2 && callHalf) 
         {
-            //offset対応
-            firstPlay = false;
-
-            //bpm通知対応
-            bpmTimer -= _beatTime;
-            Debug.Log("NowMeasure:" + nowMeasureCount + ",currentMeasure:" + currentMeasureCount);
-            BPMNotifier();
-            //floatの歪みを矯正
-            if (nowMeasureCount  == measure)
-            {
-                BGMLoop();
-            }
-            AddMeasure();
-            // Debug.Log(bpmTimer);
-
+            //八分音符が連呼されないようにbool管理
+            callHalf = false;
+            BPMNotifierForHalf();
 
             //Debug用、通知タイミングにサウンドが鳴る。
             if (metronomeSE != null && debugMetronome)
             {
                 metronomeSE.PlayOneShot(metronomeSE.clip);
             }
+        }
+        if (bpmTimer >= _beatTime)
+        {
+            //offset対応
+            firstPlay = false;
+            //八分音符用のリセット
+            callHalf = true;
+            //秒数の減算。０にすると多分ズレが生じる
+            bpmTimer -= _beatTime;
+            //通知
+            BPMNotifier();
+            Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
+            //floatの歪みを矯正
+            if (nowMeasureCount  == measure)
+            {
+                BGMLoop();
+            }
+            AddMeasure();
 
+            //Debug用、通知タイミングにサウンドが鳴る。
+            if (metronomeSE != null && debugMetronome)
+            {
+                metronomeSE.PlayOneShot(metronomeSE.clip);
+            }
             Debug.Log($"beat: {beat}");
 
             // TODO: 将来的には「UnityEvent<T0>」でイベントに追加したい
@@ -175,6 +188,11 @@ public class BGMManager : MonoBehaviour
     {
         Debug.Log("BPM通知");
         subject.Invoke();
+        subjectForHalf.Invoke();
+    }
+    private void BPMNotifierForHalf()
+    {
+        subjectForHalf.Invoke();
     }
 
     #endregion

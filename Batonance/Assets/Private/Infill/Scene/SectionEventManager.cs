@@ -15,10 +15,12 @@ public class SectionEventManager : MonoBehaviour
         {
             Debug.LogWarning("Not the best object name");
         }
+
+        Initialize(0);
     }
     public void Initialize(int _nowSection)
     {
         NowSection = _nowSection;
-        // subject.Invoke();
+        subject.Invoke();
     }
 }

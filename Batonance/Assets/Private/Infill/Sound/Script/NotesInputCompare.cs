@@ -78,6 +78,7 @@ public class NotesInputCompare : MonoBehaviour
         hitCheck = false;
         if (compareTime < 0.5f) 
         {
+            notesCount.CompareNotesCount();
             return 1;
         }
         if (compareTime < 3f)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SectionCount : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class SectionCount : MonoBehaviour
     private int maxSection;//そのシーンのステージのセクション数
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
-    [SerializeField]private SectionEventManager sectionEventManager;
+    [SerializeField] private SectionEventManager sectionEventManager;
     private void Awake()
     {
         //シングルトン
@@ -57,7 +58,12 @@ public class SectionCount : MonoBehaviour
     public void HalfwayPoint()
     {
         currentSection++;
-        if (currentSection > maxSection) InitialLoad();//ステージクリア
+        if (currentSection > maxSection)
+        {
+            SceneManager.LoadScene("ClearScene");
+            //SceneTransition(ClearScene);
+            InitialLoad();//ステージクリア
+        }
     }
 
 }

@@ -35,6 +35,14 @@ public class EnemyMovement : MonoBehaviour
         transform.position += new Vector3(0, 0, -speed);
     }
 
+    private void EnemyMoveSpeed()
+    {
+        float bpm = 180;
+        // TODO: Enemyの移動速度を決める
+        speed = (8 / (60 / bpm * 4)) / 4;
+        Debug.Log($"speed: {speed}");
+    }
+
     /// <summary>
     /// 移動速度を取得する
     /// </summary>
@@ -42,5 +50,6 @@ public class EnemyMovement : MonoBehaviour
     public void GetEnemySpeed(float _spe)
     {
         speed = _spe;
+        EnemyMoveSpeed();
     }
 }

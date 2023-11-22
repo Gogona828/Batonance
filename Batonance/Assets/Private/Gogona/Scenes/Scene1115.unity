@@ -880,8 +880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b064a9ac55118444b254a2642bf5b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundDataAsset: {fileID: 0}
   currentMeasureCount: 2
+  debugFirstSoundDataAsset: {fileID: 11400000, guid: 88bb961de05a3344dad5760575d11a32,
+    type: 2}
   subject:
     m_PersistentCalls:
       m_Calls: []
@@ -964,7 +965,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSection: 1
   maxSection: 4
-  SectionEventManagerObject: {fileID: 0}
 --- !u!1001 &454352459
 PrefabInstance:
   m_ObjectHideFlags: 0

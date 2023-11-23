@@ -176,7 +176,7 @@ public class BGMManager : MonoBehaviour
     {
         bpmTimer = 0f;
         nowMeasureCount = 0;
-        //SectionCount.instance.HalfwayPoint();
+        SectionCount.instance.HalfwayPoint();
     }
     #endregion
 

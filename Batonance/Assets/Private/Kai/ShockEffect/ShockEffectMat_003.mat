@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: eff_mat_slash.001
-  m_Shader: {fileID: -6465566751694194690, guid: d64b8bfe2da0790449f26165d3a76b8d,
+  m_Name: ShockEffectMat_003
+  m_Shader: {fileID: -6465566751694194690, guid: 7d0702c6dacdd7246be59f903cb4b5c4,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -64,12 +64,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SlashTex:
-        m_Texture: {fileID: 2800000, guid: e7622a6c4b51047428ca0f2bb676019d, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D:
+        m_Texture: {fileID: 2800000, guid: 0995a6102a7a4ad4d86d5cf4b1191fe1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -86,12 +86,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _A_ScrollSpeed: -0.75
-    - _A_SlashSize: 8
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _B_Scro_Speed: -0.45
-    - _B_SlashSize: 5
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -123,12 +119,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 366.3109, g: 8.639407, b: 324.75854, a: 0}
+    - _Color: {r: 8, g: 8, b: 8, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _slashWith: {r: 0, g: 0.2, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &8330871988679286541
+--- !u!114 &858435199992297385
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

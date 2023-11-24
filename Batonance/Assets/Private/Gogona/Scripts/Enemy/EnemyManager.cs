@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private NotesManager notesManager;
     // ノーツの位置データ
-    private Queue<(int lane, float time)> notesPositionData = new Queue<(int lane, float time)>();
+    private Queue<(int lane, float time, int type)> notesPositionData = new Queue<(int lane, float time, int type)>();
     [SerializeField]
     private const float delayTime = 4;
     [SerializeField, Tooltip("いずれはBGMManagerからの参照か何かにしたい")]
@@ -97,13 +97,13 @@ public class EnemyManager : MonoBehaviour
              Quaternion.identity);
     }
 
-    public void GetNotesList(List<(int _lane, float _time)> _notesList)
+    public void GetNotesList(List<(int _lane, float _time, int _type)> _notesList)
     {
-        (int, float _t) _temporaryNotes;
+        (int, float _t, int) _temporaryNotes;
         
         // 生成タイミングをずらす
         for (int i = 0; i < _notesList.Count; i++) {
-            _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time * (bpm / 60) - delayTime);
+            _temporaryNotes = (_notesList[i]._lane, _notesList[i]._time * (bpm / 60) - delayTime, _notesList[i]._type);
             if (Math.Floor(_temporaryNotes._t) != Math.Ceiling(_temporaryNotes._t)) continue;
             notesPositionData.Enqueue(_temporaryNotes);
         }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c0b14f26e8bf7448f6d83e04e14cc8, type: 3}
   m_Name: Stage1
   m_EditorClassIdentifier: 
-  soundFile: {fileID: 8300000, guid: 622af7853e0494b88a34cc20a222adf0, type: 3}
+  soundFile: {fileID: 8300000, guid: 6f6219af015c44bec963248b83a54053, type: 3}
   notesData: {fileID: 4900000, guid: 43491b05790c4ed42ac5df741b6a6a19, type: 3}
   measure: 32

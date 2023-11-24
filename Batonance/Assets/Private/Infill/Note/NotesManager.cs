@@ -8,8 +8,8 @@ public class NotesManager : MonoBehaviour
 {
     NotesDataUnpacker notesDataUnpacker;
     public TextAsset notesData;
-    private List<(int,float)> notesTimeList = new List<(int,float)>();
-    private Queue<(int, float)> notesTimeQueue = new Queue<(int, float)>();
+    private List<(int,float,int)> notesTimeList = new List<(int,float,int)>();
+    private Queue<(int, float, int)> notesTimeQueue = new Queue<(int, float, int)>();
     // Start is called before the first frame update
     void Start()
     {
@@ -31,15 +31,15 @@ public class NotesManager : MonoBehaviour
         EnemyManager.instance.GetNotesList(notesTimeList);
     }
 
-    public (int,float) GetNotesTime()
+    public (int,float,int) GetNotesTime()
     {
-        if (notesTimeQueue.Count == 0) return (0,0);
+        if (notesTimeQueue.Count == 0) return (0,0,0);
         return notesTimeQueue.Dequeue();
     }
     //再ロードの際読み込みし直し必要
     public void LoadQueue()
     {
-        foreach((int,float)item in notesTimeList)
+        foreach((int,float,int)item in notesTimeList)
         {
             notesTimeQueue.Enqueue(item);
         }

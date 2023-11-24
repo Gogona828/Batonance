@@ -11,7 +11,7 @@ public class NotesInputCompare : MonoBehaviour
     private DealDamage dealDamage;
     private float timer = 0;
     private NotesManager notesManager;
-    private (int, float) data;
+    private (int, float, int) data;
     private bool hitCheck = false;//false => 処理が終わったノーツ True=>最新ノーツ
     public static NotesInputCompare instance;
 
@@ -49,7 +49,7 @@ public class NotesInputCompare : MonoBehaviour
     {
         //0 = 良？とかでリスト化かenum化
         int result = 0;
-        (int, float) _data;
+        (int, float, int) _data;
         Debug.Log("DeQueue");
         if(!hitCheck)
         {

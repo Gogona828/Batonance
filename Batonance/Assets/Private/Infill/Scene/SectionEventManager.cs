@@ -8,6 +8,16 @@ public class SectionEventManager : MonoBehaviour
     public UnityEvent subject = new UnityEvent();
     private int nowSection = 0;
     public int NowSection { get { return nowSection; } private set { value = nowSection; } }
+    public static SectionEventManager instance;
+
+    /// <summary>
+    /// 富田追加
+    /// </summary>
+    private void Awake()
+    {
+        if (!instance) instance = this;
+        else Destroy(this);
+    }
 
     private void Start()
     {

@@ -176,7 +176,9 @@ public class BGMManager : MonoBehaviour
     {
         bpmTimer = 0f;
         nowMeasureCount = 0;
+        // 競合解決
         sectionEventManager.Initialize(SectionCount.instance.CurrentSection);
+        SectionCount.instance.HalfwayPoint();
     }
     #endregion
 

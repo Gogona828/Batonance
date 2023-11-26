@@ -145,10 +145,11 @@ public class BGMManager : MonoBehaviour
             bpmTimer -= _beatTime;
             //通知
             BPMNotifier();
-            Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
+            // Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
             //floatの歪みを矯正
-            if (nowMeasureCount  == measure)
+            if (nowMeasureCount  == measure + 1)
             {
+                Debug.Log("CheckPoint");
                 BGMLoop();
             }
             AddMeasure();
@@ -175,10 +176,11 @@ public class BGMManager : MonoBehaviour
     private void BGMLoop()
     {
         bpmTimer = 0f;
-        nowMeasureCount = 0;
+        nowMeasureCount = 1;
         // 競合解決
-        sectionEventManager.Initialize(SectionCount.instance.CurrentSection);
         SectionCount.instance.HalfwayPoint();
+        sectionEventManager.Initialize(SectionCount.instance.CurrentSection);
+        
     }
     #endregion
 

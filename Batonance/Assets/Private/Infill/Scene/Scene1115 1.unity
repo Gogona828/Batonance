@@ -637,7 +637,6 @@ GameObject:
   - component: {fileID: 303570625}
   - component: {fileID: 303570623}
   - component: {fileID: 303570621}
-  - component: {fileID: 303570620}
   - component: {fileID: 303570619}
   - component: {fileID: 303570618}
   - component: {fileID: 303570616}
@@ -868,28 +867,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &303570620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303570615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b064a9ac55118444b254a2642bf5b9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundDataAsset: {fileID: 0}
-  currentMeasureCount: 2
-  subject:
-    m_PersistentCalls:
-      m_Calls: []
-  subjectForHalf:
-    m_PersistentCalls:
-      m_Calls: []
-  debugMetronome: 1
-  metronomeSE: {fileID: 303570619}
 --- !u!114 &303570621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSection: 1
   maxSection: 4
-  sectionEventManager: {fileID: 0}
+  sectionEventManager: {fileID: 802424245}
 --- !u!1001 &454352459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1477,6 +1454,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6090644587899146485, guid: ba9f0f34dd5bbe8418a98f513a544b94,
         type: 3}
+      propertyPath: soundDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4aaf4b7f345d24bb19241a71222525fc,
+        type: 2}
+    - target: {fileID: 6090644587899146485, guid: ba9f0f34dd5bbe8418a98f513a544b94,
+        type: 3}
       propertyPath: subject.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1949,7 +1932,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
       - m_Target: {fileID: 1640316486}
         m_TargetAssemblyTypeName: NotesManager, Assembly-CSharp
         m_MethodName: LoadQueue
@@ -1961,7 +1944,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
       - m_Target: {fileID: 577718222}
         m_TargetAssemblyTypeName: BGMManager, Assembly-CSharp
         m_MethodName: SetBGM
@@ -1973,7 +1956,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!4 &802424246
 Transform:
   m_ObjectHideFlags: 0

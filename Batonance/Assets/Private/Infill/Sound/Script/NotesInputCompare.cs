@@ -71,12 +71,12 @@ public class NotesInputCompare : MonoBehaviour
     //3秒以上はスルー、それ以外は有効。
     private int CompareTimeToInput(float compareTime)
     {
-        if(compareTime > 3f)
+        if (compareTime > 3f)
         {
             return 0;
         }
         hitCheck = false;
-        if (compareTime < 0.5f) 
+        if (compareTime < 0.5f)
         {
             notesCount.CompareNotesCount();
             return 1;
@@ -86,6 +86,15 @@ public class NotesInputCompare : MonoBehaviour
             return 2;
         }
         else return 3;
-        
+
+    }
+
+    /// <summary>
+    /// ミスしたときの処理
+    /// </summary>
+    private void Missed()
+    {
+        Debug.Log("Missed");
+        SectionCount.instance.ReLoad();
     }
 }

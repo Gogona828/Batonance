@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class SectionCount : MonoBehaviour
 {
@@ -13,13 +13,14 @@ public class SectionCount : MonoBehaviour
     public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
     public static SectionCount instance;
     [SerializeField] private SectionEventManager sectionEventManager;
+    [SerializeField]
+    private ShowGameOver bottonScript;
     private void Awake()
     {
         //シングルトン
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -30,7 +31,6 @@ public class SectionCount : MonoBehaviour
     void Start()
     {
         InitialLoad();
-        //Debug.Log(currentSection);
     }
 
     /// <summary>
@@ -60,8 +60,9 @@ public class SectionCount : MonoBehaviour
         currentSection++;
         if (currentSection > maxSection)
         {
-            SceneManager.LoadScene("ClearScene");
-            //SceneTransition(ClearScene);
+            //SceneManager.LoadScene("ClearScene");
+            ////SceneTransition(ClearScene);
+            bottonScript.ShowUI();
             InitialLoad();//ステージクリア
         }
     }

@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 public class NotesManager : MonoBehaviour
 {
     NotesDataUnpacker notesDataUnpacker;
-    public TextAsset notesData;
+    //public TextAsset notesData;
     private List<(int,float,int)> notesTimeList = new List<(int,float,int)>();
     private Queue<(int, float, int)> notesTimeQueue = new Queue<(int, float, int)>();
     // Start is called before the first frame update
@@ -24,11 +24,16 @@ public class NotesManager : MonoBehaviour
     //AwakeとStartのどちらが良いか悩み中。
     //Startなら開始タイミングのズレが、Awakeだと順序が不安。
     //セクションが変わるときにtext替えて呼び出し直す？かも
+    public void ReloadSection()
+    {
+        Initialization(BGMManager.instance.soundDataAsset.notesData);
+    }
     public void Initialization(TextAsset text)
     {
         notesDataUnpacker = this.GetComponent<NotesDataUnpacker>();
         notesTimeList = notesDataUnpacker.NotesDataUnpackToTime(text);
         EnemyManager.instance.GetNotesList(notesTimeList);
+        notesTimeQueue.Clear();
     }
 
     public (int,float,int) GetNotesTime()
@@ -43,6 +48,7 @@ public class NotesManager : MonoBehaviour
         {
             notesTimeQueue.Enqueue(item);
         }
+        Debug.Log($"EnemyQueue:{notesTimeQueue.Count}");
     }
     public int NotesListCount()
     {

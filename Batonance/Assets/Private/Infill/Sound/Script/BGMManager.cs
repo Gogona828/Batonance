@@ -10,22 +10,21 @@ using NotesData;
 //外部から変更、通知リスト追加、通知リスト削除のアクセス。
 public class BGMManager : MonoBehaviour
 {
-    private bool set = false;//外部によって呼び出されたことがあるかの検知
+    private bool set = false;   //外部によって呼び出されたことがあるかの検知
     //BPMのサウンド再生、通知用変数
     #region BGM
     private int bpm;    //BPM速度
     public int BPM { get { return bpm; } set { value = bpm; } }
-    private float offset; //曲再生するまでの時間(s)
-    private float beat; //BPMから計算した１拍あたりの間隔秒数
-    private int measure; //小節数
-    private int nowMeasureCount = 2;//小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
-    private float bpmTimer; //一小節の時間カウントタイマー
-    private AudioSource bgmAudioSource;    //再生するオブジェクト。Find指定希望。Awake処理参照
-    private AudioClip bgmAudioClip;    //再生するBGM
-    private bool firstPlay = true;    //offsetをセットするためのbool
-    public SoundDataAsset soundDataAsset;
-
-    public int currentMeasureCount = 2;//小節数カウント.nowと違い全体的な位置を示すために使用する
+    private float offset;                   //曲再生するまでの時間(s)
+    private float beat;                     //BPMから計算した１拍あたりの間隔秒数
+    private int measure;                    //小節数
+    private int nowMeasureCount = 2;        //小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
+    private float bpmTimer;                 //一小節の時間カウントタイマー
+    private AudioSource bgmAudioSource;     //再生するオブジェクト。Find指定希望。Awake処理参照
+    private AudioClip bgmAudioClip;         //再生するBGM
+    private bool firstPlay = true;          //offsetをセットするためのbool
+    public List<SoundDataAsset> soundDataAsset = new List<SoundDataAsset>();
+    public int currentMeasureCount = 2;     //小節数カウント.nowと違い全体的な位置を示すために使用する
 
     //通知用
     public UnityEvent subject = new UnityEvent();
@@ -81,7 +80,7 @@ public class BGMManager : MonoBehaviour
         SetData();
         bgmAudioSource.Play();
     }
-    public void SetBGM(SoundDataAsset _useSoundDataAsset)
+    public void SetBGM(List<SoundDataAsset> _useSoundDataAsset)
     {
         Debug.Log("SetBGM");
         soundDataAsset = _useSoundDataAsset;
@@ -101,13 +100,16 @@ public class BGMManager : MonoBehaviour
     ///</summary>
     private void SetData()
     {
-        BaseData baseData = JsonUtility.FromJson<BaseData>(soundDataAsset.notesData.ToString());
-        bpm = baseData.BPM;
-        offset = baseData.offset;
-        measure = soundDataAsset.measure;
-        beat = 60f / bpm;
-        bgmAudioClip = soundDataAsset.soundFile;
-        bgmAudioSource.clip = bgmAudioClip;
+        //セクション数の獲得
+        int _currentSection = SectionCount.instance.CurrentSection - 1;
+        //各種データのセット
+        BaseData baseData = JsonUtility.FromJson<BaseData>(soundDataAsset[_currentSection].notesData.ToString());
+        bpm = baseData.BPM;                                     //BPM
+        offset = baseData.offset;                               //Offset
+        measure = soundDataAsset[_currentSection].measure;      //measure
+        beat = 60f / bpm;                                       //bpmを秒に変換
+        bgmAudioClip = soundDataAsset[_currentSection].soundFile;//音源獲得
+        bgmAudioSource.clip = bgmAudioClip;                     //音源のセット
         firstPlay = true;
     }
     ///<summary>

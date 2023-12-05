@@ -12,7 +12,7 @@ public class NotesInputCompare : MonoBehaviour
     private float timer = 0;
     private NotesManager notesManager;
     private (int, float, int) data;
-    private bool hitCheck = false;//false => 処理が終わったノーツ True=>最新ノーツ
+    private bool hitCheck = false;             //false => 処理が終わったノーツ True=>最新ノーツ
     public static NotesInputCompare instance;
 
     private NotesCount notesCount;
@@ -42,15 +42,14 @@ public class NotesInputCompare : MonoBehaviour
     public void InputAttack(int way)
     {
         int result = CompareTiming(timer, way);
-        Debug.Log($"result: {result}");
-        Debug.Log(timer);
+        // Debug.Log($"result: {result}");
+        // Debug.Log(timer);
     }
     public int CompareTiming(float inputTime,int way)
     {
         //0 = 良？とかでリスト化かenum化
         int result = 0;
         (int, float, int) _data;
-        //Debug.Log("DeQueue");
         if(!hitCheck)
         {
             hitCheck = true;
@@ -76,10 +75,8 @@ public class NotesInputCompare : MonoBehaviour
             return 0;
         }
         hitCheck = false;
-        Missed();
         if (compareTime < 0.5f)
         {
-            Missed();
             notesCount.CompareNotesCount();
             return 1;
         }

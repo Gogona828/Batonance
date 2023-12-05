@@ -26,7 +26,7 @@ public class NotesManager : MonoBehaviour
     //セクションが変わるときにtext替えて呼び出し直す？かも
     public void ReloadSection()
     {
-        Initialization(BGMManager.instance.soundDataAsset.notesData);
+        Initialization(BGMManager.instance.soundDataAsset[SectionCount.instance.CurrentSection - 1].notesData);
     }
     public void Initialization(TextAsset text)
     {
@@ -38,8 +38,15 @@ public class NotesManager : MonoBehaviour
 
     public (int,float,int) GetNotesTime()
     {
-        if (notesTimeQueue.Count == 0) return (0,0,0);
-        return notesTimeQueue.Dequeue();
+        Debug.Log("NotesData:Send");
+        if (notesTimeQueue.Count == 0)
+        {
+            Debug.Log("Over Dequeue");
+            SectionCount.instance.HalfwayPoint();
+        } 
+        var notes = notesTimeQueue.Dequeue();
+        Debug.Log($"Dequeue:{notes}");
+        return notes;
     }
     //再ロードの際読み込みし直し必要
     public void LoadQueue()
@@ -49,6 +56,7 @@ public class NotesManager : MonoBehaviour
             notesTimeQueue.Enqueue(item);
         }
         Debug.Log($"EnemyQueue:{notesTimeQueue.Count}");
+        EnemyManager.instance.GetNotesList(notesTimeList);
     }
     public int NotesListCount()
     {

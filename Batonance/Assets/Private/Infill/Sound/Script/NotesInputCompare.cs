@@ -50,7 +50,7 @@ public class NotesInputCompare : MonoBehaviour
         //0 = 良？とかでリスト化かenum化
         int result = 0;
         (int, float, int) _data;
-        Debug.Log("DeQueue");
+        //Debug.Log("DeQueue");
         if(!hitCheck)
         {
             hitCheck = true;
@@ -76,16 +76,23 @@ public class NotesInputCompare : MonoBehaviour
             return 0;
         }
         hitCheck = false;
+        Missed();
         if (compareTime < 0.5f)
         {
+            Missed();
             notesCount.CompareNotesCount();
             return 1;
         }
         if (compareTime < 3f)
         {
+            Missed();
             return 2;
         }
-        else return 3;
+        else
+        {
+            Missed();
+            return 3;
+        }
 
     }
 

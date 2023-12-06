@@ -37,6 +37,10 @@ public class NotesInputCompare : MonoBehaviour
     {
         timer += Time.deltaTime;
     }
+    public void ReSetTimer()
+    {
+        timer = 0f;
+    }
 
     //TODO:方向指定が実装できたら引数で取る方へシフト。
     public void InputAttack(int way)
@@ -56,28 +60,23 @@ public class NotesInputCompare : MonoBehaviour
             data = notesManager.GetNotesTime();
         }
         _data = data;
-        if(way == _data.Item1)
-        {
-            float compareTime = Mathf.Abs(_data.Item2 - inputTime);
-            result = CompareTimeToInput(compareTime);
-            Debug.Log($"result:{result}");
-            // TODO: resultの結果に合わせてDealDamageを呼び出す
-            // if (result == 0) dealDamage.DefeatEnemy();
-            Debug.Log("DeQueue:" + result);
-        }
+        float compareTime = Mathf.Abs(_data.Item2 - inputTime);
+        result = CompareTimeToInput(compareTime,way,_data);
+        // TODO: resultの結果に合わせてDealDamageを呼び出す
+        // if (result == 0) dealDamage.DefeatEnemy();
+        Debug.Log("DeQueue:" + result);
         return result;
     }
     //3秒以上はスルー、それ以外は有効。
-    private int CompareTimeToInput(float compareTime)
+    private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
         if (compareTime > 3f)
         {
             return 0;
         }
         hitCheck = false;
-        if (compareTime < 0.5f)
+        if (compareTime < 1.5f && way == _data.Item1)
         {
-            notesCount.CompareNotesCount();
             return 1;
         }
         if (compareTime < 3f)
@@ -88,9 +87,8 @@ public class NotesInputCompare : MonoBehaviour
         else
         {
             Missed();
-            return 3;
+            return 2;
         }
-
     }
 
     /// <summary>

@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="34feeef9-2def-4e50-8217-9b19b1b84c3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Note/NotesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Note/NotesManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Script/NotesInputCompare.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Script/NotesInputCompare.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/DestroyForcibly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/DestroyForcibly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

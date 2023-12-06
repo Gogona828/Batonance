@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isWalk;
     private float latePos;
     private float velocity;
+    private float oneBeat;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += new Vector3(0, 0, -speed);
+        transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
     }
 
     private void EnemyMoveSpeed()
@@ -48,7 +49,10 @@ public class EnemyMovement : MonoBehaviour
     {
         float bpm = 180;
         // TODO: Enemyの移動速度を決める
-        speed = (8 / (60 / bpm * 4)) / _spe;
+        // 1拍の計算
+        oneBeat = 60 / bpm;
+        // 何拍遅れで近づいてくるか（_speが拍数）
+        speed = 4 / (oneBeat * _spe);
         Debug.Log($"speed: {speed}");
     }
 }

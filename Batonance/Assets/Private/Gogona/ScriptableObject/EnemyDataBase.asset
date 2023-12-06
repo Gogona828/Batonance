@@ -18,16 +18,16 @@ MonoBehaviour:
     baseHP: 200
     baseAtk: 20
     baseDef: 0
-    baseSpd: 40
+    baseSpd: 1
   - id: 2
     name: Mob1
     baseHP: 100
     baseAtk: 10
     baseDef: 0
-    baseSpd: 40
+    baseSpd: 1
   - id: 3
     name: Mob2
     baseHP: 150
     baseAtk: 15
     baseDef: 0
-    baseSpd: 40
+    baseSpd: 1

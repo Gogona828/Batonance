@@ -56,7 +56,6 @@ public class NotesManager : MonoBehaviour
         {
             notesTimeQueue.Enqueue(item);
         }
-        Debug.Log($"EnemyQueue:{notesTimeQueue.Count}");
         EnemyManager.instance.GetNotesList(notesTimeList);
     }
     public int NotesListCount()

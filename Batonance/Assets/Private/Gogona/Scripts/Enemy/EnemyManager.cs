@@ -108,7 +108,6 @@ public class EnemyManager : MonoBehaviour
             if (Math.Floor(_temporaryNotes._t) != Math.Ceiling(_temporaryNotes._t)) continue;
             notesPositionData.Enqueue(_temporaryNotes);
         }
-        Debug.Log($"{notesPositionData.Count}");
     }
 
     public void ClearNotesQueue()

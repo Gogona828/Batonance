@@ -39,6 +39,8 @@ public class AdministerGameState : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
+        SectionCount.instance.ReLoad();
+        EnemyManager.instance.ClearNotesQueue();
         showGameOver.ShowUI();
     }
 }

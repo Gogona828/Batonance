@@ -49,6 +49,5 @@ public class EnemyMovement : MonoBehaviour
         oneBeat = 60 / bpm;
         // 何拍遅れで近づいてくるか（_speが拍数）
         speed = 4 / (oneBeat * _spe);
-        Debug.Log($"speed: {speed}");
     }
 }

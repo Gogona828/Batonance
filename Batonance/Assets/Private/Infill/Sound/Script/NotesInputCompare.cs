@@ -99,8 +99,6 @@ public class NotesInputCompare : MonoBehaviour
     private void Missed()
     {
         Debug.Log("Missed");
-        SectionCount.instance.ReLoad();
-        EnemyManager.instance.ClearNotesQueue();
         AdministerGameState.instance.GameOver();
     }
 }

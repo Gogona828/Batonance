@@ -18,7 +18,7 @@ public class TextFlash : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (canvasGroup.alpha == 1) {
             isIncreese = false;
@@ -28,10 +28,10 @@ public class TextFlash : MonoBehaviour
         }
 
         if (isIncreese) {
-            canvasGroup.alpha += increaseRate;
+            canvasGroup.alpha += increaseRate * Time.deltaTime;
         }
         else if (!isIncreese) {
-            canvasGroup.alpha -= increaseRate;
+            canvasGroup.alpha -= increaseRate * Time.deltaTime;
         }
     }
 }

@@ -30,6 +30,7 @@ public class NotesManager : MonoBehaviour
     }
     public void Initialization(TextAsset text)
     {
+        Debug.Log($"reload");
         notesDataUnpacker = this.GetComponent<NotesDataUnpacker>();
         notesTimeList = notesDataUnpacker.NotesDataUnpackToTime(text);
         EnemyManager.instance.GetNotesList(notesTimeList);

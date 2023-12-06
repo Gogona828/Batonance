@@ -164,7 +164,7 @@ public class BGMManager : MonoBehaviour
             Debug.Log($"beat: {beat}");
 
             // TODO: 将来的には「UnityEvent<T0>」でイベントに追加したい
-            EnemyManager.instance.PrepareGeneration(currentMeasureCount);
+            EnemyManager.instance.PrepareGeneration(nowMeasureCount);
         }
     }
     private void AddMeasure()

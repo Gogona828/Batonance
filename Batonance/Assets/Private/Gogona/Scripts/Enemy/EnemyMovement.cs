@@ -5,21 +5,22 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    //エネミーの移動スピード
-    [SerializeField]
-    private float speed;
-    //エネミーがプレイヤーを追いかける限界の距離
-    [SerializeField]
-    private float personalSpace;
-    private EnemyAttack enemyAtk;
     public GameObject player;
     //視野範囲にプレイヤーがいるとT、いないなら
     public bool isLooking;
 
+    //エネミーの移動スピード
+    [SerializeField]
+    private float speed;
     [SerializeField, Tooltip("アニメーターの取得")]
     private Animator animator;
     [SerializeField]
     private float minVelocity;
+    //エネミーがプレイヤーを追いかける限界の距離
+    [SerializeField]
+    private float personalSpace;
+    
+    private EnemyAttack enemyAtk;
     private bool isWalk;
     private float latePos;
     private float velocity;
@@ -34,11 +35,6 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
-    }
-
-    private void EnemyMoveSpeed()
-    {
-        
     }
 
     /// <summary>

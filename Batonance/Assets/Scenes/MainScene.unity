@@ -638,9 +638,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: a05fe0493ef2540b0abd2bdf2dc797c6, type: 3}
+      - m_Target: {fileID: 303570627}
         m_TargetAssemblyTypeName: SceneTransitionController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SceneTransition
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1813,9 +1813,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: a05fe0493ef2540b0abd2bdf2dc797c6, type: 3}
+      - m_Target: {fileID: 303570627}
         m_TargetAssemblyTypeName: SceneTransitionController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SceneTransition
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2191,9 +2191,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: a05fe0493ef2540b0abd2bdf2dc797c6, type: 3}
+      - m_Target: {fileID: 303570627}
         m_TargetAssemblyTypeName: SceneTransitionController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SceneTransition
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5162,9 +5162,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: a05fe0493ef2540b0abd2bdf2dc797c6, type: 3}
+      - m_Target: {fileID: 303570627}
         m_TargetAssemblyTypeName: SceneTransitionController, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SceneTransition
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

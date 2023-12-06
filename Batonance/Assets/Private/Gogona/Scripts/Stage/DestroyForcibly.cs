@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class DestroyForcibly : MonoBehaviour
 {
+    private GameObject destroyTarget;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy")) {
             AdministerGameState.instance.GameOver();
-            Destroy(other.gameObject, 3);
+            destroyTarget = other.gameObject;
+            StartCoroutine(DestroyEnemy());
         }
+    }
+
+    private IEnumerator DestroyEnemy()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(destroyTarget);
     }
 }

@@ -62,7 +62,7 @@ public class NotesInputCompare : MonoBehaviour
             result = CompareTimeToInput(compareTime);
             Debug.Log($"result:{result}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
-            if (result == 0) dealDamage.DefeatEnemy();
+            // if (result == 0) dealDamage.DefeatEnemy();
             Debug.Log("DeQueue:" + result);
         }
         return result;
@@ -100,5 +100,7 @@ public class NotesInputCompare : MonoBehaviour
     {
         Debug.Log("Missed");
         SectionCount.instance.ReLoad();
+        EnemyManager.instance.ClearNotesQueue();
+        AdministerGameState.instance.GameOver();
     }
 }

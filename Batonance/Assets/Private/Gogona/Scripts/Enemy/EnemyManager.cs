@@ -100,6 +100,7 @@ public class EnemyManager : MonoBehaviour
     public void GetNotesList(List<(int _lane, float _time, int _type)> _notesList)
     {
         (int, float _t, int) _temporaryNotes;
+        ClearNotesQueue();
         
         // 生成タイミングをずらす
         for (int i = 0; i < _notesList.Count; i++) {
@@ -107,5 +108,11 @@ public class EnemyManager : MonoBehaviour
             if (Math.Floor(_temporaryNotes._t) != Math.Ceiling(_temporaryNotes._t)) continue;
             notesPositionData.Enqueue(_temporaryNotes);
         }
+        Debug.Log($"{notesPositionData.Count}");
+    }
+
+    public void ClearNotesQueue()
+    {
+        notesPositionData.Clear();
     }
 }

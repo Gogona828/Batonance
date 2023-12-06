@@ -51,6 +51,7 @@ public class SectionCount : MonoBehaviour
         Debug.Log("再スタートしました");
         //セクション更新時に発火するやつ
         sectionEventManager.Initialize(currentSection);
+        EnemyManager.instance.ClearNotesQueue();
     }
     /// <summary>
     /// 中間地点に辿り着いた時に呼び出す

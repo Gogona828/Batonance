@@ -13,6 +13,7 @@ public class ShowGameOver : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         gameOverUI = GetComponent<CanvasGroup>();
         // ゲームオーバーUIを非表示にする
         HideUI();
@@ -27,6 +28,7 @@ public class ShowGameOver : MonoBehaviour
         // ボタンを押せなくする
         retryButton.interactable = true;
         giveUpButton.interactable = true;
+        Time.timeScale = 0;
     }
     
     /// <summary>

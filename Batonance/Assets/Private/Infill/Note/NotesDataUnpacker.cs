@@ -9,7 +9,6 @@ public class NotesDataUnpacker :MonoBehaviour
 {
     public (BaseData,NotesList) NotesDataUnpack(TextAsset textAsset)
     {
-        Debug.Log("UnpackData_Start");
         string inputString = textAsset.ToString();
         BaseData baseData = JsonUtility.FromJson<BaseData>(inputString);
         NotesList noteList = JsonUtility.FromJson<NotesList>(inputString);
@@ -29,8 +28,6 @@ public class NotesDataUnpacker :MonoBehaviour
         List<(int, float, int)> returnData = new List<(int, float, int)>();
         int _BPM = notesData.Item1.BPM;
         int _LPB = notesData.Item2.notes[0].LPB;
-        Debug.Log("Data:NotesCount:" + notesData.Item2.notes.Length);
-        Debug.Log("LPB:" + _LPB);
         for(int i = 0; i < notesData.Item2.notes.Length; i++)
         {
             int _num = notesData.Item2.notes[i].num;

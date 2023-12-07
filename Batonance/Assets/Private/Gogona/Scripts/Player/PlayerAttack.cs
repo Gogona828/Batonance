@@ -73,11 +73,6 @@ public class PlayerAttack : MonoBehaviour
 
         // 攻撃アニメーションの再生
         animator.SetTrigger("Attack");
-        // 攻撃タグに変更
-        await AttackTagSwitching();
-        
-        /* // コンボカウントを足す
-        comboCount++; */
 
         // コンボが続くかを判定
         if (time <= timeContinueCombo && comboCount > 0) {
@@ -86,36 +81,6 @@ public class PlayerAttack : MonoBehaviour
         
         time = 0;
         isAttack = false;
-    }
-
-    public async UniTask AttackTagSwitching()
-    {
-        dealDamage.gameObject.tag = "PlayerAttack";
-        await UniTask.Delay(TimeSpan.FromSeconds(animationCoolTime[comboCount]));
-        dealDamage.gameObject.tag = "Untagged";
-        var effect = Instantiate(slashEffect, Vector3.zero, Quaternion.Euler(-180, 0, 60), effectGenerationPosition);
-        effect.transform.localPosition = new Vector3(0.1f, -0.5f, 0);
-        effect.transform.localRotation = Quaternion.Euler(-180, 0, 60);
-        effect.gameObject.GetComponent<DealDamage>().SetAttackPower(attackPower);
-        Destroy(effect, animationCoolTime[comboCount]);
-    }
-
-    /// <summary>
-    /// コンボの処理
-    /// </summary>
-    public async UniTask Combo()
-    {
-        // 最大コンボ数に到達した時
-        if (comboCount == maxComboNumber) {
-            Debug.Log("最大コンボ！！");
-            // canAttack = false;
-
-            // 最後のコンボのクールタイム
-            await UniTask.Delay(TimeSpan.FromSeconds(comboEndCoolTime));
-
-            // canAttack = true;
-            comboCount = 0;
-        }
     }
 
     public void GetPlayerAttackPower(float _atkPower)

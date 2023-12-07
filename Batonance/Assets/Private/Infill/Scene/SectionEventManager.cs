@@ -33,4 +33,9 @@ public class SectionEventManager : MonoBehaviour
         NowSection = _nowSection;
         subject.Invoke();
     }
+    public void Initialize()
+    {
+        nowSection = SectionCount.instance.CurrentSection;
+        subject.Invoke();
+    }
 }

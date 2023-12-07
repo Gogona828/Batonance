@@ -26,13 +26,13 @@ public class SceneTransitionController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// シーン遷移
-    /// </summary>
-    /// <param name="_sceneName"></param>
-    /// <returns></returns>
     public void SceneTransition(string _sceneName)
     {
         SceneManager.LoadScene(_sceneName);
+    }
+
+    public void SceneReload()
+    {
+        SectionCount.instance.ReLoad();
     }
 }

@@ -30,11 +30,13 @@ public class SectionEventManager : MonoBehaviour
     }
     public void Initialize(int _nowSection)
     {
+        Debug.Log("EventFire:Initialize(int)");
         NowSection = _nowSection;
         subject.Invoke();
     }
     public void Initialize()
     {
+        Debug.Log("EventFire:Initialize()");
         nowSection = SectionCount.instance.CurrentSection;
         subject.Invoke();
     }

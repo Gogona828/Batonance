@@ -1122,6 +1122,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 574014820886614504, guid: 211cc1cab084d46438e61e20ba441376,
         type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 574014820886614504, guid: 211cc1cab084d46438e61e20ba441376,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 574014820886614504, guid: 211cc1cab084d46438e61e20ba441376,
+        type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 5c92f600639aa4154a9c520cff18ed07, type: 3}
@@ -1133,17 +1143,17 @@ PrefabInstance:
     - target: {fileID: 8113501520035230763, guid: 211cc1cab084d46438e61e20ba441376,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.54606
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8113501520035230763, guid: 211cc1cab084d46438e61e20ba441376,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.094569206
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8113501520035230763, guid: 211cc1cab084d46438e61e20ba441376,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.8216047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8113501520035230763, guid: 211cc1cab084d46438e61e20ba441376,
         type: 3}
@@ -1635,6 +1645,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4aaf4b7f345d24bb19241a71222525fc,
         type: 2}
+    - target: {fileID: 6090644587899146485, guid: ba9f0f34dd5bbe8418a98f513a544b94,
+        type: 3}
+      propertyPath: currentMeasureCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090644587899146485, guid: ba9f0f34dd5bbe8418a98f513a544b94,
         type: 3}
       propertyPath: soundDataAsset.Array.size

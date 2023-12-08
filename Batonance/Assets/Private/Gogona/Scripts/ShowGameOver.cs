@@ -37,6 +37,7 @@ public class ShowGameOver : MonoBehaviour
     {
         if (!gameOverUI) return;
         gameOverUI.alpha = 0;
+        Time.timeScale = 1;
         // ボタンを押せるようにする
         retryButton.interactable = false;
         giveUpButton.interactable = false;

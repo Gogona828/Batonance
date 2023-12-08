@@ -18,13 +18,13 @@ public class BGMManager : MonoBehaviour
     private float offset;                   //曲再生するまでの時間(s)
     private float beat;                     //BPMから計算した１拍あたりの間隔秒数
     private int measure;                    //小節数
-    private int nowMeasureCount = 2;        //小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
+    private int nowMeasureCount;        //小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
     private float bpmTimer;                 //一小節の時間カウントタイマー
     private AudioSource bgmAudioSource;     //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;         //再生するBGM
     private bool firstPlay = true;          //offsetをセットするためのbool
     public List<SoundDataAsset> soundDataAsset = new List<SoundDataAsset>();
-    public int currentMeasureCount = 2;     //小節数カウント.nowと違い全体的な位置を示すために使用する
+    [System.NonSerialized]public int currentMeasureCount;     //小節数カウント.nowと違い全体的な位置を示すために使用する
 
     //通知用
     public UnityEvent subject = new UnityEvent();
@@ -77,6 +77,7 @@ public class BGMManager : MonoBehaviour
     ///</summary>
     public void SetBGM()
     {
+        ResetMeasure();
         SetData();
         bgmAudioSource.Play();
         AdministerGameState.instance.GameStart();
@@ -99,6 +100,12 @@ public class BGMManager : MonoBehaviour
     public (int,int) GetMeasure()
     {
         return (nowMeasureCount, currentMeasureCount);
+    }
+    public void ResetMeasure()
+    {
+        nowMeasureCount = 1;
+        currentMeasureCount = 1;
+        Debug.Log($"nowmeasure{nowMeasureCount},currentmeasure{currentMeasureCount}");
     }
     ///<summary>
     ///セットされたScriptableObjectから各種データをセットする。
@@ -154,7 +161,12 @@ public class BGMManager : MonoBehaviour
             BPMNotifier();
             // Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
             //floatの歪みを矯正
-            if (nowMeasureCount  == measure + 1)
+            if (SectionCount.instance.CurrentSection == 1 && nowMeasureCount  == measure)
+            {
+                Debug.Log("CheckPoint");
+                BGMLoop();
+            }
+            if (SectionCount.instance.CurrentSection != 1 && nowMeasureCount  == measure + 1)
             {
                 Debug.Log("CheckPoint");
                 BGMLoop();
@@ -182,7 +194,7 @@ public class BGMManager : MonoBehaviour
     private void BGMLoop()
     {
         bpmTimer = 0f;
-        nowMeasureCount = 1;
+        nowMeasureCount = 0;
         // 競合解決
         SectionCount.instance.HalfwayPoint();
         sectionEventManager.Initialize(SectionCount.instance.CurrentSection);

@@ -39,14 +39,11 @@ public class NotesManager : MonoBehaviour
 
     public (int,float,int) GetNotesTime()
     {
-        Debug.Log("NotesData:Send");
         if (notesTimeQueue.Count == 0)
         {
-            Debug.Log("Over Dequeue");
             SectionCount.instance.HalfwayPoint();
         } 
         var notes = notesTimeQueue.Dequeue();
-        Debug.Log($"Dequeue:{notes}");
         return notes;
     }
     //再ロードの際読み込みし直し必要

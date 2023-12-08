@@ -22,6 +22,7 @@ public class DebugTextUpdater : MonoBehaviour
     }
     void FixedUpdate()
     {
-        text.text = $"NowMeasure:{SectionCount.instance.CurrentSection}\n";
+        (int, int) measureData = BGMManager.instance.GetMeasure();
+        text.text = $"NowSection:{SectionCount.instance.CurrentSection}\nNowMeasure:{measureData.Item1}\nCurrentMeasure:{measureData.Item2}";
     }
 }

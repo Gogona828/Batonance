@@ -53,7 +53,6 @@ public class NotesManager : MonoBehaviour
         {
             notesTimeQueue.Enqueue(item);
         }
-        EnemyManager.instance.GetNotesList(notesTimeList);
     }
     public int NotesListCount()
     {

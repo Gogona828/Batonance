@@ -9,11 +9,15 @@ GetComponent<SEManager>().PlaySE(seIndex);
 */
 public class SEManager : MonoBehaviour
 {
+    // 2023/12/07: 富田がシングルトン化した
+    public static SEManager instance;
     public List<AudioClip> seList = new List<AudioClip>();
     private AudioSource audioSource;
 
     private void Awake()
     {
+        if (!instance) instance = this;
+        else Destroy(this);
         audioSource = GetComponent<AudioSource>();
     }
 

@@ -73,11 +73,6 @@ public class PlayerAttack : MonoBehaviour
 
         // 攻撃アニメーションの再生
         animator.SetTrigger("Attack");
-
-        // コンボが続くかを判定
-        if (time <= timeContinueCombo && comboCount > 0) {
-            // await Combo();
-        }
         
         time = 0;
         isAttack = false;

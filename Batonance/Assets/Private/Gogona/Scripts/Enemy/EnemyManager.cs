@@ -110,7 +110,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void ClearNotesQueue()
+    private void ClearNotesQueue()
     {
         notesPositionData.Clear();
     }

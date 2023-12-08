@@ -28,7 +28,6 @@ public class ShowGameOver : MonoBehaviour
         // ボタンを押せなくする
         retryButton.interactable = true;
         giveUpButton.interactable = true;
-        Time.timeScale = 0;
     }
     
     /// <summary>
@@ -36,6 +35,7 @@ public class ShowGameOver : MonoBehaviour
     /// </summary>
     public void HideUI()
     {
+        if (!gameOverUI) return;
         gameOverUI.alpha = 0;
         Time.timeScale = 1;
         // ボタンを押せるようにする

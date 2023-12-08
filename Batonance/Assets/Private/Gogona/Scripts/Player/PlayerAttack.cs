@@ -76,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
 
         // コンボが続くかを判定
         if (time <= timeContinueCombo && comboCount > 0) {
-            await Combo();
+            // await Combo();
         }
         
         time = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NotesData;
+
 /// <summary>
 /// 入力と譜面を比較して、差異を計算する
 /// </summary>
@@ -9,18 +10,22 @@ public class NotesInputCompare : MonoBehaviour
 {
     [SerializeField, Tooltip("PlayerのDealDamageを入れる")]
     private DealDamage dealDamage;
+
     private float timer = 0;
     private NotesManager notesManager;
     private (int, float, int) data;
-    private bool hitCheck = false;             //false => 処理が終わったノーツ True=>最新ノーツ
+    private bool hitCheck = false; //false => 処理が終わったノーツ True=>最新ノーツ
     public static NotesInputCompare instance;
 
     private NotesCount notesCount;
+
     // Start is called before the first frame update
-    private void Awake() {
+    private void Awake()
+    {
         if (!instance) instance = this;
         else Destroy(this);
     }
+
     void Start()
     {
         GameObject notesManagerObject = GameObject.Find("NotesManager");
@@ -31,12 +36,14 @@ public class NotesInputCompare : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
     void FixedUpdate()
     {
         timer += Time.deltaTime;
     }
+
     public void ReSetTimer()
     {
         timer = 0f;
@@ -49,27 +56,32 @@ public class NotesInputCompare : MonoBehaviour
         // Debug.Log($"result: {result}");
         // Debug.Log(timer);
     }
-    public int CompareTiming(float inputTime,int way)
+
+    public int CompareTiming(float inputTime, int way)
     {
         //0 = 良？とかでリスト化かenum化
         int result = 0;
         (int, float, int) _data;
-        if(!hitCheck)
+        if (!hitCheck)
         {
             hitCheck = true;
             data = notesManager.GetNotesTime();
         }
+
         _data = data;
-        if(way == _data.Item1)
+        if (way == _data.Item1)
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
-            result = CompareTimeToInput(compareTime);
+            result = CompareTimeToInput(compareTime, way, _data);
             Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
             if (result == 0 || result == 1) dealDamage.DefeatEnemy();
             Debug.Log("DeQueue:" + result);
-        return result;
+            return result;
+        }
+        else return 2;
     }
+
     //3秒以上はスルー、それ以外は有効。
     private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
@@ -97,7 +109,7 @@ public class NotesInputCompare : MonoBehaviour
     /// <summary>
     /// ミスしたときの処理
     /// </summary>
-    private void Missed()
+    public void Missed()
     {
         Debug.Log("Missed");
         SEManager.instance.PlaySE(0);

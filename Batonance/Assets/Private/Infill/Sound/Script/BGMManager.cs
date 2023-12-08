@@ -79,6 +79,11 @@ public class BGMManager : MonoBehaviour
     {
         SetData();
         bgmAudioSource.Play();
+        AdministerGameState.instance.GameStart();
+    }
+    public void StopBGM()
+    {
+        bgmAudioSource.Stop();
     }
     public void SetBGM(List<SoundDataAsset> _useSoundDataAsset)
     {
@@ -161,7 +166,6 @@ public class BGMManager : MonoBehaviour
             {
                 metronomeSE.PlayOneShot(metronomeSE.clip);
             }
-            Debug.Log($"beat: {beat}");
 
             // TODO: 将来的には「UnityEvent<T0>」でイベントに追加したい
             EnemyManager.instance.PrepareGeneration(nowMeasureCount);
@@ -184,6 +188,12 @@ public class BGMManager : MonoBehaviour
         sectionEventManager.Initialize(SectionCount.instance.CurrentSection);
         
     }
+
+    public void ResetBGM()
+    {
+        bpmTimer = 0f;
+        nowMeasureCount = 1;
+    }
     #endregion
 
     #region 通知
@@ -192,7 +202,6 @@ public class BGMManager : MonoBehaviour
     ///</summary>
     private void BPMNotifier()
     {
-        Debug.Log("BPM通知");
         subject.Invoke();
         subjectForHalf.Invoke();
     }

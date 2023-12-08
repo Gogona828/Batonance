@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
         // 攻撃アニメーションの再生
         animator.SetTrigger("Attack");
         // 攻撃タグに変更
-        await AttackTagSwitching();
+        // await AttackTagSwitching();
         
         /* // コンボカウントを足す
         comboCount++; */

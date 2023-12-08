@@ -28,14 +28,14 @@ public class ShowGameOver : MonoBehaviour
         // ボタンを押せなくする
         retryButton.interactable = true;
         giveUpButton.interactable = true;
-        Time.timeScale = 0;
     }
     
     /// <summary>
     /// ゲームオーバーUIを非表示にする
     /// </summary>
-    void HideUI()
+    public void HideUI()
     {
+        if (!gameOverUI) return;
         gameOverUI.alpha = 0;
         // ボタンを押せるようにする
         retryButton.interactable = false;

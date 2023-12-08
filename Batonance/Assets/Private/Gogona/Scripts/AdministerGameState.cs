@@ -39,8 +39,14 @@ public class AdministerGameState : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-        SectionCount.instance.ReLoad();
-        EnemyManager.instance.ClearNotesQueue();
+        Time.timeScale = 0;
+        BGMManager.instance.StopBGM();
         showGameOver.ShowUI();
+    }
+
+    public void GameStart()
+    {
+        Time.timeScale = 1;
+        showGameOver.HideUI();
     }
 }

@@ -38,6 +38,7 @@ public class PlayerInputManager : MonoBehaviour
     
     public void DetectButtonEntry()
     {
+        if (Time.timeScale == 0) return;
         if (isLeftInputFound()) {
             Debug.Log($"left attack");
             LeftEntry();

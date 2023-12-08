@@ -60,9 +60,9 @@ public class NotesInputCompare : MonoBehaviour
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime);
-            Debug.Log($"result:{result}");
+            Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
-            // if (result == 0) dealDamage.DefeatEnemy();
+            if (result == 0 || result == 1) dealDamage.DefeatEnemy();
             Debug.Log("DeQueue:" + result);
         }
         return result;
@@ -70,17 +70,17 @@ public class NotesInputCompare : MonoBehaviour
     //3秒以上はスルー、それ以外は有効。
     private int CompareTimeToInput(float compareTime)
     {
-        if (compareTime > 3f)
+        if (compareTime > 0.3f)
         {
             return 0;
         }
         hitCheck = false;
         if (compareTime < 0.5f)
         {
-            notesCount.CompareNotesCount();
+            // notesCount.CompareNotesCount();
             return 1;
         }
-        if (compareTime < 3f)
+        if (compareTime < 0.3f)
         {
             Missed();
             return 2;
@@ -99,6 +99,7 @@ public class NotesInputCompare : MonoBehaviour
     private void Missed()
     {
         Debug.Log("Missed");
+        SEManager.instance.PlaySE(0);
         AdministerGameState.instance.GameOver();
     }
 }

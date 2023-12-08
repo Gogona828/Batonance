@@ -37,6 +37,8 @@ public class BGMManager : MonoBehaviour
 
     SectionEventManager sectionEventManager;
 
+    private bool is_FirstPlay = true;       //セクション１が最初か、全てクリアした後なのか判断
+    public bool Is_FirstPlay { get { return is_FirstPlay; } private set{value = is_FirstPlay; } }
     // 富田が追加
     public static BGMManager instance;
     #endregion
@@ -67,6 +69,12 @@ public class BGMManager : MonoBehaviour
     void FixedUpdate()
     {
         if(set)Metronome();
+        //無理やり時間を止める
+        if (!is_FirstPlay && SectionCount.instance.CurrentSection == 1 && Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+            bgmAudioSource.Stop();
+        }
     }
     #endregion
     
@@ -106,6 +114,11 @@ public class BGMManager : MonoBehaviour
         nowMeasureCount = 1;
         currentMeasureCount = 1;
         Debug.Log($"nowmeasure{nowMeasureCount},currentmeasure{currentMeasureCount}");
+        //二度目のセクション１がロードされるため、時間停止で処理
+        if(!is_FirstPlay && SectionCount.instance.CurrentSection == 1)
+        {
+            Time.timeScale = 0;
+        }
     }
     ///<summary>
     ///セットされたScriptableObjectから各種データをセットする。
@@ -198,7 +211,11 @@ public class BGMManager : MonoBehaviour
         // 競合解決
         SectionCount.instance.HalfwayPoint();
         sectionEventManager.Initialize(SectionCount.instance.CurrentSection);
-        
+        //セクションが切り替わったらセクション１は終了。クリアした後のセクション１と区別するboolを変更する
+        if(SectionCount.instance.CurrentSection != 1)
+        {
+            is_FirstPlay = false;
+        }
     }
 
     public void ResetBGM()

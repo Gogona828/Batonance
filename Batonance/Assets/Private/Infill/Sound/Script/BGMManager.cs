@@ -156,7 +156,12 @@ public class BGMManager : MonoBehaviour
             BPMNotifier();
             // Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
             //floatの歪みを矯正
-            if (nowMeasureCount  == measure + 1)
+            if (SectionCount.instance.CurrentSection == 1 && nowMeasureCount  == measure)
+            {
+                Debug.Log("CheckPoint");
+                BGMLoop();
+            }
+            if (SectionCount.instance.CurrentSection != 1 && nowMeasureCount  == measure + 1)
             {
                 Debug.Log("CheckPoint");
                 BGMLoop();

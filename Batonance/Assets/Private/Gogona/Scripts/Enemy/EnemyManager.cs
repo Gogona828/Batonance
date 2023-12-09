@@ -114,4 +114,13 @@ public class EnemyManager : MonoBehaviour
     {
         notesPositionData.Clear();
     }
+
+    public void ClearEnemiesQueue()
+    {
+        int originalEnemyNum = enemiesQueue.Count;
+        for (int i = 0; i < originalEnemyNum; i++)
+        {
+            Destroy(enemiesQueue.Dequeue());
+        }
+    }
 }

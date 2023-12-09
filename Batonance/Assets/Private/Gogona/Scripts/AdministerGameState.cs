@@ -41,6 +41,7 @@ public class AdministerGameState : MonoBehaviour
     {
         Time.timeScale = 0;
         BGMManager.instance.StopBGM();
+        EnemyManager.instance.ClearEnemiesQueue();
         showGameOver.ShowUI();
     }
 

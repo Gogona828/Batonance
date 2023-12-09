@@ -14,14 +14,6 @@ public class EnemyBase : MonoBehaviour
     private EnemyAttack enemyAtk;
     private EnemyMovement enemyMov;
 
-    /// <summary>
-    /// Awake is called when the script instance is being loaded.
-    /// </summary>
-    private void Awake()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start() => Init();
 
@@ -37,6 +29,7 @@ public class EnemyBase : MonoBehaviour
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);
         EnemyManager.instance.enemiesQueue.Enqueue(gameObject);
+        Debug.Log($"enemies count : {EnemyManager.instance.enemiesQueue.Count}");
     }
 
     /// <summary>

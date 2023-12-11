@@ -37,6 +37,10 @@ public class EnemyBase : MonoBehaviour
     /*private void FixedUpdate()
     {
         aliveTime += Time.deltaTime;
+    }
+
+    private void OnDestroy()
+    {
         Debug.Log($"alive time : {aliveTime}");
     }*/
 

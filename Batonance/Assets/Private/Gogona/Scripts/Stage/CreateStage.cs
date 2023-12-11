@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class CreateStage : MonoBehaviour
 {
-    [SerializeField, Tooltip("ステージのPrefab")]
-    private GameObject stagePrefab;
 
     // 置かれているステージ
     public List<GameObject> placedStages;
@@ -18,6 +16,9 @@ public class CreateStage : MonoBehaviour
     private GameObject generatedStage;
     // ステージのオフセット
     private Vector3 offset = new Vector3(0, 0, 9.5f);
+    //内野追記
+    //全てのステージを保存するスクリプト
+    public List<GameObject> fieldList = new List<GameObject>();
     
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class CreateStage : MonoBehaviour
     /// </summary>
     private void AddStage()
     {
-        generatedStage = Instantiate(stagePrefab, stageGenerationPosition, Quaternion.identity, gameObject.transform);
+        generatedStage = Instantiate(fieldList[Random.Range(0,fieldList.Count)], stageGenerationPosition, Quaternion.identity, gameObject.transform);
         generatedStage.transform.position = placedStages[placedStages.Count - 1].transform.position + offset;
         placedStages.Add(generatedStage);
     }

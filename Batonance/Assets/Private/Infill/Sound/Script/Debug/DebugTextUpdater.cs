@@ -11,7 +11,7 @@ public class DebugTextUpdater : MonoBehaviour
     NotesInputCompare notesInputCompare;
     public int lastResult;
     public static DebugTextUpdater instance;
-    public bool hitCheck;
+    private bool hitCheck;
     public float distance;
     // Start is called before the first frame update
     void Awake()
@@ -35,7 +35,6 @@ public class DebugTextUpdater : MonoBehaviour
     void FixedUpdate()
     {
         (int, int) measureData = BGMManager.instance.GetMeasure();
-        var data = 
         text.text = $"NowSection:{SectionCount.instance.CurrentSection}\nNowMeasure:{measureData.Item1}\nCurrentMeasure:{measureData.Item2}\nNowTimeScane:{Time.timeScale}\nis_FirstPlay:{BGMManager.instance.Is_FirstPlay}\nNowQueueData:{notesInputCompare.data}\nLastResult:{lastResult}\nHitCheck:{hitCheck}\nDistance:{distance}";
     }
 }

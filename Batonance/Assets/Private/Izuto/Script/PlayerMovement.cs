@@ -128,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
             return;
         }*/
         // velocity = ((transform.position.x + transform.position.z) / 2 - latePos);
-        animator.SetFloat("Walk", 1/*Mathf.Abs(velocity / Time.deltaTime)*/);
+        animator.SetFloat("Run", 1);
         // latePos = (transform.position.x + transform.position.z) / 2;
         moveDirection.y += Physics.gravity.y * Time.deltaTime;// 重力の適用
         
         PC.Move(moveDirection * Time.deltaTime);// 移動の実行
-        animator.SetBool("BoolWalk", isWalk);
+        // animator.SetBool("BoolWalk", isWalk);
     }
 
     //public float CalculateDamage(float damageAmount)// ダメージ計算時に呼ばれる関数
@@ -154,5 +154,6 @@ public class PlayerMovement : MonoBehaviour
     public void GetPlayerSpeed(float _spe)
     {
         speed = _spe;
+        animator.SetFloat("RunSpeed", 3);
     }
 }

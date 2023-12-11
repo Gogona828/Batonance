@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
+    [SerializeField, Tooltip("アニメーターを取得")]
+    private Animator animator;
+    [SerializeField, Tooltip("エフェクトリスト")]
+    private List<GameObject> effectList = new List<GameObject>();
     private PlayerAttack playerAttack;
 
     // 左入力の感知
@@ -59,6 +63,7 @@ public class PlayerInputManager : MonoBehaviour
     public void LeftEntry()
     {
         playerAttack.Attack();
+        animator.SetTrigger("LeftAttack");
         NotesInputCompare.instance.InputAttack(0);
     }
 
@@ -68,6 +73,7 @@ public class PlayerInputManager : MonoBehaviour
     public void FrontEntry()
     {
         playerAttack.Attack();
+        animator.SetTrigger("FrontAttack");
         NotesInputCompare.instance.InputAttack(1);
     }
 
@@ -77,6 +83,7 @@ public class PlayerInputManager : MonoBehaviour
     public void RightEntry()
     {
         playerAttack.Attack();
+        animator.SetTrigger("RightAttack");
         NotesInputCompare.instance.InputAttack(2);
     }
 }

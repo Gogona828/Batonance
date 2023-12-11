@@ -19,7 +19,7 @@ public class BGMManager : MonoBehaviour
     private float beat;                     //BPMから計算した１拍あたりの間隔秒数
     private int measure;                    //小節数
     private int nowMeasureCount;        //小節数カウント.++が先に入るため１～小節数の範囲内でカウントする。
-    private float bpmTimer;                 //一小節の時間カウントタイマー
+    public float bpmTimer { get; private set; }                 //一小節の時間カウントタイマー
     private AudioSource bgmAudioSource;     //再生するオブジェクト。Find指定希望。Awake処理参照
     private AudioClip bgmAudioClip;         //再生するBGM
     private bool firstPlay = true;          //offsetをセットするためのbool

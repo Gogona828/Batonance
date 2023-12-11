@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class EnemyBase : MonoBehaviour
     private HPController hPCtrl;
     private EnemyAttack enemyAtk;
     private EnemyMovement enemyMov;
+    private float aliveTime = 0;
 
     // Start is called before the first frame update
     void Start() => Init();
@@ -31,6 +33,12 @@ public class EnemyBase : MonoBehaviour
         EnemyManager.instance.enemiesQueue.Enqueue(gameObject);
         Debug.Log($"enemies count : {EnemyManager.instance.enemiesQueue.Count}");
     }
+
+    /*private void FixedUpdate()
+    {
+        aliveTime += Time.deltaTime;
+        Debug.Log($"alive time : {aliveTime}");
+    }*/
 
     /// <summary>
     /// 各クラスのデータを取得

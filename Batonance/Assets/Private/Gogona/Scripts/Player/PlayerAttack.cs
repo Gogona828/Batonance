@@ -12,25 +12,12 @@ public class PlayerAttack : MonoBehaviour
     private float coolTime = 0.1f;
     [SerializeField, Tooltip("DealDamageの参照")]
     private DealDamage dealDamage;
-
-    [Header("コンボ関連")]
-    [SerializeField, Tooltip("コンボ終わりのクールタイム")]
-    private float comboEndCoolTime = 1.0f;
-    [SerializeField, Tooltip("コンボが継続する時間")]
-    private float timeContinueCombo = 1.0f;
-    [SerializeField, Tooltip("コンボ数")]
-    private int comboCount = 0;
-    [SerializeField, Tooltip("最大コンボ数")]
-    private int maxComboNumber = 3;
+    
     private float time = 0;
     [SerializeField]
     private Animator animator;
     [SerializeField, Tooltip("アニメーションの時間")]
     private float[] animationCoolTime;
-    [SerializeField, Tooltip("斬撃エフェクト")]
-    private GameObject slashEffect;
-    [SerializeField, Tooltip("エフェクト生成位置")]
-    private Transform effectGenerationPosition;
 
     //ノーツ判定
     private NotesInputCompare notesInputCompare;
@@ -56,10 +43,6 @@ public class PlayerAttack : MonoBehaviour
         if (time >= coolTime && (Input.GetMouseButtonDown(0) || Input.GetButtonDown("TriangleButton")) && !isAttack) {
             Attack();
         }
-        // コンボをしなかったらcomboCountを0にする
-        if (time > timeContinueCombo) {
-            comboCount = 0;
-        }
     }
 
     /// <summary>
@@ -68,11 +51,6 @@ public class PlayerAttack : MonoBehaviour
     public async void Attack()
     {
         isAttack = true;
-        // 最大コンボ数なら攻撃を中断
-        if (comboCount == maxComboNumber) return;
-
-        // 攻撃アニメーションの再生
-        animator.SetTrigger("Attack");
         
         time = 0;
         isAttack = false;

@@ -48,6 +48,6 @@ public class EnemyMovement : MonoBehaviour
         // 1拍の計算
         oneBeat = 60 / bpm;
         // 何拍遅れで近づいてくるか（_speが拍数）
-        speed = 4 / (oneBeat * _spe);
+        speed = 2.25f / (oneBeat * _spe);
     }
 }

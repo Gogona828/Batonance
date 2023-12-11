@@ -967,7 +967,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1719734834}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2015,7 +2016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690293655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3107,6 +3108,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShockEffect_001
       objectReference: {fileID: 0}
+    - target: {fileID: 5229998429800348774, guid: be96f688ad75b494a991831db474e417,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229998429800348774, guid: be96f688ad75b494a991831db474e417,
+        type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6925174207130804896, guid: be96f688ad75b494a991831db474e417,
         type: 3}
       propertyPath: m_RootOrder
@@ -3645,6 +3656,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!198 &1375580856 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5229998429800348774, guid: be96f688ad75b494a991831db474e417,
+    type: 3}
+  m_PrefabInstance: {fileID: 1210536671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423393728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1630934673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3950,7 +3967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630934672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.61}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 8.416681, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4155,6 +4172,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719256576}
   m_CullTransparentMesh: 1
+--- !u!1 &1719734833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1719734834}
+  - component: {fileID: 1719734835}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719734834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719734833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 303570626}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1719734835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719734833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577ecb94b4edc449f8c0d20e21021693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectList:
+  - {fileID: 1375580856}
 --- !u!1 &1913153636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,6 +4720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1150491100}
+  effectList: []
 --- !u!114 &2000644867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4710,18 +4774,11 @@ MonoBehaviour:
   attackPower: 2
   coolTime: 0.1
   dealDamage: {fileID: 1150491099}
-  comboEndCoolTime: 1
-  timeContinueCombo: 1
-  comboCount: 0
-  maxComboNumber: 3
   animator: {fileID: 1150491100}
   animationCoolTime:
   - 0.1
   - 0.1
   - 0.1
-  slashEffect: {fileID: 6495482139994179468, guid: 4cc9a6bb0c0518747ae297f600173de8,
-    type: 3}
-  effectGenerationPosition: {fileID: 653025761}
   isAttack: 0
 --- !u!114 &2000644870
 MonoBehaviour:

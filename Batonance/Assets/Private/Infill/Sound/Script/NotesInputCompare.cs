@@ -48,6 +48,7 @@ public class NotesInputCompare : MonoBehaviour
     public void ReSetTimer()
     {
         timer = 0f;
+        Debug.Log($"reset");
     }
 
     //TODO:方向指定が実装できたら引数で取る方へシフト。
@@ -70,6 +71,7 @@ public class NotesInputCompare : MonoBehaviour
         // }
 
         _data = data;
+        Debug.Log($"notes time : {_data.Item2}, input time : {inputTime}");
         if (way == _data.Item1)
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
@@ -77,7 +79,10 @@ public class NotesInputCompare : MonoBehaviour
             DebugTextUpdater.instance.lastResult = result;
             Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
-            if (result == 0 || result == 1) dealDamage.DefeatEnemy();
+            if (result == 1)
+            {
+                dealDamage.StartCoroutine("DefeatEnemy", way);
+            }
             Debug.Log("DeQueue:" + result);
             return result;
         }
@@ -94,7 +99,7 @@ public class NotesInputCompare : MonoBehaviour
             return 0;
         }
         // hitCheck = false;
-        if (compareTime < 1.5f && way == _data.Item1)
+        if (compareTime < 0.3f && way == _data.Item1)
         {
             return 1;
         }

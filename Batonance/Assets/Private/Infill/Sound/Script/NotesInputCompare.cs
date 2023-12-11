@@ -19,11 +19,15 @@ public class NotesInputCompare : MonoBehaviour
 
     private NotesCount notesCount;
 
+    //Debug
+    private DebugTextUpdater debugText;
+
     // Start is called before the first frame update
     private void Awake()
     {
         if (!instance) instance = this;
         else Destroy(this);
+        DebugTextUpdater debugText = DebugTextUpdater.instance;
     }
 
     void Start()
@@ -76,7 +80,9 @@ public class NotesInputCompare : MonoBehaviour
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime, way, _data);
-            DebugTextUpdater.instance.lastResult = result;
+            //Debug用。見つからなければスルーする
+            if (debugText != null) debugText.lastResult = result;
+
             Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
             if (result == 1)
@@ -93,7 +99,7 @@ public class NotesInputCompare : MonoBehaviour
     private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
         // hitCheck = false;
-        DebugTextUpdater.instance.distance = compareTime;
+        if(debugText != null)debugText.distance = compareTime;
         if (compareTime > 0.3f)
         {
             return 0;

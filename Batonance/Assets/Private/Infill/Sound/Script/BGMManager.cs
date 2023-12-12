@@ -38,6 +38,7 @@ public class BGMManager : MonoBehaviour
     SectionEventManager sectionEventManager;
 
     private bool is_FirstPlay = true;       //セクション１が最初か、全てクリアした後なのか判断
+    public bool isMissed = true;        //True=ミスしてない,シーンリロード時の小節カウント調整
     public bool Is_FirstPlay { get { return is_FirstPlay; } private set{value = is_FirstPlay; } }
     // 富田が追加
     public static BGMManager instance;
@@ -88,18 +89,12 @@ public class BGMManager : MonoBehaviour
         ResetMeasure();
         SetData();
         bgmAudioSource.Play();
+
         AdministerGameState.instance.GameStart();
     }
     public void StopBGM()
     {
         bgmAudioSource.Stop();
-    }
-    public void SetBGM(List<SoundDataAsset> _useSoundDataAsset)
-    {
-        Debug.Log("SetBGM");
-        soundDataAsset = _useSoundDataAsset;
-        SetData();
-        bgmAudioSource.Play();
     }
     /// <summary>
     /// 現在の小節数（楽曲のなかの何小節目か,全体から見て何小節目か)をreturnする
@@ -174,12 +169,22 @@ public class BGMManager : MonoBehaviour
             BPMNotifier();
             // Debug.Log($"nowMeasure:{nowMeasureCount},currentMeasure{currentMeasureCount}");
             //floatの歪みを矯正
-            if (SectionCount.instance.CurrentSection == 1 && nowMeasureCount  == measure)
+            if (SectionCount.instance.CurrentSection == 1 && nowMeasureCount  == measure && isMissed)
             {
                 Debug.Log("CheckPoint");
                 BGMLoop();
             }
-            if (SectionCount.instance.CurrentSection != 1 && nowMeasureCount  == measure + 1)
+            if (SectionCount.instance.CurrentSection != 1 && nowMeasureCount  == measure + 1 && isMissed)
+            {
+                Debug.Log("CheckPoint");
+                BGMLoop();
+            }
+            if (SectionCount.instance.CurrentSection == 1 && nowMeasureCount  == measure + 1 && !isMissed)
+            {
+                Debug.Log("CheckPoint");
+                BGMLoop();
+            }
+            if (SectionCount.instance.CurrentSection != 1 && nowMeasureCount  == measure + 1 && !isMissed)
             {
                 Debug.Log("CheckPoint");
                 BGMLoop();

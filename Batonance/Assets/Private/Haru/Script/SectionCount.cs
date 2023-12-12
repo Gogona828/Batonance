@@ -58,6 +58,7 @@ public class SectionCount : MonoBehaviour
     public void HalfwayPoint()
     {
         currentSection++;
+        BGMManager.instance.isMissed = true;
         if (currentSection > maxSection)
         {
             //SceneManager.LoadScene("ClearScene");

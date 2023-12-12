@@ -10,6 +10,7 @@ public class DestroyForcibly : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy")) {
             Debug.Log($"Missed the enemy");
+            BGMManager.instance.isMissed = false;
             AdministerGameState.instance.GameOver();
             destroyTarget = other.gameObject;
             StartCoroutine(DestroyEnemy());

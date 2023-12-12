@@ -27,7 +27,6 @@ public class NotesInputCompare : MonoBehaviour
     {
         if (!instance) instance = this;
         else Destroy(this);
-        DebugTextUpdater debugText = DebugTextUpdater.instance;
     }
 
     void Start()
@@ -66,12 +65,13 @@ public class NotesInputCompare : MonoBehaviour
     public int CompareTiming(float inputTime, int way)
     {
         //0 = 良？とかでリスト化かenum化
-        int result = 0;
+        int result = 999;
         (int, float, int) _data;
         // if (!hitCheck)
         // {
         //     hitCheck = true;
             data = notesManager.GetNotesTime();
+        Debug.Log($"Debug:{data}");
         // }
 
         _data = data;
@@ -81,7 +81,7 @@ public class NotesInputCompare : MonoBehaviour
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime, way, _data);
             //Debug用。見つからなければスルーする
-            if (debugText != null) debugText.lastResult = result;
+            if (debugText != null) DebugTextUpdater.instance.lastResult = result;
 
             Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
@@ -99,17 +99,17 @@ public class NotesInputCompare : MonoBehaviour
     private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
         // hitCheck = false;
-        if(debugText != null)debugText.distance = compareTime;
-        if (compareTime > 0.3f)
+        if(debugText != null)DebugTextUpdater.instance.distance = compareTime;
+        if (compareTime > 0.5f)
         {
             return 0;
         }
         // hitCheck = false;
-        if (compareTime < 0.3f && way == _data.Item1)
+        if (compareTime < 0.5f && way == _data.Item1)
         {
             return 1;
         }
-        if (compareTime < 0.3f)
+        if (compareTime < 0.5f)
         {
             Missed();
             return 2;
@@ -127,6 +127,7 @@ public class NotesInputCompare : MonoBehaviour
     public void Missed()
     {
         Debug.Log("Missed");
+        BGMManager.instance.isMissed = false;
         data = (0, 0f, 0);
         SEManager.instance.PlaySE(0);
         AdministerGameState.instance.GameOver();

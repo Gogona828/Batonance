@@ -26,6 +26,7 @@ public class EffectManager : MonoBehaviour
     {
         if (index >= 0 && index < effectList.Count)
         {
+            if (index == 1) Debug.Log($"one");
             // EffectControllerがあれば再生する
             effectList[index].GetComponent<EffectController>()?.PlayEffect();
             

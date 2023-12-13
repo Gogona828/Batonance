@@ -29,11 +29,16 @@ public class EffectController : MonoBehaviour
 
     public void PlayEffect()
     {
-        /*// 子オブジェクトの ParticleSystemを再生する
-        foreach (var _childSystem in childSystems)
+        Debug.Log($"effect name : {gameObject.name}");
+
+        if (existsChild)
         {
-            _childSystem?.Play();
-        }*/
+            // 子オブジェクトの ParticleSystemを再生する
+            foreach (var _childSystem in childSystems)
+            {
+                _childSystem?.Play();
+            }
+        }
         
         // このオブジェクトにParticleSystemがなければ終了する
         if (!particleSystem) return;
@@ -42,7 +47,6 @@ public class EffectController : MonoBehaviour
 
     private void StopEffect()
     {
-        Debug.Log($"stopped {gameObject.name}");
         /*// 子オブジェクトの ParticleSystemを停止する
         foreach (var _childSystem in childSystems)
         {

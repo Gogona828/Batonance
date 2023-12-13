@@ -10,13 +10,11 @@ public class DealDamage : MonoBehaviour
 
     private HPController hPCtrl;
 
-    public IEnumerator DefeatEnemy(int way)
+    public void DefeatEnemy(int way)
     {
         EffectManager.instance.PlayEffect(way);
         Debug.Log($"{EnemyManager.instance.enemiesQueue.Peek().name}");
         Destroy(EnemyManager.instance.enemiesQueue.Dequeue());
-        yield return new WaitForSeconds(0.2f);
-        EffectManager.instance.ResetEffectTime(0);
     }
 
     /// <summary>

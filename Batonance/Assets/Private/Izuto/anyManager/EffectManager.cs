@@ -13,7 +13,7 @@ GetComponent<EffectManager>().PlayEffect(effectIndex);
 public class EffectManager : MonoBehaviour
 {
     public static EffectManager instance;
-    public List<ParticleSystem> effectList = new List<ParticleSystem>();
+    public List<GameObject> effectList = new List<GameObject>();
 
     private void Awake()
     {
@@ -21,20 +21,15 @@ public class EffectManager : MonoBehaviour
         else Destroy(this);
     }
 
-    private void Start()
-    {
-        for (int i = 0; i < effectList.Count(); i++)
-        {
-            effectList[i].Stop();
-        }
-    }
-
     // エフェクトを再生するための関数
     public void PlayEffect(int index)
     {
         if (index >= 0 && index < effectList.Count)
         {
-            effectList[index].Play();
+            if (index == 1) Debug.Log($"one");
+            // EffectControllerがあれば再生する
+            effectList[index].GetComponent<EffectController>()?.PlayEffect();
+            
             // ここでエフェクトの位置や他のパラメータを設定できます
             // 例: effect.transform.position = transform.position;
         }
@@ -42,15 +37,5 @@ public class EffectManager : MonoBehaviour
         {
             Debug.LogError("Invalid index for effect.");
         }
-    }
-
-    public void ResetEffectTime(int index)
-    {
-        if (index >= 0 && index < effectList.Count)
-        {
-            effectList[index].Stop();
-            effectList[index].time = 0;
-        }
-        else Debug.LogError("Invalid index for effect.");
     }
 }

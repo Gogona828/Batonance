@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AdministerGameState : MonoBehaviour
 {
+    [SerializeField, Tooltip("Playerの位置")]
+    private Transform playerPosition;
     [SerializeField, Tooltip("ShowGameOverを入れる")]
     private ShowGameOver showGameOver;
     [SerializeField, Tooltip("デバック用")]
@@ -24,6 +26,15 @@ public class AdministerGameState : MonoBehaviour
         else {
             Destroy(this);
         }
+    }
+    
+    /// <summary>
+    /// Playerの位置を取得する
+    /// </summary>
+    /// <returns></returns>
+    public Transform GetPlayerPosition()
+    {
+        return playerPosition;
     }
 
     /// <summary>

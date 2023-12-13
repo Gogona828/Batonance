@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4684794523315033287}
   - component: {fileID: 8861624681367896594}
   - component: {fileID: 4459398416632084375}
+  - component: {fileID: 5007044527823852745}
   m_Layer: 0
   m_Name: ShockEffect_007
   m_TagString: Untagged
@@ -43,12 +44,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4886,6 +4887,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5007044527823852745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155068744295908075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &550977518147418573
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,6 +4911,7 @@ GameObject:
   - component: {fileID: 9213644517042960053}
   - component: {fileID: 209002412304143524}
   - component: {fileID: 7426625049020918082}
+  - component: {fileID: 6938093131157000267}
   m_Layer: 0
   m_Name: ShockEffect_006
   m_TagString: Untagged
@@ -4929,12 +4944,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9772,6 +9787,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6938093131157000267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550977518147418573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &3208007580866272076
 GameObject:
   m_ObjectHideFlags: 0
@@ -9783,6 +9811,7 @@ GameObject:
   - component: {fileID: 1271909919087288514}
   - component: {fileID: 9171243510160266800}
   - component: {fileID: 9022199706373415155}
+  - component: {fileID: 7750766382123658249}
   m_Layer: 0
   m_Name: ShockEffect_002
   m_TagString: Untagged
@@ -9815,12 +9844,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14658,6 +14687,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7750766382123658249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208007580866272076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &4757253813574268476
 GameObject:
   m_ObjectHideFlags: 0
@@ -14669,6 +14711,7 @@ GameObject:
   - component: {fileID: 6925174207130804896}
   - component: {fileID: 5229998429800348774}
   - component: {fileID: 4619629473954222905}
+  - component: {fileID: 3361240125382888574}
   m_Layer: 0
   m_Name: ShockEffect_001
   m_TagString: Untagged
@@ -14695,7 +14738,7 @@ Transform:
   - {fileID: 9213644517042960053}
   - {fileID: 4684794523315033287}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &5229998429800348774
 ParticleSystem:
@@ -14707,12 +14750,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -19550,6 +19593,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3361240125382888574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757253813574268476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 1
 --- !u!1 &7251073924976173014
 GameObject:
   m_ObjectHideFlags: 0
@@ -19561,6 +19617,7 @@ GameObject:
   - component: {fileID: 1063594242272048900}
   - component: {fileID: 1811963130275258032}
   - component: {fileID: 8251439354827252243}
+  - component: {fileID: 8820654668051358485}
   m_Layer: 0
   m_Name: ShockEffect_005
   m_TagString: Untagged
@@ -19593,12 +19650,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -24437,6 +24494,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8820654668051358485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251073924976173014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &7392078584580128100
 GameObject:
   m_ObjectHideFlags: 0
@@ -24448,6 +24518,7 @@ GameObject:
   - component: {fileID: 7922899470182374939}
   - component: {fileID: 7868408922637748152}
   - component: {fileID: 8540881248176016663}
+  - component: {fileID: 8597317192979133778}
   m_Layer: 0
   m_Name: ShockEffect_003
   m_TagString: Untagged
@@ -24480,12 +24551,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -29323,6 +29394,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8597317192979133778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392078584580128100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &8343065541373525522
 GameObject:
   m_ObjectHideFlags: 0
@@ -29334,6 +29418,7 @@ GameObject:
   - component: {fileID: 1264202225527550997}
   - component: {fileID: 8267021657652622244}
   - component: {fileID: 3236294346809322288}
+  - component: {fileID: 6169753179431687693}
   m_Layer: 0
   m_Name: ShockEffect_004
   m_TagString: Untagged
@@ -29366,12 +29451,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -34209,3 +34294,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6169753179431687693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343065541373525522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0

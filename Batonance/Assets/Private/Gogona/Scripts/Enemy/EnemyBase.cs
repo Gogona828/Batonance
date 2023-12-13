@@ -31,18 +31,13 @@ public class EnemyBase : MonoBehaviour
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);
         EnemyManager.instance.enemiesQueue.Enqueue(gameObject);
-        Debug.Log($"enemies count : {EnemyManager.instance.enemiesQueue.Count}");
+        enemyAtk.StartCoroutine("AttackPlayer");
     }
 
-    /*private void FixedUpdate()
+    private void Update()
     {
-        aliveTime += Time.deltaTime;
+        transform.LookAt(AdministerGameState.instance.GetPlayerPosition());
     }
-
-    private void OnDestroy()
-    {
-        Debug.Log($"alive time : {aliveTime}");
-    }*/
 
     /// <summary>
     /// 各クラスのデータを取得

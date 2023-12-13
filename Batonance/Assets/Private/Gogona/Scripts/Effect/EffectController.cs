@@ -29,11 +29,11 @@ public class EffectController : MonoBehaviour
 
     public void PlayEffect()
     {
-        // 子オブジェクトの ParticleSystemを再生する
+        /*// 子オブジェクトの ParticleSystemを再生する
         foreach (var _childSystem in childSystems)
         {
             _childSystem?.Play();
-        }
+        }*/
         
         // このオブジェクトにParticleSystemがなければ終了する
         if (!particleSystem) return;

@@ -13,14 +13,14 @@ public class DealDamage : MonoBehaviour
     public void DefeatEnemy(int way)
     {
         EffectManager.instance.PlayEffect(way);
-        Destroy(EnemyManager.instance.enemiesQueue.Dequeue());
+        EnemyManager.instance.enemiesQueue.Peek().GetComponent<EnemyDeathProcess>().DestroyEnemy();
     }
 
     /// <summary>
     /// OnTriggerEnter is called when the Collider other enters the trigger.
     /// </summary>
     /// <param name="other">The other Collider involved in this collision.</param>
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         // ダメージを与えるのがPlayerの場合
         if (gameObject.CompareTag("PlayerAttack")) {
@@ -48,7 +48,7 @@ public class DealDamage : MonoBehaviour
                     break;
             }
         }
-    }
+    }*/
 
     /// <summary>
     /// 与えるダメージを設定する

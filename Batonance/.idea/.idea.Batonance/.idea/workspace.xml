@@ -6,15 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="34feeef9-2def-4e50-8217-9b19b1b84c3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/PlayerAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/BossAnim.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/BossAnim.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/DollForBattleAnim.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/DollForBattleAnim.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/MeikoAnim.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/MeikoAnim.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/NewMeikoAnim.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/NewMeikoAnim.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/BOSS Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/BOSS Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/DealDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/DealDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/HPController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/HPController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/DestroyForcibly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Stage/DestroyForcibly.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Notes/BGM(2).json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Notes/BGM(2).json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/Attack 1/SlashEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/Attack 1/SlashEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/Thurast1/ThurastEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/Thurast1/ThurastEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/EnemyAttackEffect/EnemySlash_001.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/EnemyAttackEffect/EnemySlash_001.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +37,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyDeathProcess.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Tests/Tests/Shared/TestMinMaxAABB.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Tests/Tests/Shared/TestPlane.cs" root0="SKIP_HIGHLIGHTING" />

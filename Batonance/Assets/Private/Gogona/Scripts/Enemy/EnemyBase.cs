@@ -31,6 +31,12 @@ public class EnemyBase : MonoBehaviour
         enemyAtk.GetEnemyAtk(data.baseAtk);
         enemyMov.GetEnemySpeed(data.baseSpd);
         EnemyManager.instance.enemiesQueue.Enqueue(gameObject);
+        enemyAtk.StartCoroutine("AttackPlayer");
+    }
+
+    private void Update()
+    {
+        transform.LookAt(AdministerGameState.instance.GetPlayerPosition());
     }
 
     /// <summary>

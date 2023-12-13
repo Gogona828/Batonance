@@ -9,7 +9,7 @@ public class DestroyForcibly : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy")) {
-            Debug.Log($"Missed the enemy");
+            Debug.Log($"Missed the enemy : {other.gameObject.name}");
             AdministerGameState.instance.GameOver();
             destroyTarget = other.gameObject;
             StartCoroutine(DestroyEnemy());

@@ -66,6 +66,5 @@ public class HPController : MonoBehaviour, IDamagable
         maxHP = hP;
         // 現在HPを最大HPにする
         currentHP = maxHP;
-        hPBar.value = currentHP / maxHP;
     }
 }

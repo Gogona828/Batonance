@@ -9,8 +9,12 @@
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/PlayerAnimator.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scenes/Scene1206.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/DealDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Common/DealDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Notes/BGM(2).json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Notes/BGM(2).json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/ShockEffect/ShockEffect_001.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/ShockEffect/ShockEffect_001.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/Attack 1/SlashEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/Attack 1/SlashEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/Thurast1/ThurastEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/Thurast1/ThurastEffect.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/animation__Gogona",
+    "git-widget-placeholder": "feature/stagingAddition__Gogona",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

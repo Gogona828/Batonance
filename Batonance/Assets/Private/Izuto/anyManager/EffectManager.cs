@@ -21,14 +21,6 @@ public class EffectManager : MonoBehaviour
         else Destroy(this);
     }
 
-    private void Start()
-    {
-        // for (int i = 0; i < effectList.Count(); i++)
-        // {
-        //     effectList[i].Stop();
-        // }
-    }
-
     // エフェクトを再生するための関数
     public void PlayEffect(int index)
     {

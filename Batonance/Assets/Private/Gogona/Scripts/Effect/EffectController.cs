@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ParticleSystem))]
 public class EffectController : MonoBehaviour
 {
+    [SerializeField, Tooltip("子オブジェクトがあるならtrue")]
+    private bool existsChild = false;
     private ParticleSystem particleSystem;
     private ParticleSystem[] childSystems;
 
@@ -21,14 +22,7 @@ public class EffectController : MonoBehaviour
         }
         
         // 子オブジェクトのParticleSystemを取得する
-        childSystems = this.GetComponentsInChildren<ParticleSystem>();
-       
-        // 子オブジェクトをStopActionに設定する
-        foreach (var _childSystem in childSystems)
-        {
-            var _main = _childSystem.main;
-            _main.stopAction = ParticleSystemStopAction.Callback;
-        }
+        if (existsChild) childSystems = this.GetComponentsInChildren<ParticleSystem>();
         
         StopEffect();
     }
@@ -38,7 +32,7 @@ public class EffectController : MonoBehaviour
         // 子オブジェクトの ParticleSystemを再生する
         foreach (var _childSystem in childSystems)
         {
-            _childSystem.Play();
+            _childSystem?.Play();
         }
         
         // このオブジェクトにParticleSystemがなければ終了する
@@ -48,12 +42,14 @@ public class EffectController : MonoBehaviour
 
     private void StopEffect()
     {
-        // 子オブジェクトの ParticleSystemを停止する
+        Debug.Log($"stopped {gameObject.name}");
+        /*// 子オブジェクトの ParticleSystemを停止する
         foreach (var _childSystem in childSystems)
         {
+            Debug.Log($"{_childSystem.name}");
             _childSystem.Stop();
             _childSystem.time = 0;
-        }
+        }*/
         
         // このオブジェクトにParticleSystemがなければ終了する
         if (!particleSystem) return;

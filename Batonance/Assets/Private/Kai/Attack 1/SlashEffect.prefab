@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6704841909662282827}
   - component: {fileID: 3707486447563901770}
   - component: {fileID: 5138784450816497058}
+  - component: {fileID: 4827560672338316290}
   m_Layer: 0
   m_Name: Smoke_001
   m_TagString: Untagged
@@ -43,12 +44,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4886,6 +4887,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4827560672338316290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136312869685961913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &6033467070267693589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,6 +4911,7 @@ GameObject:
   - component: {fileID: 7925041787217465501}
   - component: {fileID: 2214781840292121993}
   - component: {fileID: 7804804255468955755}
+  - component: {fileID: 2450387014671002014}
   m_Layer: 0
   m_Name: Slash_001
   m_TagString: Untagged
@@ -4929,12 +4944,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9772,6 +9787,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2450387014671002014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6033467070267693589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &6495482139994179468
 GameObject:
   m_ObjectHideFlags: 0
@@ -9782,7 +9810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676356727430572130}
   - component: {fileID: 9200488982630904324}
-  - component: {fileID: 4728743781024129572}
+  - component: {fileID: 7885067677835050130}
   m_Layer: 0
   m_Name: SlashEffect
   m_TagString: PlayerAttack
@@ -9807,7 +9835,7 @@ Transform:
   - {fileID: 6704841909662282827}
   - {fileID: 3887323705710120450}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 60}
 --- !u!65 &9200488982630904324
 BoxCollider:
@@ -9826,11 +9854,11 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.6600057}
   m_Center: {x: 0, y: 0, z: 0.55381006}
---- !u!114 &4728743781024129572
+--- !u!114 &7885067677835050130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9839,11 +9867,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6495482139994179468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f19ca44e72a042c9a2c2b7705acfe85, type: 3}
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  isCounterAttack: 0
+  existsChild: 1
 --- !u!1 &6769212703190087156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,6 +9882,7 @@ GameObject:
   - component: {fileID: 1805044132681117182}
   - component: {fileID: 2896892319583507896}
   - component: {fileID: 5836971502002540700}
+  - component: {fileID: 773687668849595081}
   m_Layer: 0
   m_Name: Slash.002
   m_TagString: Untagged
@@ -9887,12 +9915,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14730,6 +14758,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &773687668849595081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769212703190087156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &7324612812337128910
 GameObject:
   m_ObjectHideFlags: 0
@@ -14741,6 +14782,7 @@ GameObject:
   - component: {fileID: 3887323705710120450}
   - component: {fileID: 7502159053501834694}
   - component: {fileID: 5983440469510125335}
+  - component: {fileID: 8181418762996244198}
   m_Layer: 0
   m_Name: Smoke_002
   m_TagString: Untagged
@@ -14773,12 +14815,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1.5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -19616,3 +19658,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8181418762996244198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324612812337128910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0

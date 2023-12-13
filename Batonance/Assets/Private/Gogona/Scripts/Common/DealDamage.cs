@@ -13,7 +13,6 @@ public class DealDamage : MonoBehaviour
     public void DefeatEnemy(int way)
     {
         EffectManager.instance.PlayEffect(way);
-        Debug.Log($"{EnemyManager.instance.enemiesQueue.Peek().name}");
         Destroy(EnemyManager.instance.enemiesQueue.Dequeue());
     }
 

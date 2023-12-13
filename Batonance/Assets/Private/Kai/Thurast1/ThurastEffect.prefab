@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5779240174848559681}
   - component: {fileID: 1942171755996325660}
   - component: {fileID: 4898837989873129245}
+  - component: {fileID: 8544065939723116607}
   m_Layer: 0
   m_Name: ThurastEffect_005
   m_TagString: Untagged
@@ -43,12 +44,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4886,6 +4887,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8544065939723116607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866420406063673310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &3528138574132413123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,6 +4911,7 @@ GameObject:
   - component: {fileID: 8275828921292872036}
   - component: {fileID: 6444434064413411896}
   - component: {fileID: 4841218666645235219}
+  - component: {fileID: 4557058318326907103}
   m_Layer: 0
   m_Name: ThurastEffect_002
   m_TagString: Untagged
@@ -4929,12 +4944,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9790,6 +9805,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4557058318326907103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3528138574132413123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &3934859707308571995
 GameObject:
   m_ObjectHideFlags: 0
@@ -9801,6 +9829,7 @@ GameObject:
   - component: {fileID: 482758614808639532}
   - component: {fileID: 3772725723963281590}
   - component: {fileID: 4273780037832830089}
+  - component: {fileID: 9080908529734618050}
   m_Layer: 0
   m_Name: ThurastEffect_003
   m_TagString: Untagged
@@ -9833,12 +9862,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14694,6 +14723,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &9080908529734618050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934859707308571995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &4580474638576779799
 GameObject:
   m_ObjectHideFlags: 0
@@ -14705,6 +14747,7 @@ GameObject:
   - component: {fileID: 1571808677068982759}
   - component: {fileID: 1339464903085053763}
   - component: {fileID: 4375342922137742862}
+  - component: {fileID: 2353992234656217093}
   m_Layer: 0
   m_Name: ThurastEffect_004
   m_TagString: Untagged
@@ -14737,12 +14780,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -19580,6 +19623,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2353992234656217093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580474638576779799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0
 --- !u!1 &5526369500679421968
 GameObject:
   m_ObjectHideFlags: 0
@@ -19589,6 +19645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3318431743443099500}
+  - component: {fileID: 5533431002215439319}
   m_Layer: 0
   m_Name: ThurastEffect
   m_TagString: Untagged
@@ -19614,8 +19671,21 @@ Transform:
   - {fileID: 1571808677068982759}
   - {fileID: 5779240174848559681}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5533431002215439319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526369500679421968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 1
 --- !u!1 &5571170606626301383
 GameObject:
   m_ObjectHideFlags: 0
@@ -19627,6 +19697,7 @@ GameObject:
   - component: {fileID: 4955660211335786080}
   - component: {fileID: 2701210266281012384}
   - component: {fileID: 1261255654391937518}
+  - component: {fileID: 4595283384984952023}
   m_Layer: 0
   m_Name: ThurastEffect_001
   m_TagString: Untagged
@@ -19659,12 +19730,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 3
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -24520,3 +24591,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4595283384984952023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571170606626301383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3e61464e2c6d4d8c2e150f997c1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existsChild: 0

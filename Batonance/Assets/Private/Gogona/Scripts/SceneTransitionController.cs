@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitionController : MonoBehaviour
 {
+    public bool isCreditOpening = false;
+    [SerializeField, Tooltip("Credit")] private ImageDisplay imageDisplay;
     private bool isTitleScene = false;
     private string currentSceneName;
     private string titleSceneName = "TitleScene";
@@ -21,7 +23,9 @@ public class SceneTransitionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTitleScene && Input.anyKey) {
+        if (isTitleScene && Input.GetMouseButton(0)) return;
+        if (isTitleScene && Input.GetKey(KeyCode.Space) && imageDisplay) imageDisplay.HideImage(); 
+        if (isTitleScene && Input.anyKey && !isCreditOpening) {
             SceneTransition(mainSceneName);
         }
     }

@@ -46,6 +46,17 @@ public class NotesManager : MonoBehaviour
         var notes = notesTimeQueue.Dequeue();
         return notes;
     }
+
+    public void ResetNotes()
+    {
+        if (SectionCount.instance.CurrentSection == 2 || SectionCount.instance.CurrentSection == 3) notesTimeQueue.Dequeue();
+    }
+
+    public void AdjustNotes()
+    {
+        notesTimeQueue.Dequeue();
+    }
+    
     //再ロードの際読み込みし直し必要
     public void LoadQueue()
     {

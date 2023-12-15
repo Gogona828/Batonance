@@ -29,8 +29,6 @@ public class EffectController : MonoBehaviour
 
     public void PlayEffect()
     {
-        Debug.Log($"effect name : {gameObject.name}");
-
         if (existsChild)
         {
             // 子オブジェクトの ParticleSystemを再生する

@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
 
 public class SectionCount : MonoBehaviour
 {
     [SerializeField]
     private int currentSection = 1;//現在のセクションを保存する変数
-    public int CurrentSection { get { return currentSection; } private set{ value = currentSection; } }
+    public int CurrentSection { get { return currentSection; } private set{ currentSection = value; } }
     [SerializeField]
     private int maxSection;//そのシーンのステージのセクション数
-    public int MaxSection { get { return maxSection; } private set{ value = maxSection; } }
+    public int MaxSection { get { return maxSection; } private set{ maxSection = value; } }
     public static SectionCount instance;
     [SerializeField] private SectionEventManager sectionEventManager;
-    [SerializeField]
-    private ShowGameOver bottonScript;
     private void Awake()
     {
         //シングルトン
@@ -61,9 +58,10 @@ public class SectionCount : MonoBehaviour
         BGMManager.instance.isMissed = true;
         if (currentSection > maxSection)
         {
-            //SceneManager.LoadScene("ClearScene");
-            ////SceneTransition(ClearScene);
-            bottonScript.ShowUI();
+            
+            // 富田が追加
+            // GameClearフラグを立たせる
+            AdministerGameState.instance.GameClear();
             InitialLoad();//ステージクリア
         }
     }

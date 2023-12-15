@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AdministerGameState : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class AdministerGameState : MonoBehaviour
     private Transform playerPosition;
     [SerializeField, Tooltip("ShowGameOverを入れる")]
     private ShowGameOver showGameOver;
+    [SerializeField, Tooltip("ShowGameClearを入れる")]
+    private ShowGameClear showGameClear;
     [SerializeField, Tooltip("デバック用")]
     private bool hasOveredGame = false;
     
@@ -20,12 +23,8 @@ public class AdministerGameState : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        if (!instance) {
-            instance = this;
-        }
-        else {
-            Destroy(this);
-        }
+        if (!instance) instance = this;
+        else Destroy(this);
     }
     
     /// <summary>
@@ -42,7 +41,7 @@ public class AdministerGameState : MonoBehaviour
     /// </summary>
     public void GameClear()
     {
-        // TODO: ゲームクリアに呼び出されるものを書く。
+        showGameClear.ShowClearUI();
     }
 
     /// <summary>
@@ -60,5 +59,6 @@ public class AdministerGameState : MonoBehaviour
     {
         Time.timeScale = 1;
         showGameOver.HideUI();
+        showGameClear.HideClearUI();
     }
 }

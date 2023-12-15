@@ -16,6 +16,7 @@ public class SceneTransitionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName == titleSceneName) isTitleScene = true;
     }
@@ -38,5 +39,10 @@ public class SceneTransitionController : MonoBehaviour
     public void SceneReload()
     {
         SectionCount.instance.ReLoad();
+    }
+
+    public void SceneReset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

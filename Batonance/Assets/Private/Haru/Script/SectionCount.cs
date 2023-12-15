@@ -58,7 +58,6 @@ public class SectionCount : MonoBehaviour
         BGMManager.instance.isMissed = true;
         if (currentSection > maxSection)
         {
-            
             // 富田が追加
             // GameClearフラグを立たせる
             AdministerGameState.instance.GameClear();

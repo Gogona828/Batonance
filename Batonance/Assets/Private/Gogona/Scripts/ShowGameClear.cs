@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ShowGameClear : MonoBehaviour
 {
+    [SerializeField, Tooltip("GameClearUIを入れる")]
+    private CanvasGroup gameClearUI;
     [SerializeField, Tooltip("RetryButtonを入れる")]
     private Button retryButton;
     [SerializeField, Tooltip("BackToTitleButtonを入れる")]
@@ -12,12 +14,10 @@ public class ShowGameClear : MonoBehaviour
 
     [SerializeField, Tooltip("GameOverUIを入れる")]
     private GameObject gameOverUI;
-    private CanvasGroup gameClearUI;
 
     void Start()
     {
         Time.timeScale = 1;
-        gameClearUI = GetComponent<CanvasGroup>();
         // ゲームオーバーUIを非表示にする
         HideClearUI();
     }
@@ -27,7 +27,6 @@ public class ShowGameClear : MonoBehaviour
     /// </summary>
     public void ShowClearUI()
     {
-        Debug.Log($"show ui");
         gameClearUI.alpha = 1;
         // ボタンを押せるようにする
         retryButton.interactable = true;
@@ -40,7 +39,6 @@ public class ShowGameClear : MonoBehaviour
     /// </summary>
     public void HideClearUI()
     {
-        if (!gameClearUI) return;
         gameClearUI.alpha = 0;
         Time.timeScale = 1;
         // ボタンを押せないようにする

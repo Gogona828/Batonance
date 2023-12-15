@@ -52,6 +52,7 @@ public class BGMManager : MonoBehaviour
         sectionEventManager = GameObject.Find("SectionEventManager").GetComponent<SectionEventManager>();
         sectionEventManager.subject.AddListener(SetBGM);
     }
+    
     // Start is called before the first frame update
     void Start()
     {

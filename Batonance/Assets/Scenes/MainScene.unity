@@ -133,6 +133,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100313617093575798, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 889077923698605898, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -148,10 +153,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2648953658438369192, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677784871350204930, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942338563056823840, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4212958754721122987, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: m_Name
       value: StageTemp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272386681908136884, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4338840269530589211, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
@@ -208,6 +233,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4537144636761313098, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410595559284174004, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824754886453995168, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848574085879317435, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 93c4d66bd4cd9ee4dbcda187bba0e9f2,
+        type: 2}
     - target: {fileID: 7014334572705937253, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: m_Enabled
@@ -223,7 +269,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6217068711724568629, guid: f3a3d289d01469549b843e7eae64bb94, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

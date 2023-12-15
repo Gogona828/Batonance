@@ -6,19 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="34feeef9-2def-4e50-8217-9b19b1b84c3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Batonance/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/BossAnim.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/BossAnim.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/DollForBattleAnim.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/DollForBattleAnim.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/MeikoAnim.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/MeikoAnim.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/NewMeikoAnim.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Animators/old/NewMeikoAnim.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/SceneTransitionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/SceneTransitionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Prefab/BGMAudioSource.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Prefab/BGMAudioSource.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/StageTemp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Prefabs/StageTemp.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Effect/EffectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Player/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Player/PlayerInputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Haru/Script/SectionCount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Haru/Script/SectionCount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Note/NotesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Note/NotesManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Script/BGMManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Infill/Sound/Script/BGMManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Private/Kai/Waino/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Private/Kai/Waino/Global Volume Profile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TitleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TitleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene/ReflectionProbe-0.exr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene/ReflectionProbe-0.exr.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainSceneSettings.lighting" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainSceneSettings.lighting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +32,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/AdministerGameState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/Enemy/EnemyDeathProcess.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/ShowGameClear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Private/Gogona/Scripts/UI/ImageDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Private/Izuto/anyManager/EffectManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Tests/Tests/Shared/TestMinMaxAABB.cs" root0="SKIP_HIGHLIGHTING" />
@@ -49,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/upgradeMain__Gogona",
+    "git-widget-placeholder": "feature/implementationClear__Gogona",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

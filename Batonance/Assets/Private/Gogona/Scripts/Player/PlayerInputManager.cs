@@ -13,19 +13,19 @@ public class PlayerInputManager : MonoBehaviour
 
     // 左入力の感知
     private bool isLeftInputFound() {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetButton("SquareButton"))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetButtonDown("SquareButton") || Input.GetAxis("ControllerHorizontal") <= -0.5f)
             return true;
         else return false;
     }
     // 前入力の感知
     private bool isFrontInputFound() {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButton("TriangleButton"))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("TriangleButton"))
             return true;
         else return false;
     }
     // 右入力の感知
     private bool isRightInputFound() {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetButton("CircleButton"))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetButtonDown("CircleButton") || Input.GetAxis("ControllerHorizontal") >= 0.5f)
             return true;
         else return false;
     }

@@ -305,6 +305,11 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5934656072905805225, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6848574085879317435, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: sharedProfile
@@ -359,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 8147724931128777021, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8799787816627997938, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}

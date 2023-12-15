@@ -41,6 +41,7 @@ public class AdministerGameState : MonoBehaviour
     /// </summary>
     public void GameClear()
     {
+        Time.timeScale = 0;
         showGameClear.ShowClearUI();
     }
 

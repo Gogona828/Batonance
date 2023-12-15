@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PCMove();
         height = transform.position.y;// プレイヤーの高さを取得する

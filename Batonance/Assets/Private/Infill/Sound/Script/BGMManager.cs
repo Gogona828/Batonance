@@ -74,7 +74,7 @@ public class BGMManager : MonoBehaviour
         //無理やり時間を止める
         if (!is_FirstPlay && SectionCount.instance.CurrentSection == 1 && Time.timeScale == 1)
         {
-            Time.timeScale = 0;
+            AdministerGameState.instance.GameClear();
             bgmAudioSource.Stop();
         }
     }

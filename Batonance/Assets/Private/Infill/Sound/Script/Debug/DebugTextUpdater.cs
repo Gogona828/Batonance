@@ -34,7 +34,7 @@ public class DebugTextUpdater : MonoBehaviour
     }
     void FixedUpdate()
     {
-        (int, int) measureData = BGMManager.instance.GetMeasure();
-        text.text = $"NowSection:{SectionCount.instance.CurrentSection}\nNowMeasure:{measureData.Item1}\nCurrentMeasure:{measureData.Item2}\nNowTimeScane:{Time.timeScale}\nis_FirstPlay:{BGMManager.instance.Is_FirstPlay}\nNowQueueData:{notesInputCompare.data}\nLastResult:{lastResult}\nHitCheck:{hitCheck}\nDistance:{distance}\nisMissed:{BGMManager.instance.isMissed}";
+        
+        text.text = $"NowTime:{BGMManager.instance.bpmTimer}\nNowMeasure:{BGMManager.instance.currentMeasureCount}\n,InputTimer:{notesInputCompare.debugInputTimer}";
     }
 }

@@ -42,6 +42,7 @@ public class NotesManager : MonoBehaviour
         if (notesTimeQueue.Count == 0)
         {
             SectionCount.instance.HalfwayPoint();
+            return (0, 0f, 0);
         } 
         var notes = notesTimeQueue.Dequeue();
         return notes;

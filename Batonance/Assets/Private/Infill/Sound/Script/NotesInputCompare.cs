@@ -16,11 +16,9 @@ public class NotesInputCompare : MonoBehaviour
     public (int, float, int) data;
     // private bool hitCheck = false; //false => 処理が終わったノーツ True=>最新ノーツ
     public static NotesInputCompare instance;
-
+    public float debugInputTimer = 0f;
+    private bool hitCheck = true;     //タッチがノーツ判定圏外かの判定
     private NotesCount notesCount;
-
-    //Debug
-    private DebugTextUpdater debugText;
 
     // Start is called before the first frame update
     private void Awake()
@@ -50,6 +48,7 @@ public class NotesInputCompare : MonoBehaviour
 
     public void ReSetTimer()
     {
+        hitCheck = true;
         timer = 0f;
         Debug.Log($"reset");
     }
@@ -64,15 +63,16 @@ public class NotesInputCompare : MonoBehaviour
 
     public int CompareTiming(float inputTime, int way)
     {
+        debugInputTimer = inputTime;
         //0 = 良？とかでリスト化かenum化
         int result = 999;
         (int, float, int) _data;
-        // if (!hitCheck)
-        // {
-        //     hitCheck = true;
+        if (hitCheck)
+        {
+            hitCheck = false;
             data = notesManager.GetNotesTime();
-        Debug.Log($"Debug:{data}");
-        // }
+            Debug.Log($"Debug:{data}");
+        }
 
         _data = data;
         Debug.Log($"notes time : {_data.Item2}, input time : {inputTime}");
@@ -80,8 +80,6 @@ public class NotesInputCompare : MonoBehaviour
         {
             float compareTime = Mathf.Abs(_data.Item2 - inputTime);
             result = CompareTimeToInput(compareTime, way, _data);
-            //Debug用。見つからなければスルーする
-            if (debugText != null) DebugTextUpdater.instance.lastResult = result;
 
             Debug.Log($"result:{compareTime}");
             // TODO: resultの結果に合わせてDealDamageを呼び出す
@@ -98,13 +96,11 @@ public class NotesInputCompare : MonoBehaviour
     //3秒以上はスルー、それ以外は有効。
     private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
-        // hitCheck = false;
-        if(debugText != null)DebugTextUpdater.instance.distance = compareTime;
-        if (compareTime > 0.5f)
+        if (compareTime > 3f)
         {
             return 0;
         }
-        // hitCheck = false;
+        hitCheck = true;
         if (compareTime < 0.5f && way == _data.Item1)
         {
             return 1;

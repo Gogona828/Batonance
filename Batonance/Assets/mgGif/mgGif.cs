@@ -976,7 +976,18 @@ namespace MG.GIF
 
                     if( code != TransparentIndex && col < Width )
                     {
-                        Output[ row + col ] = ActiveColourTable[ code ];
+                        //Debug.Log("row" + row + "col" + col + "code" + code);
+                        var a = row + col;
+                        //if(code>=256) Debug.Log("row" + row + "col" + col + "code" + code);
+                        //Output[a] = ActiveColourTable[code];
+                        if (code >= 256)
+                        {
+                            Output[a] = ActiveColourTable[255];
+                        }
+                        else
+                        {
+                            Output[a] = ActiveColourTable[code];
+                        }
                     }
 
                     if( ++col == rightEdge )
@@ -996,7 +1007,16 @@ namespace MG.GIF
                 {
                     if( newCode != TransparentIndex && col < Width )
                     {
-                        Output[ row + col ] = ActiveColourTable[ newCode ];
+                        //Output[row + col] = ActiveColourTable[newCode];
+                        if (newCode >= 256)
+                        {
+                            Output[row + col] = ActiveColourTable[255];
+                        }
+                        else
+                        {
+                            Output[row + col] = ActiveColourTable[newCode];
+                        }
+
                     }
 
                     if( ++col == rightEdge )

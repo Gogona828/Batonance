@@ -9,6 +9,7 @@ public class AudioSpectrumControl : MonoBehaviour
     [SerializeField]
     private int[] angleList;//回転する角度を格納する配列
     public static AudioSpectrumControl instance;
+    [SerializeField] private AnimatedImage animatedImageScript;
     private void Awake()
     {
         //シングルトン
@@ -30,9 +31,9 @@ public class AudioSpectrumControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.I)) TurningSpectrum(0);//デバック用、左に傾ける
-        //if (Input.GetKeyDown(KeyCode.N)) TurningSpectrum(1);//デバック用、真ん中にする
-        //if (Input.GetKeyDown(KeyCode.S)) TurningSpectrum(2);//デバック用、右に傾ける
+        if (Input.GetKeyDown(KeyCode.I)) animatedImageScript.ChangeGif(0);//デバック用、左に傾ける
+        if (Input.GetKeyDown(KeyCode.N)) animatedImageScript.ChangeGif(1);//デバック用、真ん中にする
+        if (Input.GetKeyDown(KeyCode.S)) animatedImageScript.ChangeGif(2);//デバック用、右に傾ける
     }
     /// <summary>
     /// オーディオスペクタルムの長い部分を動かす。左、真ん中、右の三種。次に敵が出てくる方向に向ける。

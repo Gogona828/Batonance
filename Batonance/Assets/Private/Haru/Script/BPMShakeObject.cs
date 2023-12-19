@@ -20,9 +20,9 @@ public class BPMShakeObject : MonoBehaviour
     {
         shakerAnimator.speed = songBPM/120;
         Debug.Log(shakerAnimator.speed);
-        if (Input.GetKeyDown(KeyCode.I)) AudioSpectrumControl.instance.TurningSpectrum(0);//デバック用、左に傾ける
-        if (Input.GetKeyDown(KeyCode.N)) AudioSpectrumControl.instance.TurningSpectrum(1);//デバック用、真ん中にする
-        if (Input.GetKeyDown(KeyCode.S)) AudioSpectrumControl.instance.TurningSpectrum(2);//デバック用、右に傾ける
+        //if (Input.GetKeyDown(KeyCode.I)) AudioSpectrumControl.instance.TurningSpectrum(0);//デバック用、左に傾ける
+        //if (Input.GetKeyDown(KeyCode.N)) AudioSpectrumControl.instance.TurningSpectrum(1);//デバック用、真ん中にする
+        //if (Input.GetKeyDown(KeyCode.S)) AudioSpectrumControl.instance.TurningSpectrum(2);//デバック用、右に傾ける
     }
     public void BPMSwitching(float bpm)
     {

@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filePath: []
+  _image: {fileID: 1180274117894573726}
   _frames:
   - {fileID: 21300000, guid: f45a2e472c99b4b89bf65b549675108d, type: 3}
   - {fileID: 21300000, guid: 0c52daa31494c4e8587fe37d0af13e79, type: 3}

@@ -11,4 +11,11 @@ public class EnemyUI : MonoBehaviour
         Debug.Log(Index);
         Instantiate(imageObject[Index], transform);
     }
+    public void UIReset(Transform root)
+    {
+        foreach (Transform child in root)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }

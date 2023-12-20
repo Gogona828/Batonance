@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AnimatedImage : MonoBehaviour
 {
     [SerializeField, Header("Relative path from StreamingAssets folder")] private List<string> filePath;
-        
+    [SerializeField]
     private Image _image;
     [SerializeField]
     private List<Sprite> _frames     = new List<Sprite>();
@@ -22,7 +22,7 @@ public class AnimatedImage : MonoBehaviour
     {
         nowIndex = 0;
         //if (string.IsNullOrWhiteSpace(filePath[0])) return;
-        _image = GetComponent<Image>();
+        //_image = GetComponent<Image>();
 
         //var path = Path.Combine(Application.streamingAssetsPath, filePath[0]);
 

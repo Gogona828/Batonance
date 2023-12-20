@@ -2334,6 +2334,7 @@ GameObject:
   - component: {fileID: 6214168633263728826}
   - component: {fileID: 3861143835710384681}
   - component: {fileID: 2727131685160689376}
+  - component: {fileID: 3456207462877099854}
   m_Layer: 5
   m_Name: UI(Canvas)
   m_TagString: Untagged
@@ -2430,6 +2431,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3456207462877099854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5898449124999340648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ca28210ae254644a0ac01a02b26e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageObject:
+  - {fileID: 5811819708424582426, guid: cfe009ef0bd8e433d93537460d3a1748, type: 3}
+  - {fileID: 5811819708424582426, guid: e7669b91af13a4527a07535b052037f8, type: 3}
+  - {fileID: 5811819708424582426, guid: 30d5b3a6dd7774425b64eb19b887962c, type: 3}
 --- !u!1 &6253395277471792927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2531,7 @@ MonoBehaviour:
   - {fileID: 6487712439376569841, guid: 7263c42adb96a4978935b88dd5830e57, type: 3}
   notesManager: {fileID: 1623567527999752429}
   bpm: 180
+  enemyUIScript: {fileID: 3456207462877099854}
 --- !u!82 &3910265167861773989
 AudioSource:
   m_ObjectHideFlags: 0

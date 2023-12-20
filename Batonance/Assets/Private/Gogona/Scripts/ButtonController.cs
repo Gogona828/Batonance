@@ -29,7 +29,6 @@ public class ButtonController : MonoBehaviour
         if (!isPressedButton && buttonList[buttonNumber].alpha == 1 && (Input.GetButtonDown("CrossButton") || Input.GetKeyDown(KeyCode.Space))) {
             buttonList[buttonNumber].gameObject.GetComponent<Button>().onClick.Invoke();
         }
-        Debug.Log($"isPressedButton:{isPressedButton}");
         if (!isPressedButton && (Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("ControllerVertical") == 1))
         {
             isPressedButton = true;

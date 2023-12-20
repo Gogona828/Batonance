@@ -96,12 +96,12 @@ public class NotesInputCompare : MonoBehaviour
     //3秒以上はスルー、それ以外は有効。
     private int CompareTimeToInput(float compareTime,int way,(int, float, int) _data)
     {
-        if (compareTime > 3f)
+        if (compareTime > 0.333f)
         {
             return 0;
         }
         hitCheck = true;
-        if (compareTime < 0.5f && way == _data.Item1)
+        if (compareTime < 0.333f && way == _data.Item1)
         {
             return 1;
         }

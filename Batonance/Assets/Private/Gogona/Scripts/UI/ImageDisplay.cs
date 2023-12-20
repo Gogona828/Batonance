@@ -9,7 +9,8 @@ public class ImageDisplay : MonoBehaviour
     [SerializeField, Tooltip("表示したいImageを入力する")]
     private CanvasGroup canvasGroup;
 
-    [SerializeField, Tooltip("title")] private SceneTransitionController sceneTransitionController;
+    [SerializeField, Tooltip("title")]
+    private SceneTransitionController sceneTransitionController;
 
     private void Start()
     {

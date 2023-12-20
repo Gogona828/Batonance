@@ -1,8 +1,7 @@
-// TODO: 消す必要があるかまた考える
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class ButtonController : MonoBehaviour
     {
         buttonNumber = 0;
         isPressedButton = false;
-        canSelectButton = true;
+        canSelectButton = false;
         ButtonSelection();
     }
 
@@ -27,16 +26,21 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         if (!canSelectButton) return;
-        if (!isPressedButton && (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W)/*  || Input.GetAxisRaw("ArrowKeyLeftRight") == 1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == 1 */))
+        if (!isPressedButton && buttonList[buttonNumber].alpha == 1 && (Input.GetButtonDown("CrossButton") || Input.GetKeyDown(KeyCode.Space))) {
+            buttonList[buttonNumber].gameObject.GetComponent<Button>().onClick.Invoke();
+        }
+        Debug.Log($"isPressedButton:{isPressedButton}");
+        if (!isPressedButton && (Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("ControllerVertical") == 1))
         {
             isPressedButton = true;
+            Debug.Log($"upper key pressed: {isPressedButton}");
             buttonNumber--;
             if (buttonNumber < 0)
                 buttonNumber = buttonList.Count - 1;
             ButtonSelection();
         }
 
-        else if (!isPressedButton && (Input.GetKeyDown(KeyCode.A)/* || Input.GetKeyDown(KeyCode.S) || Input.GetAxisRaw("ArrowKeyLeftRight") == -1 || Input.GetAxisRaw("ArrowKeyUpAndDown") == -1 */))
+        else if (!isPressedButton && (Input.GetAxisRaw("Vertical") == -1 || Input.GetAxisRaw("ControllerVertical") == -1))
         {
             isPressedButton = true;
             buttonNumber++;
@@ -45,7 +49,7 @@ public class ButtonController : MonoBehaviour
             ButtonSelection();
         }
 
-        if (isPressedButton/*  && Mathf.Abs(Input.GetAxisRaw("ArrowKeyLeftRight")) != 1 && Mathf.Abs(Input.GetAxisRaw("ArrowKeyUpAndDown")) != 1 */)
+        if (isPressedButton && (Mathf.Abs(Input.GetAxisRaw("Vertical")) != 1 && Mathf.Abs(Input.GetAxisRaw("ControllerVertical")) != 1))
         {
             isPressedButton = false;
         }

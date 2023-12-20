@@ -246,20 +246,20 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: OptionButton
+    m_Name: Options
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick button 9
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: tab
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
     type: 0
-    axis: 8
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
     m_Name: CrossButton
@@ -342,7 +342,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: OptionButton
+    m_Name: Debug cross
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

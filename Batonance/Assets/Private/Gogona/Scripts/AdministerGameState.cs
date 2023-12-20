@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class AdministerGameState : MonoBehaviour
 {
@@ -12,6 +12,10 @@ public class AdministerGameState : MonoBehaviour
     private ShowGameOver showGameOver;
     [SerializeField, Tooltip("ShowGameClearを入れる")]
     private ShowGameClear showGameClear;
+    [SerializeField, Tooltip("Game OverのButtonControllerを入れる")]
+    private ButtonController overbuttonController;
+    [SerializeField, Tooltip("Game ClearのButtonControllerを入れる")]
+    private ButtonController clearbuttonController;
     [SerializeField, Tooltip("デバック用")]
     private bool hasOveredGame = false;
     
@@ -43,6 +47,7 @@ public class AdministerGameState : MonoBehaviour
     {
         Time.timeScale = 0;
         showGameClear.ShowClearUI();
+        clearbuttonController.canSelectButton = true;
     }
 
     /// <summary>
@@ -54,6 +59,7 @@ public class AdministerGameState : MonoBehaviour
         BGMManager.instance.StopBGM();
         EnemyManager.instance.ClearEnemiesQueue();
         showGameOver.ShowUI();
+        overbuttonController.canSelectButton = true;
     }
 
     public void GameStart()
@@ -61,5 +67,6 @@ public class AdministerGameState : MonoBehaviour
         Time.timeScale = 1;
         showGameOver.HideUI();
         showGameClear.HideClearUI();
+        overbuttonController.canSelectButton = false;
     }
 }

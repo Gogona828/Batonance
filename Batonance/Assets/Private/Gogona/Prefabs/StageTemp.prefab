@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 7424077797241377694}
   - component: {fileID: 2124347660679951524}
   - component: {fileID: 1074135768038776396}
+  - component: {fileID: 3686411792273280151}
   m_Layer: 5
   m_Name: BackToTitleButton
   m_TagString: Untagged
@@ -1589,6 +1590,18 @@ MonoBehaviour:
           m_StringArgument: TitleScene
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &3686411792273280151
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717037221881930090}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4057988120311223364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,6 +1905,7 @@ GameObject:
   - component: {fileID: 3697346350776358166}
   - component: {fileID: 4497970740772975213}
   - component: {fileID: 4631693511133545527}
+  - component: {fileID: 5945824810058010629}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -2014,6 +2028,18 @@ MonoBehaviour:
           m_StringArgument: MainScene
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &5945824810058010629
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726006426572840203}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4910508937304300394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2051,7 @@ GameObject:
   - component: {fileID: 3465964290710891774}
   - component: {fileID: 652951088868480627}
   - component: {fileID: 2865232383258582708}
+  - component: {fileID: 7594818691887304625}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -2082,6 +2109,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   retryButton: {fileID: 4631693511133545527}
   giveUpButton: {fileID: 767909874071454101}
+--- !u!114 &7594818691887304625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910508937304300394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a5aec8bf3340d8bb89cfb0250ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonList:
+  - {fileID: 5945824810058010629}
+  - {fileID: 7022315022669334723}
+  buttonNumber: 0
+  alpha: 0.5
+  canSelectButton: 0
 --- !u!1 &4965486047173707720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2187,7 @@ GameObject:
   - component: {fileID: 2770015364635644959}
   - component: {fileID: 4581957178017655754}
   - component: {fileID: 767909874071454101}
+  - component: {fileID: 7022315022669334723}
   m_Layer: 5
   m_Name: GiveUpButton
   m_TagString: Untagged
@@ -2264,6 +2310,18 @@ MonoBehaviour:
           m_StringArgument: TitleScene
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &7022315022669334723
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896872568296854253}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5898449124999340648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,6 +2625,8 @@ MonoBehaviour:
   playerPosition: {fileID: 4793379525561787971}
   showGameOver: {fileID: 2865232383258582708}
   showGameClear: {fileID: 1470072245628968396}
+  overbuttonController: {fileID: 7594818691887304625}
+  clearbuttonController: {fileID: 5137305729920681046}
   hasOveredGame: 0
 --- !u!1 &6691964498673493041
 GameObject:
@@ -3076,6 +3136,7 @@ GameObject:
   - component: {fileID: 1487797926677923052}
   - component: {fileID: 8727479251971179928}
   - component: {fileID: 1470072245628968396}
+  - component: {fileID: 5137305729920681046}
   m_Layer: 5
   m_Name: GameClear
   m_TagString: Untagged
@@ -3135,6 +3196,24 @@ MonoBehaviour:
   retryButton: {fileID: 889077923698605898}
   titleButton: {fileID: 1074135768038776396}
   gameOverUI: {fileID: 4910508937304300394}
+--- !u!114 &5137305729920681046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7874388374982993111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a5aec8bf3340d8bb89cfb0250ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonList:
+  - {fileID: 6564835299321434501}
+  - {fileID: 3686411792273280151}
+  buttonNumber: 0
+  alpha: 0.5
+  canSelectButton: 0
 --- !u!1 &8093814363446268180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,6 +3462,7 @@ GameObject:
   - component: {fileID: 2131505211535694184}
   - component: {fileID: 2920000584686260823}
   - component: {fileID: 889077923698605898}
+  - component: {fileID: 6564835299321434501}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -3505,6 +3585,18 @@ MonoBehaviour:
           m_StringArgument: MainScene
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &6564835299321434501
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8237669652658912774}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8268603047914049375
 GameObject:
   m_ObjectHideFlags: 0

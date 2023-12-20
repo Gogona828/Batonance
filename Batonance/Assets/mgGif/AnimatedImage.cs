@@ -21,22 +21,22 @@ public class AnimatedImage : MonoBehaviour
     private void Start()
     {
         nowIndex = 0;
-        if (string.IsNullOrWhiteSpace(filePath[0])) return;
+        //if (string.IsNullOrWhiteSpace(filePath[0])) return;
         _image = GetComponent<Image>();
 
-        var path = Path.Combine(Application.streamingAssetsPath, filePath[0]);
+        //var path = Path.Combine(Application.streamingAssetsPath, filePath[0]);
 
-        using( var decoder = new MG.GIF.Decoder( File.ReadAllBytes( path )))
-        {
-            var img = decoder.NextImage();
+        //using( var decoder = new MG.GIF.Decoder( File.ReadAllBytes( path )))
+        //{
+        //    var img = decoder.NextImage();
 
-            while( img != null )
-            {
-                _frames.Add(Texture2DtoSprite(img.CreateTexture()));
-                _frameDelay.Add(img.Delay / 1000.0f);
-                img = decoder.NextImage();
-            }
-        }
+        //    while( img != null )
+        //    {
+        //        _frames.Add(Texture2DtoSprite(img.CreateTexture()));
+        //        _frameDelay.Add(img.Delay / 1000.0f);
+        //        img = decoder.NextImage();
+        //    }
+        //}
 
         _image.sprite = _frames[0];
     }

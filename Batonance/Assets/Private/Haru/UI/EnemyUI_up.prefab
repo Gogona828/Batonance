@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3bca8064e81c407aa06e6a6f1b373e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath:
-  - audio_updamage.gif
+  filePath: []
+  _image: {fileID: 1180274117894573726}
   _frames:
   - {fileID: 21300000, guid: 87175f497168744cf8a3144cba89d656, type: 3}
   - {fileID: 21300000, guid: c550c9c66ba344816a32b8ecf8ac52bd, type: 3}

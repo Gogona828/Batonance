@@ -96,7 +96,7 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemy(int popPosition)
     {
         enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
-        enemyUIScript.ChangeGif(enemyTypesRndNum);
+        enemyUIScript.ChangeGif(popPosition);
         Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[popPosition].transform.position,
              Quaternion.identity);
     }

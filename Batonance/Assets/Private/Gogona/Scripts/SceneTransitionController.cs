@@ -25,8 +25,9 @@ public class SceneTransitionController : MonoBehaviour
     void Update()
     {
         if (isTitleScene && Input.GetMouseButton(0)) return;
-        if (isTitleScene && Input.GetKey(KeyCode.Space) && imageDisplay) imageDisplay.HideImage(); 
-        if (isTitleScene && Input.anyKey && !isCreditOpening) {
+        if (Input.GetButtonDown("Options") && imageDisplay && !isCreditOpening) imageDisplay.ShowImage();
+        else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Options")) && imageDisplay && isCreditOpening) imageDisplay.HideImage(); 
+        if (isTitleScene && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("CrossButton")) && !isCreditOpening) {
             SceneTransition(mainSceneName);
         }
     }

@@ -125,6 +125,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &110166962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7699511287693839773, guid: f3a3d289d01469549b843e7eae64bb94,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069888474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a5aec8bf3340d8bb89cfb0250ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &398850773 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 889077923698605898, guid: f3a3d289d01469549b843e7eae64bb94,
@@ -155,6 +167,18 @@ CanvasGroup:
     type: 3}
   m_PrefabInstance: {fileID: 2069888474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &872403984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2974479792050700428, guid: f3a3d289d01469549b843e7eae64bb94,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069888474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a5aec8bf3340d8bb89cfb0250ddc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1767111263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1074135768038776396, guid: f3a3d289d01469549b843e7eae64bb94,
@@ -180,6 +204,16 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 551587883056301978, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: overbuttonController
+      value: 
+      objectReference: {fileID: 110166962}
+    - target: {fileID: 551587883056301978, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: clearbuttonController
+      value: 
+      objectReference: {fileID: 872403984}
     - target: {fileID: 889077923698605898, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -304,6 +338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934656072905805225, guid: f3a3d289d01469549b843e7eae64bb94,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6848574085879317435, guid: f3a3d289d01469549b843e7eae64bb94,
         type: 3}

@@ -17,7 +17,7 @@ public class AnimatedImage : MonoBehaviour
     private int _currentFrame = 0;
     private float _time = 0.0f;
     private int nowIndex;
-        
+    private GameObject imageObject;
     private void Start()
     {
         nowIndex = 0;
@@ -52,6 +52,7 @@ public class AnimatedImage : MonoBehaviour
             _currentFrame = ( _currentFrame + 1 );
             if (_currentFrame >= _frames.Count)
             {
+                Destroy(this.gameObject);
                 return;
             }
             _time = 0.0f;
@@ -62,28 +63,29 @@ public class AnimatedImage : MonoBehaviour
 
     private static Sprite Texture2DtoSprite(Texture2D tex)
         => Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
-    /// <summary>
-    /// gif画像を切り替える処理
-    /// </summary>
-    /// <param name="Index"></param>
-    public void ChangeGif(int Index)
-    {
-        _frames.Clear();
-        _frameDelay.Clear();
-        var path = Path.Combine(Application.streamingAssetsPath, filePath[Index]);
-        _currentFrame = 0;
-        using (var decoder = new MG.GIF.Decoder(File.ReadAllBytes(path)))
-        {
-            var img = decoder.NextImage();
+    ///// <summary>
+    ///// gif画像を切り替える処理
+    ///// </summary>
+    ///// <param name="Index"></param>
+    //public void ChangeGif(int Index)
+    //{
+    //    //_frames.Clear();
+    //    //_frameDelay.Clear();
+    //    //var path = Path.Combine(Application.streamingAssetsPath, filePath[Index]);
+    //    //_currentFrame = 0;
+    //    //using (var decoder = new MG.GIF.Decoder(File.ReadAllBytes(path)))
+    //    //{
+    //    //    var img = decoder.NextImage();
 
-            while (img != null)
-            {
-                _frames.Add(Texture2DtoSprite(img.CreateTexture()));
-                _frameDelay.Add(img.Delay / 1000.0f);
-                img = decoder.NextImage();
-            }
-        }
+    //    //    while (img != null)
+    //    //    {
+    //    //        _frames.Add(Texture2DtoSprite(img.CreateTexture()));
+    //    //        _frameDelay.Add(img.Delay / 1000.0f);
+    //    //        img = decoder.NextImage();
+    //    //    }
+    //    //}
 
-        _image.sprite = _frames[0];
-    }
+    //    //_image.sprite = _frames[0];
+    //    Instantiate(imageObject, this.gameObject.transform.position, Quaternion.identity);
+    //}
 }

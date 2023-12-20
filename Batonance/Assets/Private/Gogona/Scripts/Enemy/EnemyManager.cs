@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField, Tooltip("いずれはBGMManagerからの参照か何かにしたい")]
     private int bpm;
     [SerializeField]
-    private AnimatedImage animatedImageScript;
+    private EnemyUI enemyUIScript;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -96,8 +96,7 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemy(int popPosition)
     {
         enemyTypesRndNum = Random.Range(0, enemyTypes.Length);
-        //animatedImageScript.gameObject.GetComponent<Image>().enabled = true;
-        //animatedImageScript.ChangeGif(0);
+        enemyUIScript.ChangeGif(0);
         Instantiate(enemyTypes[enemyTypesRndNum], spawnPoints[popPosition].transform.position,
              Quaternion.identity);
     }

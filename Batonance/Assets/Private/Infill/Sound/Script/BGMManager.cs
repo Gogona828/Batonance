@@ -130,6 +130,7 @@ public class BGMManager : MonoBehaviour
         measure = soundDataAsset[_currentSection].measure;      //measure
         beat = 60f / bpm;                                       //bpmを秒に変換
         bgmAudioClip = soundDataAsset[_currentSection].soundFile;//音源獲得
+        bgmAudioSource = playerSoundObject.GetComponent<AudioSource>();
         bgmAudioSource.clip = bgmAudioClip;                     //音源のセット
         firstPlay = true;
     }

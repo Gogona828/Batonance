@@ -9,19 +9,19 @@ public class AudioSpectrumControl : MonoBehaviour
     [SerializeField]
     private int[] angleList;//回転する角度を格納する配列
     public static AudioSpectrumControl instance;
-    [SerializeField] private AnimatedImage animatedImageScript;
-    private void Awake()
-    {
-        //シングルトン
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    [SerializeField] private EnemyUI animatedImageScript;
+    //private void Awake()
+    //{
+    //    //シングルトン
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //    }
+    //    else
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
     // Start is called before the first frame update
     void Start()
     {
